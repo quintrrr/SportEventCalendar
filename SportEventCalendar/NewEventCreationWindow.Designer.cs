@@ -41,7 +41,7 @@
             label8 = new Label();
             pictureBox1 = new PictureBox();
             create_button = new Button();
-            cansel = new Button();
+            canсel = new Button();
             imageButton = new Button();
             openFileDialog1 = new OpenFileDialog();
             timePicker = new DateTimePicker();
@@ -177,7 +177,7 @@
             // 
             pictureBox1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             pictureBox1.BorderStyle = BorderStyle.FixedSingle;
-            pictureBox1.Location = new Point(1105, 63);
+            pictureBox1.Location = new Point(1105, 124);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(497, 412);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
@@ -195,21 +195,21 @@
             create_button.UseVisualStyleBackColor = true;
             create_button.Click += create_button_Click;
             // 
-            // cansel
+            // canсel
             // 
-            cansel.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            cansel.Location = new Point(1244, 966);
-            cansel.Name = "cansel";
-            cansel.Size = new Size(150, 46);
-            cansel.TabIndex = 17;
-            cansel.Text = "Отмена";
-            cansel.UseVisualStyleBackColor = true;
-            cansel.Click += cansel_Click;
+            canсel.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            canсel.Location = new Point(1244, 966);
+            canсel.Name = "canсel";
+            canсel.Size = new Size(150, 46);
+            canсel.TabIndex = 17;
+            canсel.Text = "Отмена";
+            canсel.UseVisualStyleBackColor = true;
+            canсel.Click += cancel_Click;
             // 
             // imageButton
             // 
             imageButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            imageButton.Location = new Point(1148, 493);
+            imageButton.Location = new Point(1148, 554);
             imageButton.Name = "imageButton";
             imageButton.Size = new Size(413, 46);
             imageButton.TabIndex = 19;
@@ -246,7 +246,7 @@
             checkedListBox1.FormattingEnabled = true;
             checkedListBox1.Location = new Point(318, 828);
             checkedListBox1.Name = "checkedListBox1";
-            checkedListBox1.Size = new Size(364, 184);
+            checkedListBox1.Size = new Size(810, 184);
             checkedListBox1.TabIndex = 0;
             // 
             // NewEventCreationWindow
@@ -258,7 +258,7 @@
             Controls.Add(label6);
             Controls.Add(timePicker);
             Controls.Add(imageButton);
-            Controls.Add(cansel);
+            Controls.Add(canсel);
             Controls.Add(create_button);
             Controls.Add(pictureBox1);
             Controls.Add(label8);
@@ -295,7 +295,7 @@
         private Label label8;
         private PictureBox pictureBox1;
         private Button create_button;
-        private Button cansel;
+        private Button canсel;
         private Button imageButton;
         private OpenFileDialog openFileDialog1;
         private DateTimePicker timePicker;

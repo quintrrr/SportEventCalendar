@@ -23,3 +23,15 @@ C:\Mac\Home\Documents\Projects\c#\SportEventCalendar\SportEventCalendar\obj\Debu
 C:\Mac\Home\Documents\Projects\c#\SportEventCalendar\SportEventCalendar\obj\Debug\net8.0-windows\SportEve.618F6DC0.Up2Date
 C:\Mac\Home\Documents\Projects\c#\SportEventCalendar\SportEventCalendar\obj\Debug\net8.0-windows\SportEventCalendar.EventViewerWindow.resources
 C:\Mac\Home\Documents\Projects\c#\SportEventCalendar\SportEventCalendar\obj\Debug\net8.0-windows\SportEventCalendar.Properties.Resources.resources
+C:\Mac\Home\Documents\Projects\c#\SportEventCalendar\SportEventCalendar\bin\Debug\net8.0-windows\Microsoft.EntityFrameworkCore.dll
+C:\Mac\Home\Documents\Projects\c#\SportEventCalendar\SportEventCalendar\bin\Debug\net8.0-windows\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Mac\Home\Documents\Projects\c#\SportEventCalendar\SportEventCalendar\bin\Debug\net8.0-windows\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Mac\Home\Documents\Projects\c#\SportEventCalendar\SportEventCalendar\bin\Debug\net8.0-windows\Microsoft.Extensions.Caching.Abstractions.dll
+C:\Mac\Home\Documents\Projects\c#\SportEventCalendar\SportEventCalendar\bin\Debug\net8.0-windows\Microsoft.Extensions.Caching.Memory.dll
+C:\Mac\Home\Documents\Projects\c#\SportEventCalendar\SportEventCalendar\bin\Debug\net8.0-windows\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Mac\Home\Documents\Projects\c#\SportEventCalendar\SportEventCalendar\bin\Debug\net8.0-windows\Microsoft.Extensions.DependencyInjection.dll
+C:\Mac\Home\Documents\Projects\c#\SportEventCalendar\SportEventCalendar\bin\Debug\net8.0-windows\Microsoft.Extensions.Logging.dll
+C:\Mac\Home\Documents\Projects\c#\SportEventCalendar\SportEventCalendar\bin\Debug\net8.0-windows\Microsoft.Extensions.Options.dll
+C:\Mac\Home\Documents\Projects\c#\SportEventCalendar\SportEventCalendar\bin\Debug\net8.0-windows\Microsoft.Extensions.Primitives.dll
+C:\Mac\Home\Documents\Projects\c#\SportEventCalendar\SportEventCalendar\bin\Debug\net8.0-windows\Npgsql.EntityFrameworkCore.PostgreSQL.dll
+C:\Mac\Home\Documents\Projects\c#\SportEventCalendar\SportEventCalendar\bin\Debug\net8.0-windows\System.Diagnostics.DiagnosticSource.dll

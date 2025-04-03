@@ -59,5 +59,23 @@ namespace SportEventCalendar.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ошибка.
+        /// </summary>
+        internal static string errorTitle {
+            get {
+                return ResourceManager.GetString("errorTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Заполните все поля!.
+        /// </summary>
+        internal static string fillInAllFields {
+            get {
+                return ResourceManager.GetString("fillInAllFields", resourceCulture);
+            }
+        }
     }
 }

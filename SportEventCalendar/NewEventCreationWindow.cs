@@ -1,8 +1,12 @@
-﻿using System.Data;
+﻿using System.Buffers.Text;
+using System.Data;
 using System.Windows.Forms;
+using System.Xml.Linq;
 using Npgsql;
 using SportEventCalendar.Classes;
+using SportEventCalendar.Properties;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Menu;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TaskbarClock;
 
 namespace SportEventCalendar
 {
@@ -13,73 +17,103 @@ namespace SportEventCalendar
         {
             InitializeComponent();
             openFileDialog1.Filter = "Image Files(*.jpg;*.jpeg;*.png;*.gif;*.tif)|*.jpg;*.jpeg;*.png;*.gif;*.tif;...";
+            var teams = GetTeams();
+            checkedListBox1.Items.Clear();
 
+            foreach (var row in teams.Where(team => team.sport_number == 1))
+            {
+                checkedListBox1.Items.Add(row.name);
+            }
         }
 
+        public List<Sport> GetSports()
+        {
+            using (var context = new DatabaseHelper())
+            {
+                return context.Sports.ToList();
+            }
+        }
         private void NewEventCreationWindow_Load(object sender, EventArgs e)
         {
-            DatabaseHelper databaseHelper = new DatabaseHelper();
-            DataTable sports = databaseHelper.ExecuteQuery("SELECT * FROM sports");
-            sportSelector.DataSource = sports;
+            sportSelector.DataSource = GetSports();
             sportSelector.DisplayMember = "name";
-            sportSelector.ValueMember = "id";
+            sportSelector.ValueMember = "sport_number";
         }
 
-        private void cansel_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
 
         private void imageButton_Click(object sender, EventArgs e)
         {
             if (openFileDialog1.ShowDialog() == DialogResult.Cancel)
+            {
                 return;
+            }
             pictureBox1.Image = Image.FromFile(openFileDialog1.FileName);
         }
 
+        public void AddSportEvent(Event sportEvent)
+        {
+            using (var context = new DatabaseHelper())
+            {
+                context.Events.Add(sportEvent);
+                context.SaveChanges();
+            }
+        }
         private void create_button_Click(object sender, EventArgs e)
         {
-            if (newEventName.Text == string.Empty || NewEventDescription.Text == string.Empty || sportSelector.SelectedValue == null || openFileDialog1.FileName == "openFileDialog1")
+            if (newEventName.Text == string.Empty || NewEventDescription.Text == string.Empty
+                || sportSelector.SelectedValue == null || openFileDialog1.FileName == "openFileDialog1")
             {
-                MessageBox.Show("Заполните все поля!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(Resources.fillInAllFields, Resources.errorTitle, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            DatabaseHelper db = new DatabaseHelper();
-            int selectedSportId;
-            if (!int.TryParse(sportSelector.SelectedValue.ToString(), out selectedSportId))
+            
+            if (!int.TryParse(sportSelector.SelectedValue.ToString(), out int selectedSportId))
+            {
                 return;
-            string insertQuery = "INSERT INTO events (name,description, start_date, end_date,sport_id, time,image_url) VALUES (@name,@description, @start_date, @end_date,@sport_id, @time,@image_url)";
-            db.ExecuteNonQuery(insertQuery,
-                new NpgsqlParameter("@name", newEventName.Text),
-                new NpgsqlParameter("@description", NewEventDescription.Text),
-                new NpgsqlParameter("@start_date", startDate.Value),
-                new NpgsqlParameter("@end_date", finishDate.Value),
-                new NpgsqlParameter("@sport_id", selectedSportId),
-                new NpgsqlParameter("@time", timePicker.Value),
-                new NpgsqlParameter("@image_url", openFileDialog1.FileName)
-            );
-           
+            }
+            string base64 = Convert.ToBase64String(File.ReadAllBytes(openFileDialog1.FileName));
+            var newSportEvent = new Event(Guid.NewGuid(), newEventName.Text, NewEventDescription.Text
+                , startDate.Value.ToUniversalTime(), finishDate.Value.ToUniversalTime(), selectedSportId,
+                TimeSpan.Parse(timePicker.Value.TimeOfDay.ToString(@"hh\:mm\:ss")), base64);
+            AddSportEvent(newSportEvent);
+
             this.Close();
+        }
+
+        public List<Team> GetTeams()
+        {
+            using (var context = new DatabaseHelper())
+            {
+                return context.Teams.ToList();
+            }
         }
 
         private void sportSelector_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (sportSelector.SelectedValue == null) return;
-
-            int selectedSportId;
-            if (!int.TryParse(sportSelector.SelectedValue.ToString(), out selectedSportId))
-                return;
-
-            DatabaseHelper databaseHelper = new DatabaseHelper();
-            DataTable teams = databaseHelper.ExecuteQuery("SELECT id, name FROM teams WHERE sport_id = @sport_id",
-                new NpgsqlParameter("@sport_id", selectedSportId));
-
-            checkedListBox1.Items.Clear();
-
-            foreach (DataRow row in teams.Rows)
+            if (sportSelector.SelectedValue == null)
             {
-                checkedListBox1.Items.Add(row["name"]);
+                return;
             }
+
+            if (!int.TryParse(sportSelector.SelectedValue.ToString(), out int selectedSportId))
+            {
+                return;
+            }
+
+            var teams = GetTeams();
+            checkedListBox1.Items.Clear();
+            checkedListBox1.DisplayMember = "name";
+            checkedListBox1.ValueMember = "sport_id";
+            foreach (var row in teams.Where(team => team.sport_number == selectedSportId))
+            {
+                checkedListBox1.Items.Add(row);
+            }
+        }
+
+        private void cancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+
         }
     }
 }

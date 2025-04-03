@@ -1,16 +1,33 @@
 ﻿using System;
 using System.Data;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.VisualBasic.ApplicationServices;
 using Npgsql;
+using SportEventCalendar.Properties;
 
 namespace SportEventCalendar.Classes
 {
-    public class DatabaseHelper
+    public class DatabaseHelper : DbContext
     {
         private string connectionString;
 
+        public DbSet<Event> Events { get; set; }
+        public DbSet<Sport> Sports { get; set; }
+        public DbSet<Team> Teams { get; set; }
+        public DbSet<EventTeam> EventTeams { get; set; }
+
+
         public DatabaseHelper()
         {
-            EnvReader.Load("../../../../.env");
+            try
+            {
+                EnvReader.Load("../../../../.env");
+            }
+            catch(FileNotFoundException ex) 
+            {
+                MessageBox.Show(Resources.fillInAllFields, Resources.errorTitle, MessageBoxButtons.OK, MessageBoxIcon.Warning); 
+
+            }
 
             string host = Environment.GetEnvironmentVariable("DB_HOST");
             string port = Environment.GetEnvironmentVariable("DB_PORT");
@@ -20,40 +37,10 @@ namespace SportEventCalendar.Classes
 
             connectionString = $"Host={host};Port={port};Username={username};Password={password};Database={database}";
         }
-
-        public DataTable ExecuteQuery(string query, params NpgsqlParameter[] parameters)
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            using (NpgsqlConnection conn = new NpgsqlConnection(connectionString))
-            {
-                conn.Open();
-                using (NpgsqlCommand cmd = new NpgsqlCommand(query, conn))
-                {
-                    if (parameters != null)
-                        cmd.Parameters.AddRange(parameters);
-
-                    using (NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(cmd))
-                    {
-                        DataTable dt = new DataTable();
-                        adapter.Fill(dt);
-                        return dt;
-                    }
-                }
-            }
+            optionsBuilder.UseNpgsql(connectionString);
         }
-
-        public int ExecuteNonQuery(string query, params NpgsqlParameter[] parameters)
-        {
-            using (NpgsqlConnection conn = new NpgsqlConnection(connectionString))
-            {
-                conn.Open();
-                using (NpgsqlCommand cmd = new NpgsqlCommand(query, conn))
-                {
-                    if (parameters != null)
-                        cmd.Parameters.AddRange(parameters);
-
-                    return cmd.ExecuteNonQuery();
-                }
-            }
-        }
+        
     }
 }

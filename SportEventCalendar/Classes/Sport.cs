@@ -10,7 +10,7 @@ namespace SportEventCalendar.Classes
 {
     [Table("sports")]
     public class Sport
-        {
+    {
             [Key]
             public int sport_number { get; set; }
             [Required]

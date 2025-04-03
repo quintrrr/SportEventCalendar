@@ -47,7 +47,8 @@ namespace SportEventCalendar
         private void Refresh_Click()
         {
             var events = GetSportEvents();
-            dataGridView1.DataSource = events;
+            var sports = GetSports();
+            dataGridView1.DataSource = events + sports;
             dataGridView1.Columns["id"].Visible = false;
             dataGridView1.Columns["description"].Visible = false;
             dataGridView1.Columns["image_url"].Visible = false;

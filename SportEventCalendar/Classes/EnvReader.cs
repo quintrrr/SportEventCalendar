@@ -11,7 +11,7 @@ namespace SportEventCalendar.Classes
         {
             if (!File.Exists(filePath))
                 throw new FileNotFoundException($"The file '{filePath}' does not exist.");
-            // обработать
+
             foreach (var line in File.ReadAllLines(filePath))
             {
                 if (string.IsNullOrWhiteSpace(line) || line.StartsWith("#"))

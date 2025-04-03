@@ -12,7 +12,7 @@ namespace SportEventCalendar.Classes
     public class Event
     {
         [Key]
-        public Guid id { get; set; }
+        public Guid id { get; set; } // с большой буквы
         [Required]
         public string name { get; set; }
         public string description { get; set; }
@@ -24,10 +24,11 @@ namespace SportEventCalendar.Classes
         [ForeignKey("Sport")]
         public int sport_number { get; set; }
 
-        public Sport Sport { get; set; }
+        public string sport_name { get; set; }
 
 
-        public Event(Guid id, string name, string description, DateTime start_date, DateTime end_date, int sport_number, TimeSpan time, string image_url)
+        public Event(Guid id, string name, string description, DateTime start_date, 
+            DateTime end_date, int sport_number, TimeSpan time, string image_url)
         {
             this.id = id;
             this.name = name;

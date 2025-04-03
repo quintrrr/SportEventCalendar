@@ -26,14 +26,13 @@ namespace SportEventCalendar.Classes
             catch(FileNotFoundException ex) 
             {
                 MessageBox.Show(Resources.fillInAllFields, Resources.errorTitle, MessageBoxButtons.OK, MessageBoxIcon.Warning); 
-
             }
 
-            string host = Environment.GetEnvironmentVariable("DB_HOST");
-            string port = Environment.GetEnvironmentVariable("DB_PORT");
-            string username = Environment.GetEnvironmentVariable("DB_USER");
-            string password = Environment.GetEnvironmentVariable("DB_PASSWORD");
-            string database = Environment.GetEnvironmentVariable("DB_NAME");
+            var host = Environment.GetEnvironmentVariable("DB_HOST");
+            var port = Environment.GetEnvironmentVariable("DB_PORT");
+            var username = Environment.GetEnvironmentVariable("DB_USER");
+            var password = Environment.GetEnvironmentVariable("DB_PASSWORD");
+            var database = Environment.GetEnvironmentVariable("DB_NAME");
 
             connectionString = $"Host={host};Port={port};Username={username};Password={password};Database={database}";
         }

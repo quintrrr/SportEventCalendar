@@ -8,24 +8,20 @@ namespace SportEventCalendar
 {
     public partial class EventViewerWindow : Form
     {
+
+        private Event currentEvent;
         public EventViewerWindow(Event selectedEvent)
         {
             InitializeComponent();
-            var currentEvent = selectedEvent;
-            EventName.Text = currentEvent.name;
-            EventDescription.Text = currentEvent.description;
-            startDate.Text = currentEvent.start_date.ToString("yyyy-MM-dd HH:mm");
-            finishDate.Text = currentEvent.end_date.ToString("yyyy-MM-dd HH:mm");
-            timePicker.Text = currentEvent.time.ToString(@"hh\:mm");
-            //sportName.Text = 
-            pictureBox1.Image = Image.FromStream(new MemoryStream(Convert.FromBase64String(currentEvent.image_url)));
-
-        }
-
-
-        private void richTextBox1_TextChanged(object sender, EventArgs e)
-        {
-
+            this.currentEvent = selectedEvent;
+            EventName.Text = currentEvent.Name;
+            EventDescription.Text = currentEvent.Description;
+            startDate.Text = currentEvent.Start_date.ToString("yyyy-MM-dd HH:mm");
+            finishDate.Text = currentEvent.End_date.ToString("yyyy-MM-dd HH:mm");
+            timePicker.Text = currentEvent.Time.ToString(@"hh\:mm");
+            sportName.Text = currentEvent.Sport_name;
+            pictureBox.Image = Image.FromStream(new MemoryStream(Convert.FromBase64String(
+                currentEvent.Image_url)));
 
         }
 
@@ -34,45 +30,52 @@ namespace SportEventCalendar
             this.Close();
         }
 
+        public List<Sport> GetSports()
+        {
+            using (var context = new DatabaseHelper())
+            {
+                return context.Sports.ToList();
+            }
+        }
         private void EventViewerWindow_Load(object sender, EventArgs e)
         {
+            sportSelector.DataSource = GetSports();
+            sportSelector.DisplayMember = "name";
+            sportSelector.ValueMember = "sport_number";
+            teamSelectorCheckBox.Items.Clear();
+            var teams = GetTeams();
 
-
+            foreach (var row in teams.Where(team => team.sport_number ==
+                ((Sport)sportSelector.Items[0]).Sport_number))
+            {
+                teamSelectorCheckBox.Items.Add(row.name);
+            }
 
         }
-        private void label7_Click(object sender, EventArgs e)
-        {
 
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-
-        }
 
         private void editButton_Click(object sender, EventArgs e)
         {
+            
             imageButton.Visible = true;
             panel2.Visible = true;
-            sportName.Visible = false;
-            teamsView.Visible = false;
+            panel1.Visible = false;
             cancel2Button.Visible = true;
             saveButton.Visible = true;
             editButton.Visible = false;
             EventDescription.ReadOnly = false;
             EventName.ReadOnly = false;
+
         }
 
         private void cancel2Button_Click(object sender, EventArgs e)
         {
             imageButton.Visible = false;
+            panel1.Visible = true;
             panel2.Visible = false;
-            sportName.Visible = true;
-            teamsView.Visible = true;
             cancel2Button.Visible = false;
-            saveButton.Visible = false;
             editButton.Visible = true;
+            saveButton.Visible = false;
             EventDescription.ReadOnly = true;
             EventName.ReadOnly = true;
         }
@@ -84,7 +87,46 @@ namespace SportEventCalendar
 
         private void cancel1Button_Click(object sender, EventArgs e)
         {
-            this.Close();   
+            this.Close();
+        }
+
+        private void deleteButton_Click(object sender, EventArgs e)
+        {
+            using (var context = new DatabaseHelper())
+            {
+                context.Events.Remove(currentEvent);
+                context.SaveChanges();
+                this.Close();
+            }
+        }
+
+        public List<Team> GetTeams()
+        {
+            using (var context = new DatabaseHelper())
+            {
+                return context.Teams.ToList();
+            }
+        }
+        private void sportSelector_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (sportSelector.SelectedValue == null)
+            {
+                return;
+            }
+
+            if (!int.TryParse(sportSelector.SelectedValue.ToString(), out int selectedSportId))
+            {
+                return;
+            }
+
+            var teams = GetTeams();
+            teamSelectorCheckBox.Items.Clear();
+            teamSelectorCheckBox.DisplayMember = "name";
+            teamSelectorCheckBox.ValueMember = "sport_id";
+            foreach (var row in teams.Where(team => team.sport_number == selectedSportId))
+            {
+                teamSelectorCheckBox.Items.Add(row);
+            }
         }
     }
 }

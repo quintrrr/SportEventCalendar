@@ -12,32 +12,52 @@ namespace SportEventCalendar.Classes
     public class Event
     {
         [Key]
-        public Guid id { get; set; } // с большой буквы
+        [Column("id")]
+        public Guid Id { get; set; } // с большой буквы
         [Required]
-        public string name { get; set; }
-        public string description { get; set; }
-        public DateTime start_date { get; set; }
-        public DateTime end_date { get; set; }
-        
-        public TimeSpan time { get; set; }
-        public string image_url { get; set; }
-        [ForeignKey("Sport")]
-        public int sport_number { get; set; }
+        [Column("name")]
+        public string Name { get; set; }
+        [Column("description")]
+        public string Description { get; set; }
+        [Column("start_date")]
+        public DateTime Start_date { get; set; }
+        [Column("end_date")]
+        public DateTime End_date { get; set; }
+        [Column("time")]
+        public TimeSpan Time { get; set; }
+        [Column("image_url")]
+        public string Image_url { get; set; }
+        [Column("sport_number")]
+        public int Sport_number { get; set; }
 
-        public string sport_name { get; set; }
+        [Column("sport_name")]
+        public string Sport_name;
 
 
         public Event(Guid id, string name, string description, DateTime start_date, 
+            DateTime end_date,int sport_number, TimeSpan time, string image_url, string sport_name)
+        {
+            Id = id;
+            Name = name;
+            Description = description;
+            Start_date = start_date;
+            End_date = end_date;
+            Sport_number = sport_number;
+            Time = time;
+            Image_url = image_url;
+            this.Sport_name = sport_name;
+        }
+        public Event(Guid id, string name, string description, DateTime start_date,
             DateTime end_date, int sport_number, TimeSpan time, string image_url)
         {
-            this.id = id;
-            this.name = name;
-            this.description = description;
-            this.start_date = start_date;
-            this.end_date = end_date;
-            this.sport_number = sport_number;
-            this.time = time;
-            this.image_url = image_url;
+            Id = id;
+            Name = name;
+            Description = description;
+            Start_date = start_date;
+            End_date = end_date;
+            Sport_number = sport_number;
+            Time = time;
+            Image_url = image_url;
         }
     }
 }

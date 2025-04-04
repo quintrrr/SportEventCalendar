@@ -77,5 +77,14 @@ namespace SportEventCalendar.Properties {
                 return ResourceManager.GetString("fillInAllFields", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Заполните поле название!.
+        /// </summary>
+        internal static string fillName {
+            get {
+                return ResourceManager.GetString("fillName", resourceCulture);
+            }
+        }
     }
 }

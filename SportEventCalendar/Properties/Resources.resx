@@ -123,4 +123,7 @@
   <data name="fillInAllFields" xml:space="preserve">
     <value>Заполните все поля!</value>
   </data>
+  <data name="fillName" xml:space="preserve">
+    <value>Заполните поле название!</value>
+  </data>
 </root>

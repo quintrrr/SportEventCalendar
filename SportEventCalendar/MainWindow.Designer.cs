@@ -28,59 +28,52 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
-            contextMenuStrip1 = new ContextMenuStrip(components);
-            label1 = new Label();
-            dataGridView1 = new DataGridView();
-            dateTimePicker1 = new DateTimePicker();
-            dateTimePicker2 = new DateTimePicker();
+            windowName = new Label();
+            dataGridView = new DataGridView();
+            startDate = new DateTimePicker();
+            finishDate = new DateTimePicker();
             applyButton = new Button();
             addButtom = new Button();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            sportSelector = new ComboBox();
+            ((System.ComponentModel.ISupportInitialize)dataGridView).BeginInit();
             SuspendLayout();
             // 
-            // contextMenuStrip1
+            // windowName
             // 
-            contextMenuStrip1.ImageScalingSize = new Size(32, 32);
-            contextMenuStrip1.Name = "contextMenuStrip1";
-            contextMenuStrip1.Size = new Size(61, 4);
+            windowName.AutoSize = true;
+            windowName.Font = new Font("Calibri", 25F, FontStyle.Bold);
+            windowName.Location = new Point(12, 24);
+            windowName.Name = "windowName";
+            windowName.Size = new Size(821, 82);
+            windowName.TabIndex = 2;
+            windowName.Text = "Спортивные соревнования";
             // 
-            // label1
+            // dataGridView
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Calibri", 25F, FontStyle.Bold);
-            label1.Location = new Point(12, 40);
-            label1.Name = "label1";
-            label1.Size = new Size(821, 82);
-            label1.TabIndex = 2;
-            label1.Text = "Спортивные соревнования";
+            dataGridView.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView.Location = new Point(40, 193);
+            dataGridView.Name = "dataGridView";
+            dataGridView.RowHeadersWidth = 82;
+            dataGridView.Size = new Size(1560, 693);
+            dataGridView.TabIndex = 3;
+            dataGridView.CellClick += dataGridView1_CellClick_1;
             // 
-            // dataGridView1
+            // startDateTimePicker
             // 
-            dataGridView1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(40, 193);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 82;
-            dataGridView1.Size = new Size(1560, 693);
-            dataGridView1.TabIndex = 3;
-            dataGridView1.CellClick += dataGridView1_CellClick_1;
+            startDate.Format = DateTimePickerFormat.Short;
+            startDate.Location = new Point(40, 125);
+            startDate.Name = "startDateTimePicker";
+            startDate.Size = new Size(164, 39);
+            startDate.TabIndex = 4;
             // 
-            // dateTimePicker1
+            // finishDateTimePicker2
             // 
-            dateTimePicker1.Format = DateTimePickerFormat.Short;
-            dateTimePicker1.Location = new Point(40, 125);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(164, 39);
-            dateTimePicker1.TabIndex = 4;
-            // 
-            // dateTimePicker2
-            // 
-            dateTimePicker2.Format = DateTimePickerFormat.Short;
-            dateTimePicker2.Location = new Point(238, 125);
-            dateTimePicker2.Name = "dateTimePicker2";
-            dateTimePicker2.Size = new Size(162, 39);
-            dateTimePicker2.TabIndex = 5;
+            finishDate.Format = DateTimePickerFormat.Short;
+            finishDate.Location = new Point(238, 125);
+            finishDate.Name = "finishDateTimePicker2";
+            finishDate.Size = new Size(162, 39);
+            finishDate.TabIndex = 5;
             // 
             // applyButton
             // 
@@ -103,33 +96,42 @@
             addButtom.UseVisualStyleBackColor = true;
             addButtom.Click += AddButtom_Click;
             // 
+            // sportSelector
+            // 
+            sportSelector.DropDownStyle = ComboBoxStyle.DropDownList;
+            sportSelector.FormattingEnabled = true;
+            sportSelector.Location = new Point(827, 127);
+            sportSelector.Name = "sportSelector";
+            sportSelector.Size = new Size(315, 40);
+            sportSelector.TabIndex = 9;
+            // 
             // MainWindow
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1653, 940);
+            Controls.Add(sportSelector);
             Controls.Add(addButtom);
             Controls.Add(applyButton);
-            Controls.Add(dateTimePicker2);
-            Controls.Add(dateTimePicker1);
-            Controls.Add(dataGridView1);
-            Controls.Add(label1);
+            Controls.Add(finishDate);
+            Controls.Add(startDate);
+            Controls.Add(dataGridView);
+            Controls.Add(windowName);
             Name = "MainWindow";
             Text = "Main";
             Load += MainWindow_Load;
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-
-        private ContextMenuStrip contextMenuStrip1;
-        private Label label1;
-        private DataGridView dataGridView1;
-        private DateTimePicker dateTimePicker1;
-        private DateTimePicker dateTimePicker2;
+        private Label windowName;
+        private DataGridView dataGridView;
+        private DateTimePicker startDate;
+        private DateTimePicker finishDate;
         private Button applyButton;
         private Button addButtom;
+        private ComboBox sportSelector;
     }
 }

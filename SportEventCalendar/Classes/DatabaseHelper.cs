@@ -23,7 +23,7 @@ namespace SportEventCalendar.Classes
             {
                 EnvReader.Load("../../../../.env");
             }
-            catch(FileNotFoundException ex) 
+            catch(FileNotFoundException) 
             {
                 MessageBox.Show(Resources.fillInAllFields, Resources.errorTitle, MessageBoxButtons.OK, MessageBoxIcon.Warning); 
             }

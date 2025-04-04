@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label1 = new Label();
+            windowName = new Label();
             newEventName = new TextBox();
             NewEventDescription = new TextBox();
             label2 = new Label();
@@ -39,26 +39,27 @@
             finishDate = new DateTimePicker();
             sportSelector = new ComboBox();
             label8 = new Label();
-            pictureBox1 = new PictureBox();
+            pictureBox = new PictureBox();
             create_button = new Button();
             canсel = new Button();
             imageButton = new Button();
-            openFileDialog1 = new OpenFileDialog();
+            openFileDialog = new OpenFileDialog();
             timePicker = new DateTimePicker();
             label6 = new Label();
-            checkedListBox1 = new CheckedListBox();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            teamSelectorCheckBox = new CheckedListBox();
+            label7 = new Label();
+            ((System.ComponentModel.ISupportInitialize)pictureBox).BeginInit();
             SuspendLayout();
             // 
-            // label1
+            // windowName
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Calibri", 25F, FontStyle.Bold);
-            label1.Location = new Point(12, 18);
-            label1.Name = "label1";
-            label1.Size = new Size(476, 82);
-            label1.TabIndex = 0;
-            label1.Text = "Новое событие";
+            windowName.AutoSize = true;
+            windowName.Font = new Font("Calibri", 25F, FontStyle.Bold);
+            windowName.Location = new Point(12, 18);
+            windowName.Name = "windowName";
+            windowName.Size = new Size(476, 82);
+            windowName.TabIndex = 0;
+            windowName.Text = "Новое событие";
             // 
             // newEventName
             // 
@@ -148,7 +149,7 @@
             // finishDate
             // 
             finishDate.Format = DateTimePickerFormat.Short;
-            finishDate.Location = new Point(288, 697);
+            finishDate.Location = new Point(275, 697);
             finishDate.Name = "finishDate";
             finishDate.Size = new Size(200, 39);
             finishDate.TabIndex = 9;
@@ -173,16 +174,16 @@
             label8.TabIndex = 13;
             label8.Text = "Выбор спорта:";
             // 
-            // pictureBox1
+            // pictureBox
             // 
-            pictureBox1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            pictureBox1.BorderStyle = BorderStyle.FixedSingle;
-            pictureBox1.Location = new Point(1105, 124);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(497, 412);
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.TabIndex = 14;
-            pictureBox1.TabStop = false;
+            pictureBox.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            pictureBox.BorderStyle = BorderStyle.FixedSingle;
+            pictureBox.Location = new Point(1105, 124);
+            pictureBox.Name = "pictureBox";
+            pictureBox.Size = new Size(497, 412);
+            pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox.TabIndex = 14;
+            pictureBox.TabStop = false;
             // 
             // create_button
             // 
@@ -217,14 +218,14 @@
             imageButton.UseVisualStyleBackColor = true;
             imageButton.Click += imageButton_Click;
             // 
-            // openFileDialog1
+            // openFileDialog
             // 
-            openFileDialog1.FileName = "openFileDialog1";
+            openFileDialog.FileName = "openFileDialog1";
             // 
             // timePicker
             // 
             timePicker.Format = DateTimePickerFormat.Time;
-            timePicker.Location = new Point(586, 694);
+            timePicker.Location = new Point(586, 697);
             timePicker.Name = "timePicker";
             timePicker.Size = new Size(180, 39);
             timePicker.TabIndex = 20;
@@ -240,27 +241,37 @@
             label6.TabIndex = 21;
             label6.Text = "Выбор команд:";
             // 
-            // checkedListBox1
+            // teamSelectorCheckBox
             // 
-            checkedListBox1.CheckOnClick = true;
-            checkedListBox1.FormattingEnabled = true;
-            checkedListBox1.Location = new Point(318, 828);
-            checkedListBox1.Name = "checkedListBox1";
-            checkedListBox1.Size = new Size(810, 184);
-            checkedListBox1.TabIndex = 0;
+            teamSelectorCheckBox.CheckOnClick = true;
+            teamSelectorCheckBox.FormattingEnabled = true;
+            teamSelectorCheckBox.Location = new Point(318, 828);
+            teamSelectorCheckBox.Name = "teamSelectorCheckBox";
+            teamSelectorCheckBox.Size = new Size(364, 184);
+            teamSelectorCheckBox.TabIndex = 0;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(231, 702);
+            label7.Name = "label7";
+            label7.Size = new Size(38, 32);
+            label7.TabIndex = 48;
+            label7.Text = "—";
             // 
             // NewEventCreationWindow
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1614, 1031);
-            Controls.Add(checkedListBox1);
+            Controls.Add(label7);
+            Controls.Add(teamSelectorCheckBox);
             Controls.Add(label6);
             Controls.Add(timePicker);
             Controls.Add(imageButton);
             Controls.Add(canсel);
             Controls.Add(create_button);
-            Controls.Add(pictureBox1);
+            Controls.Add(pictureBox);
             Controls.Add(label8);
             Controls.Add(sportSelector);
             Controls.Add(startDate);
@@ -271,18 +282,18 @@
             Controls.Add(label2);
             Controls.Add(newEventName);
             Controls.Add(label3);
-            Controls.Add(label1);
+            Controls.Add(windowName);
             Name = "NewEventCreationWindow";
             Text = "New Event Creation Window";
             Load += NewEventCreationWindow_Load;
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private Label label1;
+        private Label windowName;
         private TextBox newEventName;
         private TextBox NewEventDescription;
         private Label label2;
@@ -293,13 +304,14 @@
         private DateTimePicker finishDate;
         private ComboBox sportSelector;
         private Label label8;
-        private PictureBox pictureBox1;
+        private PictureBox pictureBox;
         private Button create_button;
         private Button canсel;
         private Button imageButton;
-        private OpenFileDialog openFileDialog1;
+        private OpenFileDialog openFileDialog;
         private DateTimePicker timePicker;
         private Label label6;
-        private CheckedListBox checkedListBox1;
+        private CheckedListBox teamSelectorCheckBox;
+        private Label label7;
     }
 }

@@ -12,9 +12,10 @@ namespace SportEventCalendar.Classes
     public class Sport
     {
             [Key]
-            public int sport_number { get; set; }
+        [Column("sport_number")]
+        public int Sport_number { get; set; }
             [Required]
-            public string name { get; set; }
-            public ICollection<Event> Events { get; set; } = new List<Event>();
+        [Column("name")]
+        public string Name { get; set; }
     }
 }

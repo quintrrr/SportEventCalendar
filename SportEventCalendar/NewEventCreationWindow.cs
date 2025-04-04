@@ -16,14 +16,9 @@ namespace SportEventCalendar
         public NewEventCreationWindow()
         {
             InitializeComponent();
-            openFileDialog1.Filter = "Image Files(*.jpg;*.jpeg;*.png;*.gif;*.tif)|*.jpg;*.jpeg;*.png;*.gif;*.tif;...";
-            var teams = GetTeams();
-            checkedListBox1.Items.Clear();
-
-            foreach (var row in teams.Where(team => team.sport_number == 1))
-            {
-                checkedListBox1.Items.Add(row.name);
-            }
+            
+            
+            
         }
 
         public List<Sport> GetSports()
@@ -38,16 +33,26 @@ namespace SportEventCalendar
             sportSelector.DataSource = GetSports();
             sportSelector.DisplayMember = "name";
             sportSelector.ValueMember = "sport_number";
+            teamSelectorCheckBox.Items.Clear();
+            var teams = GetTeams();
+
+            foreach (var row in teams.Where(team => team.sport_number == 
+                ((Sport)sportSelector.Items[0]).Sport_number))
+            {
+                teamSelectorCheckBox.Items.Add(row.name);
+            }
         }
 
 
         private void imageButton_Click(object sender, EventArgs e)
         {
-            if (openFileDialog1.ShowDialog() == DialogResult.Cancel)
+            openFileDialog.Filter = "Image Files(*.jpg;*.jpeg;*.png;*.gif;*.tif)" +
+                "|*.jpg;*.jpeg;*.png;*.gif;*.tif;...";
+            if (openFileDialog.ShowDialog() == DialogResult.Cancel)
             {
                 return;
             }
-            pictureBox1.Image = Image.FromFile(openFileDialog1.FileName);
+            pictureBox.Image = Image.FromFile(openFileDialog.FileName);
         }
 
         public void AddSportEvent(Event sportEvent)
@@ -60,18 +65,25 @@ namespace SportEventCalendar
         }
         private void create_button_Click(object sender, EventArgs e)
         {
-            if (newEventName.Text == string.Empty || NewEventDescription.Text == string.Empty
-                || sportSelector.SelectedValue == null || openFileDialog1.FileName == "openFileDialog1")
+            if (newEventName.Text == string.Empty)
             {
-                MessageBox.Show(Resources.fillInAllFields, Resources.errorTitle, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(Resources.fillInAllFields, Resources.errorTitle,
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            
+            if (newEventName.Text == string.Empty || NewEventDescription.Text == string.Empty
+                || sportSelector.SelectedValue == null || openFileDialog.FileName == "openFileDialog1")
+            {
+                MessageBox.Show(Resources.fillInAllFields, Resources.errorTitle,
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             if (!int.TryParse(sportSelector.SelectedValue.ToString(), out int selectedSportId))
             {
                 return;
             }
-            string base64 = Convert.ToBase64String(File.ReadAllBytes(openFileDialog1.FileName));
+            string base64 = Convert.ToBase64String(File.ReadAllBytes(openFileDialog.FileName));
             var newSportEvent = new Event(Guid.NewGuid(), newEventName.Text, NewEventDescription.Text
                 , startDate.Value.ToUniversalTime(), finishDate.Value.ToUniversalTime(), selectedSportId,
                 TimeSpan.Parse(timePicker.Value.TimeOfDay.ToString(@"hh\:mm\:ss")), base64);
@@ -101,12 +113,12 @@ namespace SportEventCalendar
             }
 
             var teams = GetTeams();
-            checkedListBox1.Items.Clear();
-            checkedListBox1.DisplayMember = "name";
-            checkedListBox1.ValueMember = "sport_id";
+            teamSelectorCheckBox.Items.Clear();
+            teamSelectorCheckBox.DisplayMember = "name";
+            teamSelectorCheckBox.ValueMember = "sport_id";
             foreach (var row in teams.Where(team => team.sport_number == selectedSportId))
             {
-                checkedListBox1.Items.Add(row);
+                teamSelectorCheckBox.Items.Add(row);
             }
         }
 

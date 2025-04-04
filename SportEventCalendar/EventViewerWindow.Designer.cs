@@ -28,13 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            checkedListBox1 = new CheckedListBox();
+            teamSelectorCheckBox = new CheckedListBox();
             label6 = new Label();
             timePicker = new DateTimePicker();
             imageButton = new Button();
             cancel1Button = new Button();
             deleteButton = new Button();
-            pictureBox1 = new PictureBox();
+            pictureBox = new PictureBox();
             label8 = new Label();
             startDate = new DateTimePicker();
             finishDate = new DateTimePicker();
@@ -54,18 +54,21 @@
             label7 = new Label();
             label9 = new Label();
             saveButton = new Button();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            panel1 = new Panel();
+            comboBox1 = new ComboBox();
+            ((System.ComponentModel.ISupportInitialize)pictureBox).BeginInit();
             panel2.SuspendLayout();
+            panel1.SuspendLayout();
             SuspendLayout();
             // 
-            // checkedListBox1
+            // teamSelectorCheckBox
             // 
-            checkedListBox1.FormattingEnabled = true;
-            checkedListBox1.Items.AddRange(new object[] { "1", "2", "3", "4" });
-            checkedListBox1.Location = new Point(297, 92);
-            checkedListBox1.Name = "checkedListBox1";
-            checkedListBox1.Size = new Size(294, 184);
-            checkedListBox1.TabIndex = 0;
+            teamSelectorCheckBox.FormattingEnabled = true;
+            teamSelectorCheckBox.Items.AddRange(new object[] { "1", "2", "3", "4" });
+            teamSelectorCheckBox.Location = new Point(297, 92);
+            teamSelectorCheckBox.Name = "teamSelectorCheckBox";
+            teamSelectorCheckBox.Size = new Size(364, 184);
+            teamSelectorCheckBox.TabIndex = 0;
             // 
             // label6
             // 
@@ -84,6 +87,7 @@
             timePicker.Name = "timePicker";
             timePicker.Size = new Size(180, 39);
             timePicker.TabIndex = 40;
+            timePicker.TabStop = false;
             // 
             // imageButton
             // 
@@ -91,6 +95,7 @@
             imageButton.Name = "imageButton";
             imageButton.Size = new Size(413, 46);
             imageButton.TabIndex = 39;
+            imageButton.TabStop = false;
             imageButton.Text = "Изменить изображения";
             imageButton.UseVisualStyleBackColor = true;
             imageButton.Visible = false;
@@ -101,6 +106,7 @@
             cancel1Button.Name = "cancel1Button";
             cancel1Button.Size = new Size(150, 46);
             cancel1Button.TabIndex = 38;
+            cancel1Button.TabStop = false;
             cancel1Button.Text = "Отмена";
             cancel1Button.UseVisualStyleBackColor = true;
             cancel1Button.Click += cancel1Button_Click;
@@ -111,20 +117,21 @@
             deleteButton.Name = "deleteButton";
             deleteButton.Size = new Size(183, 46);
             deleteButton.TabIndex = 37;
+            deleteButton.TabStop = false;
             deleteButton.Text = "Удалить";
             deleteButton.UseVisualStyleBackColor = true;
+            deleteButton.Click += deleteButton_Click;
             // 
-            // pictureBox1
+            // pictureBox
             // 
-            pictureBox1.BorderStyle = BorderStyle.FixedSingle;
-            pictureBox1.ImageLocation = "";
-            pictureBox1.Location = new Point(1097, 93);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(497, 412);
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.TabIndex = 36;
-            pictureBox1.TabStop = false;
-            pictureBox1.Click += pictureBox1_Click;
+            pictureBox.BorderStyle = BorderStyle.FixedSingle;
+            pictureBox.ImageLocation = "";
+            pictureBox.Location = new Point(1097, 93);
+            pictureBox.Name = "pictureBox";
+            pictureBox.Size = new Size(497, 412);
+            pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox.TabIndex = 36;
+            pictureBox.TabStop = false;
             // 
             // label8
             // 
@@ -138,19 +145,22 @@
             // 
             // startDate
             // 
+            startDate.Enabled = false;
             startDate.Format = DateTimePickerFormat.Short;
-            startDate.Location = new Point(14, 664);
+            startDate.Location = new Point(14, 665);
             startDate.Name = "startDate";
             startDate.Size = new Size(200, 39);
             startDate.TabIndex = 32;
+            startDate.TabStop = false;
             // 
             // finishDate
             // 
             finishDate.Format = DateTimePickerFormat.Short;
-            finishDate.Location = new Point(232, 664);
+            finishDate.Location = new Point(263, 665);
             finishDate.Name = "finishDate";
             finishDate.Size = new Size(200, 39);
             finishDate.TabIndex = 33;
+            finishDate.TabStop = false;
             // 
             // label5
             // 
@@ -177,6 +187,7 @@
             EventDescription.ReadOnly = true;
             EventDescription.Size = new Size(1034, 340);
             EventDescription.TabIndex = 27;
+            EventDescription.TabStop = false;
             // 
             // label4
             // 
@@ -215,6 +226,7 @@
             EventName.ReadOnly = true;
             EventName.Size = new Size(1034, 54);
             EventName.TabIndex = 26;
+            EventName.TabStop = false;
             // 
             // label3
             // 
@@ -241,31 +253,31 @@
             // 
             // sportSelector
             // 
+            sportSelector.DropDownStyle = ComboBoxStyle.DropDownList;
             sportSelector.FormattingEnabled = true;
             sportSelector.Location = new Point(297, 27);
             sportSelector.Name = "sportSelector";
             sportSelector.Size = new Size(265, 40);
             sportSelector.TabIndex = 34;
+            sportSelector.SelectedIndexChanged += sportSelector_SelectedIndexChanged;
             // 
             // panel2
             // 
-            panel2.Controls.Add(teamsView);
-            panel2.Controls.Add(checkedListBox1);
-            panel2.Controls.Add(sportName);
+            panel2.Controls.Add(teamSelectorCheckBox);
             panel2.Controls.Add(sportSelector);
             panel2.Controls.Add(label6);
             panel2.Controls.Add(label8);
             panel2.Location = new Point(12, 727);
             panel2.Name = "panel2";
-            panel2.Size = new Size(653, 344);
+            panel2.Size = new Size(676, 344);
             panel2.TabIndex = 44;
             panel2.Visible = false;
             // 
             // teamsView
             // 
-            teamsView.Location = new Point(12, 53);
+            teamsView.Location = new Point(16, 107);
             teamsView.Name = "teamsView";
-            teamsView.Size = new Size(358, 194);
+            teamsView.Size = new Size(364, 184);
             teamsView.TabIndex = 47;
             teamsView.UseCompatibleStateImageBehavior = false;
             // 
@@ -273,7 +285,7 @@
             // 
             sportName.AutoSize = true;
             sportName.Font = new Font("Segoe UI", 19.875F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            sportName.Location = new Point(2, -21);
+            sportName.Location = new Point(3, 33);
             sportName.Name = "sportName";
             sportName.Size = new Size(171, 71);
             sportName.TabIndex = 46;
@@ -281,20 +293,22 @@
             // 
             // editButton
             // 
-            editButton.Location = new Point(14, 1111);
+            editButton.Location = new Point(16, 312);
             editButton.Name = "editButton";
             editButton.Size = new Size(219, 46);
             editButton.TabIndex = 45;
+            editButton.TabStop = false;
             editButton.Text = "Редактировать";
             editButton.UseVisualStyleBackColor = true;
             editButton.Click += editButton_Click;
             // 
             // cancel2Button
             // 
-            cancel2Button.Location = new Point(1201, 1040);
+            cancel2Button.Location = new Point(1201, 1059);
             cancel2Button.Name = "cancel2Button";
             cancel2Button.Size = new Size(183, 46);
             cancel2Button.TabIndex = 46;
+            cancel2Button.TabStop = false;
             cancel2Button.Text = "Отмена";
             cancel2Button.UseVisualStyleBackColor = true;
             cancel2Button.Visible = false;
@@ -303,11 +317,11 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(212, 665);
+            label7.Location = new Point(219, 670);
             label7.Name = "label7";
-            label7.Size = new Size(24, 32);
+            label7.Size = new Size(38, 32);
             label7.TabIndex = 47;
-            label7.Text = "-";
+            label7.Text = "—";
             // 
             // label9
             // 
@@ -315,35 +329,55 @@
             label9.Font = new Font("Calibri", 25F, FontStyle.Bold);
             label9.Location = new Point(10, 9);
             label9.Name = "label9";
-            label9.Size = new Size(476, 82);
+            label9.Size = new Size(736, 82);
             label9.TabIndex = 48;
-            label9.Text = "Новое событие";
+            label9.Text = "Подробности о событии";
             // 
             // saveButton
             // 
-            saveButton.Location = new Point(1411, 1040);
+            saveButton.Location = new Point(1411, 1059);
             saveButton.Name = "saveButton";
             saveButton.Size = new Size(183, 46);
             saveButton.TabIndex = 49;
+            saveButton.TabStop = false;
             saveButton.Text = "Сохранить";
             saveButton.UseVisualStyleBackColor = true;
             saveButton.Visible = false;
+            // 
+            // panel1
+            // 
+            panel1.Controls.Add(teamsView);
+            panel1.Controls.Add(editButton);
+            panel1.Controls.Add(sportName);
+            panel1.Location = new Point(10, 709);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(400, 417);
+            panel1.TabIndex = 50;
+            // 
+            // comboBox1
+            // 
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Location = new Point(1024, 841);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(242, 40);
+            comboBox1.TabIndex = 51;
             // 
             // EventViewerWindow
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1609, 1169);
+            Controls.Add(comboBox1);
+            Controls.Add(panel1);
+            Controls.Add(panel2);
             Controls.Add(saveButton);
             Controls.Add(label9);
             Controls.Add(cancel2Button);
-            Controls.Add(editButton);
-            Controls.Add(panel2);
             Controls.Add(timePicker);
             Controls.Add(imageButton);
             Controls.Add(cancel1Button);
             Controls.Add(deleteButton);
-            Controls.Add(pictureBox1);
+            Controls.Add(pictureBox);
             Controls.Add(startDate);
             Controls.Add(finishDate);
             Controls.Add(label5);
@@ -357,21 +391,23 @@
             Name = "EventViewerWindow";
             Text = "EventViewerWindow";
             Load += EventViewerWindow_Load;
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox).EndInit();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-        private CheckedListBox checkedListBox1;
+        private CheckedListBox teamSelectorCheckBox;
         private Label label6;
         private DateTimePicker timePicker;
         private Button imageButton;
         private Button cancel1Button;
         private Button deleteButton;
-        private PictureBox pictureBox1;
+        private PictureBox pictureBox;
         private Label label8;
         private DateTimePicker startDate;
         private DateTimePicker finishDate;
@@ -391,5 +427,7 @@
         private Label label7;
         private Label label9;
         private Button saveButton;
+        private Panel panel1;
+        private ComboBox comboBox1;
     }
 }

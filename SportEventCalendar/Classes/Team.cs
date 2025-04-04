@@ -12,14 +12,18 @@ namespace SportEventCalendar.Classes
     public class Team
     {
         [Key]
-        public int id { get; set; }
+        [Column("id")]
+
+        public int Id { get; set; }
         [Required]
-        public string name { get; set; }
-        public int sport_number { get; set; }
+        [Column("name")]
+        public string Name { get; set; }
+        [Column("sport_number")]
+        public int Sport_number { get; set; }
 
         public override string ToString()
         {
-            return name;
+            return Name;
         }
     }
 }

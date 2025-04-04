@@ -117,13 +117,28 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="addImage" xml:space="preserve">
+    <value>Добавьте изображение!</value>
+  </data>
+  <data name="dateError" xml:space="preserve">
+    <value>Даты выбраны некорректно!</value>
+  </data>
   <data name="errorTitle" xml:space="preserve">
     <value>Ошибка</value>
+  </data>
+  <data name="fileDoesntExist" xml:space="preserve">
+    <value>Файл отсутсвует!</value>
   </data>
   <data name="fillInAllFields" xml:space="preserve">
     <value>Заполните все поля!</value>
   </data>
   <data name="fillName" xml:space="preserve">
     <value>Заполните поле название!</value>
+  </data>
+  <data name="imageError" xml:space="preserve">
+    <value>Выбранный файл не является допустимым изображением!</value>
+  </data>
+  <data name="selectTeams" xml:space="preserve">
+    <value>Выберите хотя бы одну команду!</value>
   </data>
 </root>

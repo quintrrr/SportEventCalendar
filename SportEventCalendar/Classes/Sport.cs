@@ -11,10 +11,10 @@ namespace SportEventCalendar.Classes
     [Table("sports")]
     public class Sport
     {
-            [Key]
+        [Key]
         [Column("sport_number")]
         public int Sport_number { get; set; }
-            [Required]
+        [Required]
         [Column("name")]
         public string Name { get; set; }
     }

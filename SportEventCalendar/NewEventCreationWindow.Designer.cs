@@ -38,14 +38,12 @@
             startDate = new DateTimePicker();
             finishDate = new DateTimePicker();
             sportSelector = new ComboBox();
-            label8 = new Label();
             pictureBox = new PictureBox();
             create_button = new Button();
             canсel = new Button();
             imageButton = new Button();
             openFileDialog = new OpenFileDialog();
             timePicker = new DateTimePicker();
-            label6 = new Label();
             teamSelectorCheckBox = new CheckedListBox();
             label7 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox).BeginInit();
@@ -158,21 +156,11 @@
             // sportSelector
             // 
             sportSelector.DropDownStyle = ComboBoxStyle.DropDownList;
-            sportSelector.Location = new Point(318, 762);
+            sportSelector.Location = new Point(25, 761);
             sportSelector.Name = "sportSelector";
             sportSelector.Size = new Size(364, 40);
             sportSelector.TabIndex = 12;
             sportSelector.SelectedIndexChanged += sportSelector_SelectedIndexChanged;
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Font = new Font("Segoe UI", 15F);
-            label8.Location = new Point(12, 748);
-            label8.Name = "label8";
-            label8.Size = new Size(288, 54);
-            label8.TabIndex = 13;
-            label8.Text = "Выбор спорта:";
             // 
             // pictureBox
             // 
@@ -218,34 +206,21 @@
             imageButton.UseVisualStyleBackColor = true;
             imageButton.Click += imageButton_Click;
             // 
-            // openFileDialog
-            // 
-            openFileDialog.FileName = "openFileDialog1";
-            // 
             // timePicker
             // 
             timePicker.Format = DateTimePickerFormat.Time;
             timePicker.Location = new Point(586, 697);
             timePicker.Name = "timePicker";
+            timePicker.ShowUpDown = true;
             timePicker.Size = new Size(180, 39);
             timePicker.TabIndex = 20;
             timePicker.TabStop = false;
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Font = new Font("Segoe UI", 15F);
-            label6.Location = new Point(12, 812);
-            label6.Name = "label6";
-            label6.Size = new Size(300, 54);
-            label6.TabIndex = 21;
-            label6.Text = "Выбор команд:";
             // 
             // teamSelectorCheckBox
             // 
             teamSelectorCheckBox.CheckOnClick = true;
             teamSelectorCheckBox.FormattingEnabled = true;
-            teamSelectorCheckBox.Location = new Point(318, 828);
+            teamSelectorCheckBox.Location = new Point(24, 818);
             teamSelectorCheckBox.Name = "teamSelectorCheckBox";
             teamSelectorCheckBox.Size = new Size(364, 184);
             teamSelectorCheckBox.TabIndex = 0;
@@ -266,13 +241,11 @@
             ClientSize = new Size(1614, 1031);
             Controls.Add(label7);
             Controls.Add(teamSelectorCheckBox);
-            Controls.Add(label6);
             Controls.Add(timePicker);
             Controls.Add(imageButton);
             Controls.Add(canсel);
             Controls.Add(create_button);
             Controls.Add(pictureBox);
-            Controls.Add(label8);
             Controls.Add(sportSelector);
             Controls.Add(startDate);
             Controls.Add(finishDate);
@@ -303,14 +276,12 @@
         private DateTimePicker startDate;
         private DateTimePicker finishDate;
         private ComboBox sportSelector;
-        private Label label8;
         private PictureBox pictureBox;
         private Button create_button;
         private Button canсel;
         private Button imageButton;
         private OpenFileDialog openFileDialog;
         private DateTimePicker timePicker;
-        private Label label6;
         private CheckedListBox teamSelectorCheckBox;
         private Label label7;
     }

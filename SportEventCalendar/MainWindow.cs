@@ -48,7 +48,7 @@ namespace SportEventCalendar
                 return context.Events
                     .Join(context.Sports,
                         sportEvent => sportEvent.Sport_number,
-                        s => s.Sport_number,
+                        sport => sport.Sport_number,
                         (sportEvent, sport) => new Event(
                             sportEvent.Id,
                             sportEvent.Name,
@@ -60,7 +60,6 @@ namespace SportEventCalendar
                             sportEvent.Image_url,
                             sport.Name)
                     ).ToList();
-                //return context.Events.ToList();
             }
         }
         public List<Sport> GetSports()
@@ -80,6 +79,8 @@ namespace SportEventCalendar
             dataGridView.Columns["id"].Visible = false;
             dataGridView.Columns["description"].Visible = false;
             dataGridView.Columns["image_url"].Visible = false;
+            dataGridView.Columns["sport_number"].Visible = false;
+
 
             dataGridView.Columns["name"].HeaderText = "Название";
             dataGridView.Columns["name"].DisplayIndex = 0;
@@ -93,9 +94,8 @@ namespace SportEventCalendar
             dataGridView.Columns["time"].DisplayIndex = 3;
             dataGridView.Columns["time"].HeaderText = "Время";
 
-            dataGridView.Columns["sport_number"].DisplayIndex = 4;
-            //dataGridView1.Columns["sport_number"].
-            dataGridView.Columns["sport_number"].HeaderText = "Вид спорта";
+            dataGridView.Columns["sport_name"].DisplayIndex = 4;
+            dataGridView.Columns["sport_name"].HeaderText = "Вид спорта";
 
 
 
@@ -142,6 +142,8 @@ namespace SportEventCalendar
             dataGridView.Columns["id"].Visible = false;
             dataGridView.Columns["description"].Visible = false;
             dataGridView.Columns["image_url"].Visible = false;
+            dataGridView.Columns["sport_number"].Visible = false;
+
 
             dataGridView.Columns["name"].HeaderText = "Название";
             dataGridView.Columns["name"].DisplayIndex = 0;
@@ -155,9 +157,8 @@ namespace SportEventCalendar
             dataGridView.Columns["time"].DisplayIndex = 3;
             dataGridView.Columns["time"].HeaderText = "Время";
 
-            dataGridView.Columns["sport_number"].DisplayIndex = 4;
-            //dataGridView1.Columns["sport_number"].
-            dataGridView.Columns["sport_number"].HeaderText = "Вид спорта";
+            dataGridView.Columns["sport_name"].DisplayIndex = 4;
+            dataGridView.Columns["sport_name"].HeaderText = "Вид спорта";
 
         }
 

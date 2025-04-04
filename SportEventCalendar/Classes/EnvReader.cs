@@ -4,14 +4,17 @@ namespace SportEventCalendar.Classes
 {
     using System;
     using System.IO;
+    using SportEventCalendar.Properties;
 
     class EnvReader
     {
         public static void Load(string filePath)
         {
             if (!File.Exists(filePath))
-                throw new FileNotFoundException($"The file '{filePath}' does not exist.");
-            //отработать тут
+            {
+                MessageBox.Show(Resources.fileDoesntExist, Resources.errorTitle, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
             foreach (var line in File.ReadAllLines(filePath))
             {
                 if (string.IsNullOrWhiteSpace(line) || line.StartsWith("#"))

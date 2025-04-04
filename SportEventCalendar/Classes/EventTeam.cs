@@ -13,10 +13,11 @@ namespace SportEventCalendar.Classes
     public class EventTeam
     {
         [Key]
-        public int event_id { get; set; }
+        [Column("event_id")]
+        public int Event_id { get; set; }
         [Required]
-
-        public int team_id { get; set; }
+        [Column("team_id")]
+        public int Team_id { get; set; }
 
     }
 }

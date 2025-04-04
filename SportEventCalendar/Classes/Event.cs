@@ -31,7 +31,7 @@ namespace SportEventCalendar.Classes
         public int Sport_number { get; set; }
 
         [Column("sport_name")]
-        public string Sport_name;
+        public string Sport_name { get; set; }
 
 
         public Event(Guid id, string name, string description, DateTime start_date, 

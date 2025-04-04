@@ -19,15 +19,8 @@ namespace SportEventCalendar.Classes
 
         public DatabaseHelper()
         {
-            try
-            {
-                EnvReader.Load("../../../../.env");
-            }
-            catch(FileNotFoundException) 
-            {
-                MessageBox.Show(Resources.fillInAllFields, Resources.errorTitle, MessageBoxButtons.OK, MessageBoxIcon.Warning); 
-            }
-
+            EnvReader.Load("../../../../.env");
+           
             var host = Environment.GetEnvironmentVariable("DB_HOST");
             var port = Environment.GetEnvironmentVariable("DB_PORT");
             var username = Environment.GetEnvironmentVariable("DB_USER");

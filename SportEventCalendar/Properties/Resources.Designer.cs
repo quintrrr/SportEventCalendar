@@ -61,11 +61,38 @@ namespace SportEventCalendar.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Добавьте изображение!.
+        /// </summary>
+        internal static string addImage {
+            get {
+                return ResourceManager.GetString("addImage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Даты выбраны некорректно!.
+        /// </summary>
+        internal static string dateError {
+            get {
+                return ResourceManager.GetString("dateError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Ошибка.
         /// </summary>
         internal static string errorTitle {
             get {
                 return ResourceManager.GetString("errorTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Файл отсутсвует!.
+        /// </summary>
+        internal static string fileDoesntExist {
+            get {
+                return ResourceManager.GetString("fileDoesntExist", resourceCulture);
             }
         }
         
@@ -84,6 +111,24 @@ namespace SportEventCalendar.Properties {
         internal static string fillName {
             get {
                 return ResourceManager.GetString("fillName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Выбранный файл не является допустимым изображением!.
+        /// </summary>
+        internal static string imageError {
+            get {
+                return ResourceManager.GetString("imageError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Выберите хотя бы одну команду!.
+        /// </summary>
+        internal static string selectTeams {
+            get {
+                return ResourceManager.GetString("selectTeams", resourceCulture);
             }
         }
     }

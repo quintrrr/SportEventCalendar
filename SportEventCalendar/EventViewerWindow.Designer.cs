@@ -73,7 +73,7 @@
             // 
             timePicker.Enabled = false;
             timePicker.Format = DateTimePickerFormat.Time;
-            timePicker.Location = new Point(567, 665);
+            timePicker.Location = new Point(891, 670);
             timePicker.Name = "timePicker";
             timePicker.ShowUpDown = true;
             timePicker.Size = new Size(179, 39);

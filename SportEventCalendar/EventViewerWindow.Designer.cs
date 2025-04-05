@@ -83,6 +83,7 @@
             // 
             // imageButton
             // 
+            imageButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             imageButton.Location = new Point(1146, 540);
             imageButton.Name = "imageButton";
             imageButton.Size = new Size(413, 46);
@@ -95,6 +96,7 @@
             // 
             // cancel1Button
             // 
+            cancel1Button.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             cancel1Button.Location = new Point(1411, 1111);
             cancel1Button.Name = "cancel1Button";
             cancel1Button.Size = new Size(183, 46);
@@ -106,6 +108,7 @@
             // 
             // deleteButton
             // 
+            deleteButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             deleteButton.Location = new Point(1201, 1111);
             deleteButton.Name = "deleteButton";
             deleteButton.Size = new Size(183, 46);
@@ -117,6 +120,7 @@
             // 
             // pictureBox
             // 
+            pictureBox.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             pictureBox.BorderStyle = BorderStyle.FixedSingle;
             pictureBox.ImageLocation = "";
             pictureBox.Location = new Point(1097, 93);
@@ -286,6 +290,7 @@
             // 
             // cancel2Button
             // 
+            cancel2Button.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             cancel2Button.Location = new Point(1201, 1111);
             cancel2Button.Name = "cancel2Button";
             cancel2Button.Size = new Size(183, 46);
@@ -317,6 +322,7 @@
             // 
             // saveButton
             // 
+            saveButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             saveButton.Location = new Point(1414, 1111);
             saveButton.Name = "saveButton";
             saveButton.Size = new Size(183, 46);
@@ -329,7 +335,7 @@
             // 
             // panel1
             // 
-            panel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            panel1.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             panel1.Controls.Add(teamsView);
             panel1.Controls.Add(editButton);
             panel1.Controls.Add(sportName);

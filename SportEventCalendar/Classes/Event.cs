@@ -30,7 +30,8 @@ namespace SportEventCalendar.Classes
         [Column("sport_number")]
         public int Sport_number { get; set; }
 
-        [Column("sport_name")]
+        //[Column("sport_name")]
+        [NotMapped]
         public string Sport_name { get; set; }
 
 

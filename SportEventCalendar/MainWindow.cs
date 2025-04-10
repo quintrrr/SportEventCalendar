@@ -45,7 +45,7 @@ namespace SportEventCalendar
         {
             using (var context = new DatabaseHelper())
             {
-                return context.Events
+                    return context.Events
                     .Join(context.Sports,
                         sportEvent => sportEvent.Sport_number,
                         sport => sport.Sport_number,

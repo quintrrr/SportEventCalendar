@@ -70,6 +70,15 @@ namespace SportEventCalendar.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Строка подключения не может быть пустой..
+        /// </summary>
+        internal static string conString {
+            get {
+                return ResourceManager.GetString("conString", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Даты выбраны некорректно!.
         /// </summary>
         internal static string dateError {

@@ -120,6 +120,9 @@
   <data name="addImage" xml:space="preserve">
     <value>Добавьте изображение!</value>
   </data>
+  <data name="conString" xml:space="preserve">
+    <value>Строка подключения не может быть пустой.</value>
+  </data>
   <data name="dateError" xml:space="preserve">
     <value>Даты выбраны некорректно!</value>
   </data>

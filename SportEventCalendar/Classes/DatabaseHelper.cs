@@ -26,13 +26,34 @@ namespace SportEventCalendar.Classes
             var username = Environment.GetEnvironmentVariable("DB_USER");
             var password = Environment.GetEnvironmentVariable("DB_PASSWORD");
             var database = Environment.GetEnvironmentVariable("DB_NAME");
-
-            connectionString = $"Host={host};Port={port};Username={username};Password={password};Database={database}";
+            if (password == "123")
+            {
+                connectionString = $"Host={host};Port={port};Username={username};Database={database}";
+            }
+            else
+            {
+                connectionString = $"Host={host};Port={port};Username={username};Password={password};Database={database}";
+            }
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
+            if (string.IsNullOrEmpty(connectionString))
+            {
+                MessageBox.Show(Resources.conString, Resources.errorTitle, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             optionsBuilder.UseNpgsql(connectionString);
         }
-        
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<EventTeam>()
+            .HasKey(e => new { e.Event_id, e.Team_id });
+
+            modelBuilder.Entity<EventTeam>()
+                        .HasIndex(eventTeam => new { eventTeam.Event_id, eventTeam.Team_id })
+                        .IsUnique(true); 
+        }
+
     }
 }

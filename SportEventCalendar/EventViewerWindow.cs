@@ -2,7 +2,6 @@
 using System.Data;
 using SportEventCalendar.Classes;
 using SportEventCalendar.Properties;
-using static System.Net.WebRequestMethods;
 
 
 namespace SportEventCalendar
@@ -20,7 +19,15 @@ namespace SportEventCalendar
             startDate.Text = currentEvent.Start_date.ToString("yyyy-MM-dd HH:mm");
             finishDate.Text = currentEvent.End_date.ToString("yyyy-MM-dd HH:mm");
             timePicker.Text = currentEvent.Time.ToString(@"hh\:mm");
-
+            sportSelector.DataSource = GetSports();
+            sportSelector.DisplayMember = "name";
+            sportSelector.ValueMember = "sport_number";
+            sportSelector.SelectedValue = currentEvent.Sport_number;
+            sportName.Text = sportSelector.Text;
+            foreach (var eventTeam in GetEventTeams())
+            {
+                teamsView.Items.Add(eventTeam.Team_id.ToString());
+            }
             openFileDialog.FileName = string.Empty;
             pictureBox.Image = Image.FromStream(new MemoryStream(Convert.FromBase64String(
                 currentEvent.Image_url)));
@@ -32,6 +39,17 @@ namespace SportEventCalendar
             this.Close();
         }
 
+        public List<EventTeam> GetEventTeams()
+        {
+            using (var context = new DatabaseHelper())
+            {
+                return context.EventTeams
+                    .Where(eventTeam => eventTeam.Event_id == currentEvent.Id)
+                    .ToList();
+            }
+        }
+
+
         public List<Sport> GetSports()
         {
             using (var context = new DatabaseHelper())
@@ -41,11 +59,7 @@ namespace SportEventCalendar
         }
         private void EventViewerWindow_Load(object sender, EventArgs e)
         {
-            sportSelector.DataSource = GetSports();
-            sportSelector.DisplayMember = "name";
-            sportSelector.ValueMember = "sport_number";
-            sportSelector.SelectedValue = currentEvent.Sport_number;
-            sportName.Text = sportSelector.Text;
+            
             teamSelectorCheckBox.Items.Clear();
             var teams = GetTeams();
 

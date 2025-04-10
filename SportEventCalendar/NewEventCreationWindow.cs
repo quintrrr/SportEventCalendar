@@ -1,5 +1,6 @@
 ﻿using System.Buffers.Text;
 using System.Data;
+using System.Linq;
 using System.Windows.Forms;
 using System.Xml.Linq;
 using Npgsql;
@@ -30,13 +31,15 @@ namespace SportEventCalendar
             sportSelector.DataSource = GetSports();
             sportSelector.DisplayMember = "name";
             sportSelector.ValueMember = "sport_number";
+            teamSelectorCheckBox.DisplayMember = "name";
+            teamSelectorCheckBox.ValueMember = "id";
             teamSelectorCheckBox.Items.Clear();
             var teams = GetTeams();
 
-            foreach (var row in teams.Where(team => team.Sport_number ==
+            foreach (var team in teams.Where(team => team.Sport_number ==
                 ((Sport)sportSelector.Items[0]).Sport_number))
             {
-                teamSelectorCheckBox.Items.Add(row.Name);
+                teamSelectorCheckBox.Items.Add(team);
             }
         }
         private bool IsImageValid(string filePath)
@@ -124,9 +127,19 @@ namespace SportEventCalendar
                 finishDate.Value.ToUniversalTime(), 
                 selectedSportId,
                 TimeSpan.Parse(timePicker.Value.TimeOfDay.ToString(@"hh\:mm\:ss")), 
-                base64);
+                base64,
+                sportSelector.Text
+                );
+            var eventTeams = new List<EventTeam>();
+           
+            foreach (Team selectedTeam in teamSelectorCheckBox.CheckedItems) 
+            {
+                var eventTeam = new EventTeam(newSportEvent.Id, selectedTeam.Id);
+                eventTeams.Add(eventTeam);
+            }
+            
             AddSportEvent(newSportEvent);
-
+            AddEventTeam(eventTeams);
             this.Close();
         }
 
@@ -138,6 +151,14 @@ namespace SportEventCalendar
             }
         }
 
+        public void AddEventTeam(List<EventTeam> EventTeamList)
+        {
+            using (var context = new DatabaseHelper())
+            {
+                context.EventTeams.AddRange(EventTeamList);
+                context.SaveChanges();
+            }
+        }
         private void sportSelector_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (sportSelector.SelectedValue == null)

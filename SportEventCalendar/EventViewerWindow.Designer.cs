@@ -45,7 +45,6 @@
             label1 = new Label();
             sportSelector = new ComboBox();
             panel2 = new Panel();
-            teamsView = new ListView();
             sportName = new Label();
             editButton = new Button();
             cancel2Button = new Button();
@@ -53,6 +52,7 @@
             label9 = new Label();
             saveButton = new Button();
             panel1 = new Panel();
+            teamsView = new TreeView();
             openFileDialog = new OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)pictureBox).BeginInit();
             panel2.SuspendLayout();
@@ -79,7 +79,6 @@
             timePicker.Size = new Size(179, 39);
             timePicker.TabIndex = 40;
             timePicker.TabStop = false;
-            timePicker.UseWaitCursor = true;
             // 
             // imageButton
             // 
@@ -259,14 +258,6 @@
             panel2.TabIndex = 44;
             panel2.Visible = false;
             // 
-            // teamsView
-            // 
-            teamsView.Location = new Point(4, 110);
-            teamsView.Name = "teamsView";
-            teamsView.Size = new Size(364, 184);
-            teamsView.TabIndex = 47;
-            teamsView.UseCompatibleStateImageBehavior = false;
-            // 
             // sportName
             // 
             sportName.AutoSize = true;
@@ -344,6 +335,15 @@
             panel1.Size = new Size(400, 467);
             panel1.TabIndex = 50;
             // 
+            // teamsView
+            // 
+            teamsView.Location = new Point(5, 110);
+            teamsView.Name = "teamsView";
+            teamsView.ShowLines = false;
+            teamsView.Size = new Size(362, 194);
+            teamsView.TabIndex = 51;
+            teamsView.TabStop = false;
+            // 
             // EventViewerWindow
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
@@ -399,7 +399,6 @@
         private ComboBox sportSelector;
         private Panel panel2;
         private Button editButton;
-        private ListView teamsView;
         private Label sportName;
         private Button cancel2Button;
         private Label label7;
@@ -407,5 +406,6 @@
         private Button saveButton;
         private Panel panel1;
         private OpenFileDialog openFileDialog;
+        private TreeView teamsView;
     }
 }

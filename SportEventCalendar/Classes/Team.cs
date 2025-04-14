@@ -13,7 +13,6 @@ namespace SportEventCalendar.Classes
     {
         [Key]
         [Column("id")]
-
         public int Id { get; set; }
         [Required]
         [Column("name")]
@@ -21,9 +20,5 @@ namespace SportEventCalendar.Classes
         [Column("sport_number")]
         public int Sport_number { get; set; }
 
-        public override string ToString()
-        {
-            return Name;
-        }
     }
 }

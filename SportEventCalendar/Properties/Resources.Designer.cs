@@ -133,6 +133,15 @@ namespace SportEventCalendar.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Ошибка при создании отчета.
+        /// </summary>
+        internal static string reportCreatingError {
+            get {
+                return ResourceManager.GetString("reportCreatingError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Выберите хотя бы одну команду!.
         /// </summary>
         internal static string selectTeams {

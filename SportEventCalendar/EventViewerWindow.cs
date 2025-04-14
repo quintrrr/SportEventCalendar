@@ -28,7 +28,7 @@ namespace SportEventCalendar
             
             foreach (var eventTeam in GetEventTeams())
             {
-                var team = GetTeams().FirstOrDefault(t => t.Id == eventTeam.Team_id);
+                var team = GetTeams().FirstOrDefault(Team => Team.Id == eventTeam.Team_id);
                 if (team != null)
                 {
                     teamsView.Nodes.Add(team.Name);
@@ -70,7 +70,7 @@ namespace SportEventCalendar
             var teams = GetTeams();
             var eventTeams = GetEventTeams();
 
-            if (!int.TryParse(sportSelector.SelectedValue.ToString(), out int selectedSportId))
+            if (!int.TryParse(sportSelector.SelectedValue.ToString(), out var selectedSportId))
             {
                 return;
             }
@@ -78,12 +78,12 @@ namespace SportEventCalendar
             {
                 teamSelectorCheckBox.Items.Add(team);
             }
-            for (int i = 0; i < teamSelectorCheckBox.Items.Count; i++)
+            for (var index = 0; index < teamSelectorCheckBox.Items.Count; index++)
             {
-                if (teamSelectorCheckBox.Items[i] is Team team &&
-                    eventTeams.Any(et => et.Team_id == team.Id))
+                if (teamSelectorCheckBox.Items[index] is Team team &&
+                    eventTeams.Any(eventTeam => eventTeam.Team_id == team.Id))
                 {
-                    teamSelectorCheckBox.SetItemChecked(i, true);
+                    teamSelectorCheckBox.SetItemChecked(index, true);
                 }
             }
         }
@@ -121,12 +121,12 @@ namespace SportEventCalendar
             pictureBox.Image = Image.FromStream(new MemoryStream(Convert.FromBase64String(
                 currentEvent.Image_url)));
             teamSelectorCheckBox.SelectedItems.Clear();
-            for (int i = 0; i < teamSelectorCheckBox.Items.Count; i++)
+            for (var index = 0; index < teamSelectorCheckBox.Items.Count; index++)
             {
-                if (teamSelectorCheckBox.Items[i] is Team team &&
-                    GetEventTeams().Any(et => et.Team_id == team.Id))
+                if (teamSelectorCheckBox.Items[index] is Team team &&
+                    GetEventTeams().Any(eventTeam => eventTeam.Team_id == team.Id))
                 {
-                    teamSelectorCheckBox.SetItemChecked(i, true);
+                    teamSelectorCheckBox.SetItemChecked(index, true);
                 }
             }
             imageButton.Visible = false;
@@ -142,11 +142,6 @@ namespace SportEventCalendar
             startDate.Enabled = false;
             finishDate.Enabled = false;
             timePicker.Enabled = false;
-        }
-
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void cancel1Button_Click(object sender, EventArgs e)
@@ -182,7 +177,7 @@ namespace SportEventCalendar
                 return;
             }
 
-            if (!int.TryParse(sportSelector.SelectedValue.ToString(), out int selectedSportId))
+            if (!int.TryParse(sportSelector.SelectedValue.ToString(), out var selectedSportId))
             {
                 return;
             }
@@ -238,7 +233,7 @@ namespace SportEventCalendar
         {
             using (var context = new DatabaseHelper())
             {
-                var eventToUpdate = context.Events.FirstOrDefault(ev => ev.Id == currentEvent.Id);
+                var eventToUpdate = context.Events.FirstOrDefault(@event => @event.Id == currentEvent.Id);
 
                 if (EventName.Text == string.Empty)
                 {
@@ -265,13 +260,13 @@ namespace SportEventCalendar
                     return;
                 }
 
-                if (!int.TryParse(sportSelector.SelectedValue.ToString(), out int selectedSportId))
+                if (!int.TryParse(sportSelector.SelectedValue.ToString(), out var selectedSportId))
                 {
                     return;
                 }
                 if (openFileDialog.FileName != string.Empty)
                 {
-                    string base64 = Convert.ToBase64String(System.IO.File.ReadAllBytes(openFileDialog.FileName));
+                    var base64 = Convert.ToBase64String(System.IO.File.ReadAllBytes(openFileDialog.FileName));
                     eventToUpdate.Image_url = base64;
                     currentEvent.Image_url = base64;
                 }
@@ -285,8 +280,8 @@ namespace SportEventCalendar
                 currentEvent.Start_date = startDate.Value.ToUniversalTime();
                 eventToUpdate.End_date = finishDate.Value.ToUniversalTime();
                 currentEvent.End_date = finishDate.Value.ToUniversalTime();
-                eventToUpdate.Time = TimeSpan.Parse(timePicker.Value.TimeOfDay.ToString(@"hh\:mm\:ss"));
-                currentEvent.Time = TimeSpan.Parse(timePicker.Value.TimeOfDay.ToString(@"hh\:mm\:ss"));
+                eventToUpdate.Time = TimeSpan.Parse(timePicker.Value.TimeOfDay.ToString(@"hh\:mm"));
+                currentEvent.Time = TimeSpan.Parse(timePicker.Value.TimeOfDay.ToString(@"hh\:mm"));
                 eventToUpdate.Sport_number = selectedSportId;
                 currentEvent.Sport_number = selectedSportId;
                 currentEvent.Sport_name = sportSelector.Text;

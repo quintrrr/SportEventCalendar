@@ -32,14 +32,16 @@ namespace SportEventCalendar.Classes
             }
             else
             {
-                connectionString = $"Host={host};Port={port};Username={username};Password={password};Database={database}";
+                connectionString = $"Host={host};Port={port};Username={username};" +
+                    $"Password={password};Database={database}";
             }
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (string.IsNullOrEmpty(connectionString))
             {
-                MessageBox.Show(Resources.conString, Resources.errorTitle, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(Resources.conString, Resources.errorTitle, 
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             optionsBuilder.UseNpgsql(connectionString);
@@ -48,11 +50,11 @@ namespace SportEventCalendar.Classes
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<EventTeam>()
-            .HasKey(e => new { e.Event_id, e.Team_id });
+            .HasKey(eventTeam => new { eventTeam.Event_id, eventTeam.Team_id });
 
             modelBuilder.Entity<EventTeam>()
                         .HasIndex(eventTeam => new { eventTeam.Event_id, eventTeam.Team_id })
-                        .IsUnique(true); 
+                        .IsUnique(true);
         }
 
     }

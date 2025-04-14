@@ -53,7 +53,8 @@
             // 
             windowName.AutoSize = true;
             windowName.Font = new Font("Calibri", 25F, FontStyle.Bold);
-            windowName.Location = new Point(12, 18);
+            windowName.Location = new Point(11, 17);
+            windowName.Margin = new Padding(4, 0, 4, 0);
             windowName.Name = "windowName";
             windowName.Size = new Size(476, 82);
             windowName.TabIndex = 0;
@@ -63,7 +64,8 @@
             // 
             newEventName.BorderStyle = BorderStyle.None;
             newEventName.Font = new Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            newEventName.Location = new Point(35, 172);
+            newEventName.Location = new Point(35, 173);
+            newEventName.Margin = new Padding(4, 2, 4, 2);
             newEventName.MaxLength = 100;
             newEventName.Name = "newEventName";
             newEventName.PlaceholderText = "Введите название";
@@ -76,12 +78,13 @@
             NewEventDescription.BackColor = Color.White;
             NewEventDescription.BorderStyle = BorderStyle.None;
             NewEventDescription.Font = new Font("Segoe UI", 15F);
-            NewEventDescription.Location = new Point(25, 316);
+            NewEventDescription.Location = new Point(24, 316);
+            NewEventDescription.Margin = new Padding(4, 2, 4, 2);
             NewEventDescription.MaxLength = 1000;
             NewEventDescription.Multiline = true;
             NewEventDescription.Name = "NewEventDescription";
             NewEventDescription.PlaceholderText = " Введите описание";
-            NewEventDescription.Size = new Size(1034, 340);
+            NewEventDescription.Size = new Size(1034, 339);
             NewEventDescription.TabIndex = 2;
             NewEventDescription.TabStop = false;
             // 
@@ -92,6 +95,7 @@
             label2.Font = new Font("Segoe UI", 10F);
             label2.ForeColor = SystemColors.ControlDark;
             label2.Location = new Point(24, 126);
+            label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
             label2.Size = new Size(136, 37);
             label2.TabIndex = 3;
@@ -104,7 +108,8 @@
             label3.BorderStyle = BorderStyle.FixedSingle;
             label3.FlatStyle = FlatStyle.Flat;
             label3.Font = new Font("Segoe UI", 32F);
-            label3.Location = new Point(23, 124);
+            label3.Location = new Point(22, 124);
+            label3.Margin = new Padding(4, 0, 4, 0);
             label3.Name = "label3";
             label3.Size = new Size(1058, 116);
             label3.TabIndex = 4;
@@ -118,6 +123,7 @@
             label4.FlatStyle = FlatStyle.Flat;
             label4.Font = new Font("Segoe UI", 110F);
             label4.Location = new Point(24, 275);
+            label4.Margin = new Padding(4, 0, 4, 0);
             label4.Name = "label4";
             label4.Size = new Size(1057, 393);
             label4.TabIndex = 5;
@@ -129,7 +135,8 @@
             label5.BackColor = SystemColors.Window;
             label5.Font = new Font("Segoe UI", 10F);
             label5.ForeColor = SystemColors.ControlDark;
-            label5.Location = new Point(25, 276);
+            label5.Location = new Point(27, 287);
+            label5.Margin = new Padding(4, 0, 4, 0);
             label5.Name = "label5";
             label5.Size = new Size(449, 37);
             label5.TabIndex = 6;
@@ -138,25 +145,28 @@
             // startDate
             // 
             startDate.Format = DateTimePickerFormat.Short;
-            startDate.Location = new Point(25, 697);
+            startDate.Location = new Point(24, 698);
+            startDate.Margin = new Padding(4, 2, 4, 2);
             startDate.Name = "startDate";
-            startDate.Size = new Size(200, 39);
+            startDate.Size = new Size(201, 39);
             startDate.TabIndex = 7;
             startDate.TabStop = false;
             // 
             // finishDate
             // 
             finishDate.Format = DateTimePickerFormat.Short;
-            finishDate.Location = new Point(275, 697);
+            finishDate.Location = new Point(275, 698);
+            finishDate.Margin = new Padding(4, 2, 4, 2);
             finishDate.Name = "finishDate";
-            finishDate.Size = new Size(200, 39);
+            finishDate.Size = new Size(201, 39);
             finishDate.TabIndex = 9;
             finishDate.TabStop = false;
             // 
             // sportSelector
             // 
             sportSelector.DropDownStyle = ComboBoxStyle.DropDownList;
-            sportSelector.Location = new Point(25, 761);
+            sportSelector.Location = new Point(24, 762);
+            sportSelector.Margin = new Padding(4, 2, 4, 2);
             sportSelector.Name = "sportSelector";
             sportSelector.Size = new Size(364, 40);
             sportSelector.TabIndex = 12;
@@ -167,8 +177,9 @@
             pictureBox.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             pictureBox.BorderStyle = BorderStyle.FixedSingle;
             pictureBox.Location = new Point(1105, 124);
+            pictureBox.Margin = new Padding(4, 2, 4, 2);
             pictureBox.Name = "pictureBox";
-            pictureBox.Size = new Size(497, 412);
+            pictureBox.Size = new Size(498, 412);
             pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox.TabIndex = 14;
             pictureBox.TabStop = false;
@@ -177,8 +188,9 @@
             // 
             create_button.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             create_button.Location = new Point(1419, 966);
+            create_button.Margin = new Padding(4, 2, 4, 2);
             create_button.Name = "create_button";
-            create_button.Size = new Size(183, 46);
+            create_button.Size = new Size(184, 47);
             create_button.TabIndex = 16;
             create_button.Text = "Создать";
             create_button.UseVisualStyleBackColor = true;
@@ -188,8 +200,9 @@
             // 
             canсel.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             canсel.Location = new Point(1244, 966);
+            canсel.Margin = new Padding(4, 2, 4, 2);
             canсel.Name = "canсel";
-            canсel.Size = new Size(150, 46);
+            canсel.Size = new Size(150, 47);
             canсel.TabIndex = 17;
             canсel.Text = "Отмена";
             canсel.UseVisualStyleBackColor = true;
@@ -198,9 +211,10 @@
             // imageButton
             // 
             imageButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            imageButton.Location = new Point(1148, 554);
+            imageButton.Location = new Point(1148, 555);
+            imageButton.Margin = new Padding(4, 2, 4, 2);
             imageButton.Name = "imageButton";
-            imageButton.Size = new Size(413, 46);
+            imageButton.Size = new Size(412, 47);
             imageButton.TabIndex = 19;
             imageButton.Text = "Добавить изображения";
             imageButton.UseVisualStyleBackColor = true;
@@ -208,11 +222,12 @@
             // 
             // timePicker
             // 
-            timePicker.Format = DateTimePickerFormat.Time;
-            timePicker.Location = new Point(901, 697);
+            timePicker.CustomFormat = "hh:mm";
+            timePicker.Format = DateTimePickerFormat.Custom;
+            timePicker.Location = new Point(849, 698);
+            timePicker.Margin = new Padding(4, 2, 4, 2);
             timePicker.Name = "timePicker";
-            timePicker.ShowUpDown = true;
-            timePicker.Size = new Size(180, 39);
+            timePicker.Size = new Size(101, 39);
             timePicker.TabIndex = 20;
             timePicker.TabStop = false;
             // 
@@ -220,15 +235,17 @@
             // 
             teamSelectorCheckBox.CheckOnClick = true;
             teamSelectorCheckBox.FormattingEnabled = true;
-            teamSelectorCheckBox.Location = new Point(24, 818);
+            teamSelectorCheckBox.Location = new Point(24, 817);
+            teamSelectorCheckBox.Margin = new Padding(4, 2, 4, 2);
             teamSelectorCheckBox.Name = "teamSelectorCheckBox";
-            teamSelectorCheckBox.Size = new Size(364, 184);
+            teamSelectorCheckBox.Size = new Size(364, 148);
             teamSelectorCheckBox.TabIndex = 0;
             // 
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(231, 702);
+            label7.Location = new Point(230, 702);
+            label7.Margin = new Padding(4, 0, 4, 0);
             label7.Name = "label7";
             label7.Size = new Size(38, 32);
             label7.TabIndex = 48;
@@ -238,7 +255,7 @@
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1614, 1031);
+            ClientSize = new Size(1614, 1030);
             Controls.Add(label7);
             Controls.Add(teamSelectorCheckBox);
             Controls.Add(timePicker);
@@ -256,6 +273,7 @@
             Controls.Add(newEventName);
             Controls.Add(label3);
             Controls.Add(windowName);
+            Margin = new Padding(4, 2, 4, 2);
             Name = "NewEventCreationWindow";
             Text = "New Event Creation Window";
             Load += NewEventCreationWindow_Load;

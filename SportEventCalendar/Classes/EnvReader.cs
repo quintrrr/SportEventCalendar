@@ -12,7 +12,8 @@ namespace SportEventCalendar.Classes
         {
             if (!File.Exists(filePath))
             {
-                MessageBox.Show(Resources.fileDoesntExist, Resources.errorTitle, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(Resources.fileDoesntExist, Resources.errorTitle, 
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
             foreach (var line in File.ReadAllLines(filePath))

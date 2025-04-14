@@ -6,14 +6,11 @@ using System.Xml.Linq;
 using Npgsql;
 using SportEventCalendar.Classes;
 using SportEventCalendar.Properties;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.Menu;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.TaskbarClock;
 
 namespace SportEventCalendar
 {
     public partial class NewEventCreationWindow : Form
     {
-
         public NewEventCreationWindow()
         {
             InitializeComponent();
@@ -114,7 +111,7 @@ namespace SportEventCalendar
                 return;
             }
 
-            if (!int.TryParse(sportSelector.SelectedValue.ToString(), out int selectedSportId))
+            if (!int.TryParse(sportSelector.SelectedValue.ToString(), out var selectedSportId))
             {
                 return;
             }
@@ -126,7 +123,7 @@ namespace SportEventCalendar
                 startDate.Value.ToUniversalTime(), 
                 finishDate.Value.ToUniversalTime(), 
                 selectedSportId,
-                TimeSpan.Parse(timePicker.Value.TimeOfDay.ToString(@"hh\:mm\:ss")), 
+                TimeSpan.Parse(timePicker.Value.TimeOfDay.ToString(@"hh\:mm")), 
                 base64,
                 sportSelector.Text
                 );
@@ -166,7 +163,7 @@ namespace SportEventCalendar
                 return;
             }
 
-            if (!int.TryParse(sportSelector.SelectedValue.ToString(), out int selectedSportId))
+            if (!int.TryParse(sportSelector.SelectedValue.ToString(), out var selectedSportId))
             {
                 return;
             }

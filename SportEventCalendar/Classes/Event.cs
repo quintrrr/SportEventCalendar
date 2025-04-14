@@ -13,7 +13,7 @@ namespace SportEventCalendar.Classes
     {
         [Key]
         [Column("id")]
-        public Guid Id { get; set; } // с большой буквы
+        public Guid Id { get; set; } 
         [Required]
         [Column("name")]
         public string Name { get; set; }
@@ -29,8 +29,6 @@ namespace SportEventCalendar.Classes
         public string Image_url { get; set; }
         [Column("sport_number")]
         public int Sport_number { get; set; }
-
-        //[Column("sport_name")]
         [NotMapped]
         public string Sport_name { get; set; }
 

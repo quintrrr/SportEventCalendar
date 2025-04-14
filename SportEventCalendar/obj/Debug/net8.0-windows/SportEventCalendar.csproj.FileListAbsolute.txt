@@ -35,3 +35,11 @@ C:\Mac\Home\Documents\Projects\c#\SportEventCalendar\SportEventCalendar\bin\Debu
 C:\Mac\Home\Documents\Projects\c#\SportEventCalendar\SportEventCalendar\bin\Debug\net8.0-windows\Microsoft.Extensions.Primitives.dll
 C:\Mac\Home\Documents\Projects\c#\SportEventCalendar\SportEventCalendar\bin\Debug\net8.0-windows\Npgsql.EntityFrameworkCore.PostgreSQL.dll
 C:\Mac\Home\Documents\Projects\c#\SportEventCalendar\SportEventCalendar\bin\Debug\net8.0-windows\System.Diagnostics.DiagnosticSource.dll
+C:\Mac\Home\Documents\Projects\c#\SportEventCalendar\SportEventCalendar\bin\Debug\net8.0-windows\ClosedXML.dll
+C:\Mac\Home\Documents\Projects\c#\SportEventCalendar\SportEventCalendar\bin\Debug\net8.0-windows\ClosedXML.Parser.dll
+C:\Mac\Home\Documents\Projects\c#\SportEventCalendar\SportEventCalendar\bin\Debug\net8.0-windows\DocumentFormat.OpenXml.dll
+C:\Mac\Home\Documents\Projects\c#\SportEventCalendar\SportEventCalendar\bin\Debug\net8.0-windows\DocumentFormat.OpenXml.Framework.dll
+C:\Mac\Home\Documents\Projects\c#\SportEventCalendar\SportEventCalendar\bin\Debug\net8.0-windows\ExcelNumberFormat.dll
+C:\Mac\Home\Documents\Projects\c#\SportEventCalendar\SportEventCalendar\bin\Debug\net8.0-windows\RBush.dll
+C:\Mac\Home\Documents\Projects\c#\SportEventCalendar\SportEventCalendar\bin\Debug\net8.0-windows\SixLabors.Fonts.dll
+C:\Mac\Home\Documents\Projects\c#\SportEventCalendar\SportEventCalendar\bin\Debug\net8.0-windows\System.IO.Packaging.dll

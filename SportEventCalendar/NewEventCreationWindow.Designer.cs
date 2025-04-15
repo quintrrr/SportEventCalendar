@@ -46,7 +46,9 @@
             timePicker = new DateTimePicker();
             teamSelectorCheckBox = new CheckedListBox();
             label7 = new Label();
+            groupBox1 = new GroupBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox).BeginInit();
+            groupBox1.SuspendLayout();
             SuspendLayout();
             // 
             // windowName
@@ -64,12 +66,12 @@
             // 
             newEventName.BorderStyle = BorderStyle.None;
             newEventName.Font = new Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            newEventName.Location = new Point(35, 173);
+            newEventName.Location = new Point(38, 172);
             newEventName.Margin = new Padding(4, 2, 4, 2);
             newEventName.MaxLength = 100;
             newEventName.Name = "newEventName";
             newEventName.PlaceholderText = "Введите название";
-            newEventName.Size = new Size(1034, 54);
+            newEventName.Size = new Size(986, 54);
             newEventName.TabIndex = 1;
             newEventName.TabStop = false;
             // 
@@ -78,13 +80,13 @@
             NewEventDescription.BackColor = Color.White;
             NewEventDescription.BorderStyle = BorderStyle.None;
             NewEventDescription.Font = new Font("Segoe UI", 15F);
-            NewEventDescription.Location = new Point(24, 316);
+            NewEventDescription.Location = new Point(27, 308);
             NewEventDescription.Margin = new Padding(4, 2, 4, 2);
             NewEventDescription.MaxLength = 1000;
             NewEventDescription.Multiline = true;
             NewEventDescription.Name = "NewEventDescription";
             NewEventDescription.PlaceholderText = " Введите описание";
-            NewEventDescription.Size = new Size(1034, 339);
+            NewEventDescription.Size = new Size(1023, 339);
             NewEventDescription.TabIndex = 2;
             NewEventDescription.TabStop = false;
             // 
@@ -145,30 +147,33 @@
             // startDate
             // 
             startDate.Format = DateTimePickerFormat.Short;
-            startDate.Location = new Point(24, 698);
+            startDate.Location = new Point(24, 61);
             startDate.Margin = new Padding(4, 2, 4, 2);
             startDate.Name = "startDate";
-            startDate.Size = new Size(201, 39);
+            startDate.Size = new Size(177, 39);
             startDate.TabIndex = 7;
             startDate.TabStop = false;
             // 
             // finishDate
             // 
             finishDate.Format = DateTimePickerFormat.Short;
-            finishDate.Location = new Point(275, 698);
+            finishDate.Location = new Point(272, 61);
             finishDate.Margin = new Padding(4, 2, 4, 2);
             finishDate.Name = "finishDate";
-            finishDate.Size = new Size(201, 39);
+            finishDate.RightToLeft = RightToLeft.No;
+            finishDate.RightToLeftLayout = true;
+            finishDate.ShowUpDown = true;
+            finishDate.Size = new Size(460, 39);
             finishDate.TabIndex = 9;
             finishDate.TabStop = false;
             // 
             // sportSelector
             // 
             sportSelector.DropDownStyle = ComboBoxStyle.DropDownList;
-            sportSelector.Location = new Point(24, 762);
+            sportSelector.Location = new Point(1105, 708);
             sportSelector.Margin = new Padding(4, 2, 4, 2);
             sportSelector.Name = "sportSelector";
-            sportSelector.Size = new Size(364, 40);
+            sportSelector.Size = new Size(498, 40);
             sportSelector.TabIndex = 12;
             sportSelector.SelectedIndexChanged += sportSelector_SelectedIndexChanged;
             // 
@@ -211,10 +216,10 @@
             // imageButton
             // 
             imageButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            imageButton.Location = new Point(1148, 555);
+            imageButton.Location = new Point(1105, 555);
             imageButton.Margin = new Padding(4, 2, 4, 2);
             imageButton.Name = "imageButton";
-            imageButton.Size = new Size(412, 47);
+            imageButton.Size = new Size(498, 47);
             imageButton.TabIndex = 19;
             imageButton.Text = "Добавить изображения";
             imageButton.UseVisualStyleBackColor = true;
@@ -224,10 +229,10 @@
             // 
             timePicker.CustomFormat = "hh:mm";
             timePicker.Format = DateTimePickerFormat.Custom;
-            timePicker.Location = new Point(849, 698);
+            timePicker.Location = new Point(887, 65);
             timePicker.Margin = new Padding(4, 2, 4, 2);
             timePicker.Name = "timePicker";
-            timePicker.Size = new Size(101, 39);
+            timePicker.Size = new Size(120, 39);
             timePicker.TabIndex = 20;
             timePicker.TabStop = false;
             // 
@@ -244,28 +249,38 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(230, 702);
+            label7.Location = new Point(217, 65);
             label7.Margin = new Padding(4, 0, 4, 0);
             label7.Name = "label7";
             label7.Size = new Size(38, 32);
             label7.TabIndex = 48;
             label7.Text = "—";
             // 
+            // groupBox1
+            // 
+            groupBox1.Controls.Add(finishDate);
+            groupBox1.Controls.Add(label7);
+            groupBox1.Controls.Add(startDate);
+            groupBox1.Controls.Add(timePicker);
+            groupBox1.Location = new Point(27, 677);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(1058, 135);
+            groupBox1.TabIndex = 49;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "Выбор даты и времени";
+            // 
             // NewEventCreationWindow
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1614, 1030);
-            Controls.Add(label7);
+            Controls.Add(groupBox1);
             Controls.Add(teamSelectorCheckBox);
-            Controls.Add(timePicker);
             Controls.Add(imageButton);
             Controls.Add(canсel);
             Controls.Add(create_button);
             Controls.Add(pictureBox);
             Controls.Add(sportSelector);
-            Controls.Add(startDate);
-            Controls.Add(finishDate);
             Controls.Add(label5);
             Controls.Add(NewEventDescription);
             Controls.Add(label4);
@@ -278,6 +293,8 @@
             Text = "New Event Creation Window";
             Load += NewEventCreationWindow_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox).EndInit();
+            groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -302,5 +319,6 @@
         private DateTimePicker timePicker;
         private CheckedListBox teamSelectorCheckBox;
         private Label label7;
+        private GroupBox groupBox1;
     }
 }

@@ -117,9 +117,6 @@ namespace SportEventCalendar
             }
         }
 
-
-
-
         private void ApplyButton_Click(object sender, EventArgs e)
         {
             this.Cursor = Cursors.WaitCursor;
@@ -220,7 +217,7 @@ namespace SportEventCalendar
                                             }
                                             if (columnName == "Sport_number")
                                             {
-                                            
+                                                continue;
                                             }
                                             else
                                             {
@@ -240,69 +237,12 @@ namespace SportEventCalendar
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show(Resources.reportCreatingError + "\n" + ex.Message,
+                        MessageBox.Show(Resources.reportCreatingError,
                             Resources.errorTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
-                }
+            }
         }
-        //private void reportButtom_Click(object sender, EventArgs e)
-        //{
-        //    using (var saveFileDialog = new SaveFileDialog())
-        //    {
-        //        saveFileDialog.Filter = "Excel Files (*.xlsx)|*.xlsx";
-        //        saveFileDialog.FileName = "Отчет.xlsx";
-
-        //        if (saveFileDialog.ShowDialog() == DialogResult.OK)
-        //        {
-        //            try
-        //            {
-        //                using (var workbook = new ClosedXML.Excel.XLWorkbook())
-        //                {
-        //                    var worksheet = workbook.Worksheets.Add("События");
-        //                    var row = 1;
-
-        //                    if (dataGridView.Columns.Count == 0)
-        //                    {
-        //                        MessageBox.Show("Нет данных для экспорта.");
-        //                        return;
-        //                    }
-
-        //                    // Заголовки
-        //                    for (var column = 0; column < dataGridView.Columns.Count; column++)
-        //                    {
-        //                        worksheet.Cell(row, column + 1).Value = dataGridView.Columns[column].HeaderText;
-        //                    }
-
-        //                    // Данные
-        //                    foreach (DataGridViewRow dataGridViewRow in dataGridView.Rows)
-        //                    {
-        //                        if (!dataGridViewRow.IsNewRow)
-        //                        {
-        //                            row++;
-        //                            for (var col = 0; col < dataGridView.Columns.Count; col++)
-        //                            {
-        //                                if (col < dataGridViewRow.Cells.Count)
-        //                                {
-        //                                    var value = dataGridViewRow.Cells[col].Value;
-        //                                    worksheet.Cell(row, col + 1).Value = value?.ToString() ?? string.Empty;
-        //                                }
-        //                            }
-        //                        }
-        //                    }
-
-        //                    worksheet.Columns().AdjustToContents();
-        //                    workbook.SaveAs(saveFileDialog.FileName);
-        //                }
-        //            }
-        //            catch (Exception ex)
-        //            {
-        //                MessageBox.Show(Resources.reportCreatingError + "\n" + ex.Message,
-        //                    Resources.errorTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //            }
-        //        }
-        //    }
-        //}
 
 
         private void sportSelector_SelectedIndexChanged(object sender, EventArgs e)
@@ -342,6 +282,15 @@ namespace SportEventCalendar
             dataGridView.Columns["sport_name"].HeaderText = "Вид спорта";
             this.Enabled = true;
             this.Cursor = Cursors.Default;
+        }
+
+        private void reportButtom_Click_1(object sender, EventArgs e)
+        {
+            sportSelector.SelectedIndex = 0;
+            startDate.Value = DateTime.Now;
+            finishDate.Value = DateTime.Now;
+            Refresh_Click();
+
         }
     }
 }

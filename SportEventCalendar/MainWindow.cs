@@ -22,6 +22,7 @@ namespace SportEventCalendar
                 actionsColumn.Text = "⋮";
                 actionsColumn.UseColumnTextForButtonValue = true;
                 actionsColumn.Width = 50;
+
                 dataGridView.Columns.Add(actionsColumn);
             }
         }
@@ -159,6 +160,9 @@ namespace SportEventCalendar
         {
             var creationWindow = new NewEventCreationWindow();
             creationWindow.ShowDialog();
+            sportSelector.SelectedIndex = 0;
+            startDate.Value = DateTime.Now;
+            finishDate.Value = DateTime.Now;
             Refresh_Click();
         }
 

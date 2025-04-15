@@ -180,7 +180,17 @@ namespace SportEventCalendar
 
         private void cancel_Click(object sender, EventArgs e)
         {
-            this.Close();
+            var dialogResult = MessageBox.Show(Resources.dateError, Resources.errorTitle,
+                   MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            if (dialogResult == DialogResult.OK)
+            {
+                this.Close();
+            }
+            else
+            {
+                return;
+            }
         }
     }
 }
+ 

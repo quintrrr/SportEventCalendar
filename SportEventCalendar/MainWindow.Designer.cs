@@ -213,7 +213,7 @@
             Margin = new Padding(4, 2, 4, 2);
             MinimumSize = new Size(1679, 1012);
             Name = "MainWindow";
-            Text = "Спортивные мероприятия";
+            Text = "SportMaster";
             Load += MainWindow_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView).EndInit();
             dataSelectorGroupBox.ResumeLayout(false);

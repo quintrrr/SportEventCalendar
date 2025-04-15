@@ -16,7 +16,9 @@ namespace SportEventCalendar
             InitializeComponent();
             this.currentEvent = selectedEvent;
             EventName.Text = currentEvent.Name;
+            EventName.Enabled = false;
             EventDescription.Text = currentEvent.Description;
+            EventDescription.Enabled = false;
             startDate.Text = currentEvent.Start_date.ToString("yyyy-MM-dd HH:mm");
             finishDate.Text = currentEvent.End_date.ToString("yyyy-MM-dd HH:mm");
             timePicker.Text = currentEvent.Time.ToString(@"hh\:mm");
@@ -38,6 +40,11 @@ namespace SportEventCalendar
             pictureBox.Image = Image.FromStream(new MemoryStream(Convert.FromBase64String(
                 currentEvent.Image_url)));
 
+        }
+
+        private void TeamsView_DrawNode(object? sender, DrawTreeNodeEventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -102,10 +109,11 @@ namespace SportEventCalendar
             EventName.ReadOnly = false;
             deleteButton.Visible = false;
             cancel1Button.Visible = false;
-
+            EventName.Enabled = true;
             startDate.Enabled = true;
             finishDate.Enabled = true;
             timePicker.Enabled = true;
+            EventDescription.Enabled = true;
 
         }
 
@@ -129,6 +137,8 @@ namespace SportEventCalendar
                     teamSelectorCheckBox.SetItemChecked(index, true);
                 }
             }
+            EventDescription.Enabled = false;
+            EventName.Enabled = false;
             imageButton.Visible = false;
             panel1.Visible = true;
             panel2.Visible = false;

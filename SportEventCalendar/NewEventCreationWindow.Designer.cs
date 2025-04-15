@@ -47,8 +47,10 @@
             teamSelectorCheckBox = new CheckedListBox();
             label7 = new Label();
             groupBox1 = new GroupBox();
+            groupBox2 = new GroupBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox).BeginInit();
             groupBox1.SuspendLayout();
+            groupBox2.SuspendLayout();
             SuspendLayout();
             // 
             // windowName
@@ -86,7 +88,8 @@
             NewEventDescription.Multiline = true;
             NewEventDescription.Name = "NewEventDescription";
             NewEventDescription.PlaceholderText = " Введите описание";
-            NewEventDescription.Size = new Size(1023, 339);
+            NewEventDescription.ScrollBars = ScrollBars.Vertical;
+            NewEventDescription.Size = new Size(1041, 339);
             NewEventDescription.TabIndex = 2;
             NewEventDescription.TabStop = false;
             // 
@@ -192,7 +195,7 @@
             // create_button
             // 
             create_button.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            create_button.Location = new Point(1419, 966);
+            create_button.Location = new Point(1419, 1052);
             create_button.Margin = new Padding(4, 2, 4, 2);
             create_button.Name = "create_button";
             create_button.Size = new Size(184, 47);
@@ -204,10 +207,10 @@
             // canсel
             // 
             canсel.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            canсel.Location = new Point(1244, 966);
+            canсel.Location = new Point(1223, 1052);
             canсel.Margin = new Padding(4, 2, 4, 2);
             canсel.Name = "canсel";
-            canсel.Size = new Size(150, 47);
+            canсel.Size = new Size(184, 47);
             canсel.TabIndex = 17;
             canсel.Text = "Отмена";
             canсel.UseVisualStyleBackColor = true;
@@ -229,10 +232,10 @@
             // 
             timePicker.CustomFormat = "hh:mm";
             timePicker.Format = DateTimePickerFormat.Custom;
-            timePicker.Location = new Point(887, 65);
+            timePicker.Location = new Point(864, 65);
             timePicker.Margin = new Padding(4, 2, 4, 2);
             timePicker.Name = "timePicker";
-            timePicker.Size = new Size(120, 39);
+            timePicker.Size = new Size(143, 39);
             timePicker.TabIndex = 20;
             timePicker.TabStop = false;
             // 
@@ -240,10 +243,10 @@
             // 
             teamSelectorCheckBox.CheckOnClick = true;
             teamSelectorCheckBox.FormattingEnabled = true;
-            teamSelectorCheckBox.Location = new Point(24, 817);
+            teamSelectorCheckBox.Location = new Point(14, 47);
             teamSelectorCheckBox.Margin = new Padding(4, 2, 4, 2);
             teamSelectorCheckBox.Name = "teamSelectorCheckBox";
-            teamSelectorCheckBox.Size = new Size(364, 148);
+            teamSelectorCheckBox.Size = new Size(1030, 148);
             teamSelectorCheckBox.TabIndex = 0;
             // 
             // label7
@@ -269,13 +272,23 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Выбор даты и времени";
             // 
+            // groupBox2
+            // 
+            groupBox2.Controls.Add(teamSelectorCheckBox);
+            groupBox2.Location = new Point(24, 829);
+            groupBox2.Name = "groupBox2";
+            groupBox2.Size = new Size(1061, 200);
+            groupBox2.TabIndex = 50;
+            groupBox2.TabStop = false;
+            groupBox2.Text = "Выбор команд";
+            // 
             // NewEventCreationWindow
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1614, 1030);
+            ClientSize = new Size(1614, 1116);
+            Controls.Add(groupBox2);
             Controls.Add(groupBox1);
-            Controls.Add(teamSelectorCheckBox);
             Controls.Add(imageButton);
             Controls.Add(canсel);
             Controls.Add(create_button);
@@ -295,6 +308,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox).EndInit();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
+            groupBox2.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -320,5 +334,6 @@
         private CheckedListBox teamSelectorCheckBox;
         private Label label7;
         private GroupBox groupBox1;
+        private GroupBox groupBox2;
     }
 }

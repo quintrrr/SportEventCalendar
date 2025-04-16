@@ -25,19 +25,26 @@ namespace SportEventCalendar
         }
         private void NewEventCreationWindow_Load(object sender, EventArgs e)
         {
-            sportSelector.DataSource = GetSports();
+            var noSport = new Sport();
+            noSport.Name = "Выберите вид спорта";
+            noSport.Sport_number = 0;
+            var sportList = GetSports();
+            sportList.Add(noSport);
+            sportList = sportList.OrderBy(sport => sport.Sport_number).ToList();
+
+            sportSelector.DataSource = sportList;
             sportSelector.DisplayMember = "name";
             sportSelector.ValueMember = "sport_number";
             teamSelectorCheckBox.DisplayMember = "name";
             teamSelectorCheckBox.ValueMember = "id";
             teamSelectorCheckBox.Items.Clear();
-            var teams = GetTeams();
+            //var teams = GetTeams();
 
-            foreach (var team in teams.Where(team => team.Sport_number ==
-                ((Sport)sportSelector.Items[0]).Sport_number))
-            {
-                teamSelectorCheckBox.Items.Add(team);
-            }
+            //foreach (var team in teams.Where(team => team.Sport_number ==
+            //    ((Sport)sportSelector.Items[0]).Sport_number))
+            //{
+            //    teamSelectorCheckBox.Items.Add(team);
+            //}
         }
         private bool IsImageValid(string filePath)
         {
@@ -92,15 +99,16 @@ namespace SportEventCalendar
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            if (openFileDialog.FileName == string.Empty)
-            {
-                MessageBox.Show(Resources.addImage, Resources.errorTitle,
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
+            
             if (teamSelectorCheckBox.CheckedItems.Count == 0)
             {
                 MessageBox.Show(Resources.selectTeams, Resources.errorTitle,
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if ((int)sportSelector.SelectedValue == 0)
+            {
+                MessageBox.Show(Resources.selectSport, Resources.errorTitle,
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
@@ -115,7 +123,17 @@ namespace SportEventCalendar
             {
                 return;
             }
-            string base64 = Convert.ToBase64String(File.ReadAllBytes(openFileDialog.FileName));
+            string base64 = string.Empty;
+            if (openFileDialog.FileName != string.Empty)
+            {
+                base64 = Convert.ToBase64String(File.ReadAllBytes(openFileDialog.FileName));
+
+            }
+            else
+            {
+                base64 = Convert.ToBase64String(File.ReadAllBytes("../../../Properties/DataSources/defaultPicture.png"));
+
+            }
             var newSportEvent = new Event(
                 Guid.NewGuid(), 
                 newEventName.Text, 

@@ -124,7 +124,7 @@
             sportSelector.Location = new Point(22, 75);
             sportSelector.Margin = new Padding(4, 2, 4, 2);
             sportSelector.Name = "sportSelector";
-            sportSelector.Size = new Size(351, 40);
+            sportSelector.Size = new Size(472, 40);
             sportSelector.TabIndex = 9;
             sportSelector.SelectedIndexChanged += sportSelector_SelectedIndexChanged;
             // 
@@ -170,9 +170,9 @@
             // 
             sportSelectorGroupBox.Anchor = AnchorStyles.Top;
             sportSelectorGroupBox.Controls.Add(sportSelector);
-            sportSelectorGroupBox.Location = new Point(887, 128);
+            sportSelectorGroupBox.Location = new Point(766, 128);
             sportSelectorGroupBox.Name = "sportSelectorGroupBox";
-            sportSelectorGroupBox.Size = new Size(400, 167);
+            sportSelectorGroupBox.Size = new Size(521, 167);
             sportSelectorGroupBox.TabIndex = 12;
             sportSelectorGroupBox.TabStop = false;
             sportSelectorGroupBox.Text = "Выбор спорта ";

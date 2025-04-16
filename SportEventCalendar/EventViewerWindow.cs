@@ -25,8 +25,8 @@ namespace SportEventCalendar
             sportSelector.DataSource = GetSports();
             sportSelector.DisplayMember = "name";
             sportSelector.ValueMember = "sport_number";
+            sportSelector.Enabled = false;
             sportSelector.SelectedValue = currentEvent.Sport_number;
-            sportName.Text = selectedEvent.Sport_name;
             
             foreach (var eventTeam in GetEventTeams())
             {
@@ -76,6 +76,7 @@ namespace SportEventCalendar
             teamSelectorCheckBox.Items.Clear();
             var teams = GetTeams();
             var eventTeams = GetEventTeams();
+            teamSelectorCheckBox.DisplayMember = "name";
 
             if (!int.TryParse(sportSelector.SelectedValue.ToString(), out var selectedSportId))
             {
@@ -98,17 +99,16 @@ namespace SportEventCalendar
 
         private void editButton_Click(object sender, EventArgs e)
         {
-
+            sportSelector.Enabled = true;
             imageButton.Visible = true;
-            panel2.Visible = true;
-            panel1.Visible = false;
+            teamSelectorGroupBox.Visible = true;
+            teamViewerGroupBox.Visible = false;
             cancel2Button.Visible = true;
             saveButton.Visible = true;
             editButton.Visible = false;
             EventDescription.ReadOnly = false;
             EventName.ReadOnly = false;
             deleteButton.Visible = false;
-            cancel1Button.Visible = false;
             EventName.Enabled = true;
             startDate.Enabled = true;
             finishDate.Enabled = true;
@@ -124,7 +124,6 @@ namespace SportEventCalendar
             startDate.Text = currentEvent.Start_date.ToString("yyyy-MM-dd HH:mm");
             finishDate.Text = currentEvent.End_date.ToString("yyyy-MM-dd HH:mm");
             timePicker.Text = currentEvent.Time.ToString(@"hh\:mm");
-            sportName.Text = currentEvent.Sport_name;
             sportSelector.SelectedValue = currentEvent.Sport_number;
             pictureBox.Image = Image.FromStream(new MemoryStream(Convert.FromBase64String(
                 currentEvent.Image_url)));
@@ -137,27 +136,23 @@ namespace SportEventCalendar
                     teamSelectorCheckBox.SetItemChecked(index, true);
                 }
             }
+            sportSelector.Enabled = false;
             EventDescription.Enabled = false;
             EventName.Enabled = false;
             imageButton.Visible = false;
-            panel1.Visible = true;
-            panel2.Visible = false;
+            teamViewerGroupBox.Visible = true;
+            teamSelectorGroupBox.Visible = false;
             cancel2Button.Visible = false;
             editButton.Visible = true;
             saveButton.Visible = false;
             EventDescription.ReadOnly = true;
             EventName.ReadOnly = true;
             deleteButton.Visible = true;
-            cancel1Button.Visible = true;
             startDate.Enabled = false;
             finishDate.Enabled = false;
             timePicker.Enabled = false;
         }
 
-        private void cancel1Button_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
 
         private void deleteButton_Click(object sender, EventArgs e)
         {
@@ -239,7 +234,7 @@ namespace SportEventCalendar
 
         }
 
-        private void saveButton_Click(object sender, EventArgs e)
+        private void saveButton_Click(object sender, EventArgs e) 
         {
             using (var context = new DatabaseHelper())
             {
@@ -311,19 +306,17 @@ namespace SportEventCalendar
                 context.SaveChanges();
                 
                 imageButton.Visible = false;
-                panel1.Visible = true;
-                panel2.Visible = false;
+                teamViewerGroupBox.Visible = true;
+                teamSelectorGroupBox.Visible = false;
                 cancel2Button.Visible = false;
                 editButton.Visible = true;
                 saveButton.Visible = false;
                 EventDescription.ReadOnly = true;
                 EventName.ReadOnly = true;
                 deleteButton.Visible = true;
-                cancel1Button.Visible = true;
                 startDate.Enabled = false;
                 finishDate.Enabled = false;
                 timePicker.Enabled = false;
-                sportName.Text = sportSelector.Text;
             }
         }
     }

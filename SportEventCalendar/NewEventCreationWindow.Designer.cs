@@ -48,9 +48,11 @@
             label7 = new Label();
             groupBox1 = new GroupBox();
             groupBox2 = new GroupBox();
+            groupBox3 = new GroupBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox).BeginInit();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
+            groupBox3.SuspendLayout();
             SuspendLayout();
             // 
             // windowName
@@ -140,7 +142,7 @@
             label5.BackColor = SystemColors.Window;
             label5.Font = new Font("Segoe UI", 10F);
             label5.ForeColor = SystemColors.ControlDark;
-            label5.Location = new Point(27, 287);
+            label5.Location = new Point(27, 279);
             label5.Margin = new Padding(4, 0, 4, 0);
             label5.Name = "label5";
             label5.Size = new Size(449, 37);
@@ -150,7 +152,7 @@
             // startDate
             // 
             startDate.Format = DateTimePickerFormat.Short;
-            startDate.Location = new Point(24, 61);
+            startDate.Location = new Point(52, 61);
             startDate.Margin = new Padding(4, 2, 4, 2);
             startDate.Name = "startDate";
             startDate.Size = new Size(177, 39);
@@ -160,23 +162,22 @@
             // finishDate
             // 
             finishDate.Format = DateTimePickerFormat.Short;
-            finishDate.Location = new Point(272, 61);
+            finishDate.Location = new Point(300, 61);
             finishDate.Margin = new Padding(4, 2, 4, 2);
             finishDate.Name = "finishDate";
             finishDate.RightToLeft = RightToLeft.No;
             finishDate.RightToLeftLayout = true;
-            finishDate.ShowUpDown = true;
-            finishDate.Size = new Size(460, 39);
+            finishDate.Size = new Size(177, 39);
             finishDate.TabIndex = 9;
             finishDate.TabStop = false;
             // 
             // sportSelector
             // 
             sportSelector.DropDownStyle = ComboBoxStyle.DropDownList;
-            sportSelector.Location = new Point(1105, 708);
+            sportSelector.Location = new Point(7, 82);
             sportSelector.Margin = new Padding(4, 2, 4, 2);
             sportSelector.Name = "sportSelector";
-            sportSelector.Size = new Size(498, 40);
+            sportSelector.Size = new Size(549, 40);
             sportSelector.TabIndex = 12;
             sportSelector.SelectedIndexChanged += sportSelector_SelectedIndexChanged;
             // 
@@ -184,10 +185,10 @@
             // 
             pictureBox.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             pictureBox.BorderStyle = BorderStyle.FixedSingle;
-            pictureBox.Location = new Point(1105, 124);
+            pictureBox.Location = new Point(1128, 124);
             pictureBox.Margin = new Padding(4, 2, 4, 2);
             pictureBox.Name = "pictureBox";
-            pictureBox.Size = new Size(498, 412);
+            pictureBox.Size = new Size(563, 469);
             pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox.TabIndex = 14;
             pictureBox.TabStop = false;
@@ -195,7 +196,7 @@
             // create_button
             // 
             create_button.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            create_button.Location = new Point(1419, 1052);
+            create_button.Location = new Point(1507, 1052);
             create_button.Margin = new Padding(4, 2, 4, 2);
             create_button.Name = "create_button";
             create_button.Size = new Size(184, 47);
@@ -207,7 +208,7 @@
             // canсel
             // 
             canсel.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            canсel.Location = new Point(1223, 1052);
+            canсel.Location = new Point(1311, 1052);
             canсel.Margin = new Padding(4, 2, 4, 2);
             canсel.Name = "canсel";
             canсel.Size = new Size(184, 47);
@@ -219,10 +220,10 @@
             // imageButton
             // 
             imageButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            imageButton.Location = new Point(1105, 555);
+            imageButton.Location = new Point(1128, 634);
             imageButton.Margin = new Padding(4, 2, 4, 2);
             imageButton.Name = "imageButton";
-            imageButton.Size = new Size(498, 47);
+            imageButton.Size = new Size(563, 47);
             imageButton.TabIndex = 19;
             imageButton.Text = "Добавить изображения";
             imageButton.UseVisualStyleBackColor = true;
@@ -235,6 +236,7 @@
             timePicker.Location = new Point(864, 65);
             timePicker.Margin = new Padding(4, 2, 4, 2);
             timePicker.Name = "timePicker";
+            timePicker.ShowUpDown = true;
             timePicker.Size = new Size(143, 39);
             timePicker.TabIndex = 20;
             timePicker.TabStop = false;
@@ -252,7 +254,7 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(217, 65);
+            label7.Location = new Point(245, 65);
             label7.Margin = new Padding(4, 0, 4, 0);
             label7.Name = "label7";
             label7.Size = new Size(38, 32);
@@ -282,18 +284,28 @@
             groupBox2.TabStop = false;
             groupBox2.Text = "Выбор команд";
             // 
+            // groupBox3
+            // 
+            groupBox3.Controls.Add(sportSelector);
+            groupBox3.Location = new Point(1128, 702);
+            groupBox3.Name = "groupBox3";
+            groupBox3.Size = new Size(563, 200);
+            groupBox3.TabIndex = 51;
+            groupBox3.TabStop = false;
+            groupBox3.Text = "Выбор спорта";
+            // 
             // NewEventCreationWindow
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1614, 1116);
+            ClientSize = new Size(1702, 1116);
+            Controls.Add(groupBox3);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
             Controls.Add(imageButton);
             Controls.Add(canсel);
             Controls.Add(create_button);
             Controls.Add(pictureBox);
-            Controls.Add(sportSelector);
             Controls.Add(label5);
             Controls.Add(NewEventDescription);
             Controls.Add(label4);
@@ -309,6 +321,7 @@
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             groupBox2.ResumeLayout(false);
+            groupBox3.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -335,5 +348,6 @@
         private Label label7;
         private GroupBox groupBox1;
         private GroupBox groupBox2;
+        private GroupBox groupBox3;
     }
 }

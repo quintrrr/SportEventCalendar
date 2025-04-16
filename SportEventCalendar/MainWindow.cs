@@ -182,11 +182,32 @@ namespace SportEventCalendar
                             var worksheet = workbook.Worksheets.Add("События");
 
                             var row = 1;
+                            int actualCol = 1;
 
                             for (var column = 0; column < dataGridView.Columns.Count; column++)
                             {
-                                worksheet.Cell(row, column + 1).Value =
-                                dataGridView.Columns[column].HeaderText;
+                                var columnName = dataGridView.Columns[column].Name;
+                                if (columnName != "Actions" && columnName != "Sport_number")
+                                {
+                                    if (columnName == "Image_url")
+                                    {
+                                        columnName = "Изображение";
+                                    }
+                                    else if (columnName == "Id")
+                                    {
+                                        columnName = "Айди";
+                                    }
+                                    else if(columnName == "Description")
+                                    {
+                                        columnName = "Описание";
+                                    }
+                                    else
+                                    {
+                                        columnName = dataGridView.Columns[column].HeaderText;
+                                    }
+                                        worksheet.Cell(row, actualCol).Value = columnName;
+                                    actualCol++;
+                                }
                             }
 
                             foreach (DataGridViewRow dataGridViewRow in dataGridView.Rows)
@@ -206,24 +227,33 @@ namespace SportEventCalendar
                                                 try
                                                 {
                                                     byte[] imageBytes = Convert.FromBase64String(value.ToString());
+
                                                     using (var ms = new MemoryStream(imageBytes))
                                                     {
-                                                        var picture = worksheet.AddPicture(ms, $"Image_{row}_{col}")
-                                                            .MoveTo(worksheet.Cell(row, col + 1))
-                                                            .WithSize(100, 100);
+                                                        var cell = worksheet.Cell(row, col + 1);
+                                                        worksheet.Row(row).Height = 75;        
+                                                        worksheet.Column(col + 1).Width = 18;  
+
+                                                        var picture = worksheet.AddPicture(ms, $"Image_{row}_{col}.png")
+                                                                               .MoveTo(cell)
+                                                                               .WithSize(100, 100); 
                                                     }
                                                 }
-                                                catch
+                                                catch (FormatException)
                                                 {
-                                                    worksheet.Cell(row, col + 1).Value = "[ошибка изображения]";
+                                                    worksheet.Cell(row, col + 1).Value = "[Неверный формат Base64]";
+                                                }
+                                                catch (IOException)
+                                                {
+                                                    worksheet.Cell(row, col + 1).Value = "[Ошибка вставки изображения]";
+                                                }
+                                                catch (Exception)
+                                                {
+                                                    worksheet.Cell(row, col + 1).Value = "[Ошибка изображения]";
                                                 }
 
                                             }
-                                            if (columnName == "Sport_number")
-                                            {
-                                                continue;
-                                            }
-                                            else
+                                            else if (columnName != "Sport_number" && columnName != "Actions")
                                             {
                                                 worksheet.Cell(row, col + 1).Value = value?.ToString() ?? string.Empty;
                                             }
@@ -241,7 +271,7 @@ namespace SportEventCalendar
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show(Resources.reportCreatingError,
+                        MessageBox.Show(Resources.reportCreatingError + ex.Message,
                             Resources.errorTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }

@@ -142,6 +142,15 @@ namespace SportEventCalendar.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Выберите спорт!.
+        /// </summary>
+        internal static string selectSport {
+            get {
+                return ResourceManager.GetString("selectSport", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Выберите хотя бы одну команду!.
         /// </summary>
         internal static string selectTeams {

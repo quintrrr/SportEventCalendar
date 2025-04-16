@@ -144,6 +144,9 @@
   <data name="reportCreatingError" xml:space="preserve">
     <value>Ошибка при создании отчета</value>
   </data>
+  <data name="selectSport" xml:space="preserve">
+    <value>Выберите спорт!</value>
+  </data>
   <data name="selectTeams" xml:space="preserve">
     <value>Выберите хотя бы одну команду!</value>
   </data>

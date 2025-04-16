@@ -182,7 +182,7 @@ namespace SportEventCalendar
                             var worksheet = workbook.Worksheets.Add("События");
 
                             var row = 1;
-                            int actualCol = 1;
+                            var actualCol = 1;
 
                             for (var column = 0; column < dataGridView.Columns.Count; column++)
                             {
@@ -215,50 +215,52 @@ namespace SportEventCalendar
                                 if (!dataGridViewRow.IsNewRow)
                                 {
                                     row++;
-                                    for (var col = 0; col < dataGridView.Columns.Count; col++)
+                                    var id = dataGridViewRow.Cells["Id"].Value?.ToString() ?? string.Empty;
+                                    var name = dataGridViewRow.Cells["Name"].Value?.ToString() ?? string.Empty;
+                                    var description = dataGridViewRow.Cells["Description"].Value?.ToString() ?? string.Empty;
+                                    var startDate = dataGridViewRow.Cells["Start_date"].Value?.ToString() ?? string.Empty;
+                                    var endDate = dataGridViewRow.Cells["End_date"].Value?.ToString() ?? string.Empty;
+                                    var time = dataGridViewRow.Cells["Time"].Value?.ToString() ?? string.Empty;
+                                    var imageUrl = dataGridViewRow.Cells["Image_url"].Value?.ToString();
+                                    var sportName = dataGridViewRow.Cells["Sport_name"].Value?.ToString() ?? string.Empty;
+
+                                    worksheet.Cell(row, 1).Value = id;           
+                                    worksheet.Cell(row, 2).Value = name;         
+                                    worksheet.Cell(row, 3).Value = description;  
+                                    worksheet.Cell(row, 4).Value = startDate;    
+                                    worksheet.Cell(row, 5).Value = endDate;      
+                                    worksheet.Cell(row, 6).Value = time;         
+                                    if (!string.IsNullOrEmpty(imageUrl))
                                     {
-                                        if (col < dataGridViewRow.Cells.Count)
+                                        try
                                         {
-                                            var columnName = dataGridView.Columns[col].Name;
-                                            var value = dataGridViewRow.Cells[col].Value;
+                                            var imageBytes = Convert.FromBase64String(imageUrl);
 
-                                            if (columnName == "Image_url" && value != null)
+                                            using (var ms = new MemoryStream(imageBytes))
                                             {
-                                                try
-                                                {
-                                                    byte[] imageBytes = Convert.FromBase64String(value.ToString());
+                                                var cell = worksheet.Cell(row, 7);
+                                                worksheet.Row(row).Height = 75;
+                                                worksheet.Column(7).Width = 18;
 
-                                                    using (var ms = new MemoryStream(imageBytes))
-                                                    {
-                                                        var cell = worksheet.Cell(row, col + 1);
-                                                        worksheet.Row(row).Height = 75;        
-                                                        worksheet.Column(col + 1).Width = 18;  
-
-                                                        var picture = worksheet.AddPicture(ms, $"Image_{row}_{col}.png")
-                                                                               .MoveTo(cell)
-                                                                               .WithSize(100, 100); 
-                                                    }
-                                                }
-                                                catch (FormatException)
-                                                {
-                                                    worksheet.Cell(row, col + 1).Value = "[Неверный формат Base64]";
-                                                }
-                                                catch (IOException)
-                                                {
-                                                    worksheet.Cell(row, col + 1).Value = "[Ошибка вставки изображения]";
-                                                }
-                                                catch (Exception)
-                                                {
-                                                    worksheet.Cell(row, col + 1).Value = "[Ошибка изображения]";
-                                                }
-
-                                            }
-                                            else if (columnName != "Sport_number" && columnName != "Actions")
-                                            {
-                                                worksheet.Cell(row, col + 1).Value = value?.ToString() ?? string.Empty;
+                                                var picture = worksheet.AddPicture(ms, $"Image_{row}_{7}.png")
+                                                                       .MoveTo(cell)
+                                                                       .WithSize(100, 100);
                                             }
                                         }
+                                        catch (FormatException)
+                                        {
+                                            worksheet.Cell(row, 7).Value = "[Неверный формат Base64]";
+                                        }
+                                        catch (IOException)
+                                        {
+                                            worksheet.Cell(row, 7).Value = "[Ошибка вставки изображения]";
+                                        }
+                                        catch (Exception)
+                                        {
+                                            worksheet.Cell(row, 7).Value = "[Ошибка изображения]";
+                                        }
                                     }
+                                    worksheet.Cell(row, 8).Value = sportName;
                                 }
                             }
 
@@ -271,7 +273,7 @@ namespace SportEventCalendar
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show(Resources.reportCreatingError + ex.Message,
+                        MessageBox.Show(Resources.reportCreatingError,
                             Resources.errorTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }

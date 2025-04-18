@@ -66,7 +66,6 @@
             dataGridView.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView.BackgroundColor = Color.White;
-            dataGridView.BorderStyle = BorderStyle.None;
             dataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView.EditMode = DataGridViewEditMode.EditProgrammatically;
             dataGridView.GridColor = SystemColors.GrayText;
@@ -75,7 +74,7 @@
             dataGridView.MultiSelect = false;
             dataGridView.Name = "dataGridView";
             dataGridView.RowHeadersWidth = 82;
-            dataGridView.Size = new Size(960, 241);
+            dataGridView.Size = new Size(960, 349);
             dataGridView.TabIndex = 3;
             dataGridView.CellClick += dataGridView1_CellClick_1;
             // 
@@ -223,7 +222,7 @@
             AutoScaleDimensions = new SizeF(8F, 14F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(1023, 426);
+            ClientSize = new Size(1023, 534);
             Controls.Add(dataGridView);
             Controls.Add(dataSelectorGroupBox);
             Controls.Add(windowName);
@@ -232,7 +231,7 @@
             Font = new Font("Verdana", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(2, 1, 2, 1);
-            MinimumSize = new Size(1039, 465);
+            MinimumSize = new Size(1039, 573);
             Name = "MainWindow";
             Text = "SportMaster";
             Load += MainWindow_Load;

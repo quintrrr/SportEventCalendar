@@ -47,7 +47,7 @@ namespace SportEventCalendar
             editButton.Visible = false;
             deleteButton.Visible = false;
             saveButton.Visible = true;
-            cancel2Button.Visible = true;
+            cancelButton.Visible = true;
             teamViewerGroupBox.Visible = false;
             teamSelectorGroupBox.Visible = true;
             imageButton.Visible = true;
@@ -67,7 +67,7 @@ namespace SportEventCalendar
             editButton.Visible = true;
             deleteButton.Visible = true;
             saveButton.Visible = false;
-            cancel2Button.Visible = false;
+            cancelButton.Visible = false;
             teamViewerGroupBox.Visible = true;
             teamSelectorGroupBox.Visible = false;
             imageButton.Visible = false;

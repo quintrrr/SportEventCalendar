@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Mac\\Home\\Documents\\Projects\\c#\\SportEventCalendar\\SportEventCalendar\\SportEventCalendar.csproj": {}
+    "C:\\Users\\Adminchik\\Desktop\\SportEventCalendar\\SportEventCalendar\\SportEventCalendar.csproj": {}
   },
   "projects": {
-    "C:\\Mac\\Home\\Documents\\Projects\\c#\\SportEventCalendar\\SportEventCalendar\\SportEventCalendar.csproj": {
+    "C:\\Users\\Adminchik\\Desktop\\SportEventCalendar\\SportEventCalendar\\SportEventCalendar.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Mac\\Home\\Documents\\Projects\\c#\\SportEventCalendar\\SportEventCalendar\\SportEventCalendar.csproj",
+        "projectUniqueName": "C:\\Users\\Adminchik\\Desktop\\SportEventCalendar\\SportEventCalendar\\SportEventCalendar.csproj",
         "projectName": "SportEventCalendar",
-        "projectPath": "C:\\Mac\\Home\\Documents\\Projects\\c#\\SportEventCalendar\\SportEventCalendar\\SportEventCalendar.csproj",
-        "packagesPath": "C:\\Users\\mrhumidum\\.nuget\\packages\\",
-        "outputPath": "C:\\Mac\\Home\\Documents\\Projects\\c#\\SportEventCalendar\\SportEventCalendar\\obj\\",
+        "projectPath": "C:\\Users\\Adminchik\\Desktop\\SportEventCalendar\\SportEventCalendar\\SportEventCalendar.csproj",
+        "packagesPath": "C:\\Users\\Adminchik\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Adminchik\\Desktop\\SportEventCalendar\\SportEventCalendar\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\mrhumidum\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Adminchik\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -88,7 +88,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.201/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

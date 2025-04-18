@@ -18,6 +18,7 @@ namespace SportEventCalendar
                 actionsColumn.Text = "⋮";
                 actionsColumn.UseColumnTextForButtonValue = true;
                 actionsColumn.Width = 50;
+                
 
                 dataGridView.Columns.Add(actionsColumn);
             }
@@ -269,6 +270,7 @@ namespace SportEventCalendar
             dataGridView.Columns["start_date"].HeaderText = "Дата начала";
 
             dataGridView.Columns["end_date"].DisplayIndex = 2;
+            
             dataGridView.Columns["end_date"].HeaderText = "Дата конца";
 
             dataGridView.Columns["time"].DisplayIndex = 3;

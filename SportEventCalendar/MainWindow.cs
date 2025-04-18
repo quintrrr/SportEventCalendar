@@ -133,7 +133,7 @@ namespace SportEventCalendar
         private void ApplyButton_Click(object sender, EventArgs e)
         {
             var startDateTime = startDate.Value.AddHours(10).ToUniversalTime();
-            if (finishDate.Value.ToUniversalTime() > startDate.Value.ToUniversalTime())
+            if (finishDate.Value.ToUniversalTime() < startDateTime)
             {
                 MessageBox.Show(Resources.dateError, Resources.errorTitle,
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);

@@ -1,4 +1,5 @@
-﻿using SportEventCalendar.Properties;
+﻿using System.Diagnostics;
+using SportEventCalendar.Properties;
 
 namespace SportEventCalendar.Classes
 {
@@ -33,6 +34,7 @@ namespace SportEventCalendar.Classes
             {
                 MessageBox.Show(Resources.fileDoesntExist, Resources.errorTitle, 
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                Process.GetCurrentProcess().Kill();
             }
 
             foreach (var line in File.ReadAllLines(filePath))

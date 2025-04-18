@@ -29,14 +29,16 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             windowName = new Label();
             dataGridView = new DataGridView();
             startDate = new DateTimePicker();
             finishDate = new DateTimePicker();
             applyButton = new Button();
-            addButtom = new Button();
+            addButton = new Button();
             sportSelector = new ComboBox();
-            reportButtom = new Button();
+            reportButton = new Button();
             saveFileDialog = new SaveFileDialog();
             dataSelectorGroupBox = new GroupBox();
             label7 = new Label();
@@ -57,15 +59,33 @@
             // dataGridView
             // 
             resources.ApplyResources(dataGridView, "dataGridView");
+            dataGridView.AllowUserToDeleteRows = false;
             dataGridView.AllowUserToOrderColumns = true;
             dataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView.BackgroundColor = Color.White;
             dataGridView.BorderStyle = BorderStyle.None;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.White;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView.EditMode = DataGridViewEditMode.EditProgrammatically;
             dataGridView.GridColor = SystemColors.GrayText;
             dataGridView.MultiSelect = false;
             dataGridView.Name = "dataGridView";
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.White;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle2.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridView.RowTemplate.ReadOnly = true;
             dataGridView.CellClick += dataGridView1_CellClick_1;
             // 
             // startDate
@@ -74,6 +94,15 @@
             startDate.CalendarTrailingForeColor = Color.Silver;
             startDate.Format = DateTimePickerFormat.Short;
             startDate.Name = "startDate";
+            // 
+            // sportSelector
+            // 
+            resources.ApplyResources(sportSelector, "sportSelector");
+            sportSelector.BackColor = Color.White;
+            sportSelector.DropDownStyle = ComboBoxStyle.DropDownList;
+            sportSelector.FormattingEnabled = true;
+            sportSelector.Name = "sportSelector";
+            sportSelector.SelectedIndexChanged += sportSelector_SelectedIndexChanged;
             // 
             // finishDate
             // 
@@ -90,30 +119,22 @@
             applyButton.UseVisualStyleBackColor = true;
             applyButton.Click += ApplyButton_Click;
             // 
-            // addButtom
+            // addButton
             // 
-            resources.ApplyResources(addButtom, "addButtom");
-            addButtom.FlatAppearance.BorderColor = Color.Silver;
-            addButtom.Name = "addButtom";
-            addButtom.UseVisualStyleBackColor = true;
-            addButtom.Click += AddButtom_Click;
+            resources.ApplyResources(addButton, "addButton");
+            addButton.FlatAppearance.BorderColor = Color.Silver;
+            addButton.Name = "addButton";
+            addButton.UseVisualStyleBackColor = true;
+            addButton.Click += AddButtom_Click;
+            
             // 
-            // sportSelector
+            // reportButton
             // 
-            resources.ApplyResources(sportSelector, "sportSelector");
-            sportSelector.BackColor = Color.White;
-            sportSelector.DropDownStyle = ComboBoxStyle.DropDownList;
-            sportSelector.FormattingEnabled = true;
-            sportSelector.Name = "sportSelector";
-            sportSelector.SelectedIndexChanged += sportSelector_SelectedIndexChanged;
-            // 
-            // reportButtom
-            // 
-            resources.ApplyResources(reportButtom, "reportButtom");
-            reportButtom.FlatAppearance.BorderColor = Color.Silver;
-            reportButtom.Name = "reportButtom";
-            reportButtom.UseVisualStyleBackColor = true;
-            reportButtom.Click += reportButtom_Click_1;
+            resources.ApplyResources(reportButton, "reportButton");
+            reportButton.FlatAppearance.BorderColor = Color.Silver;
+            reportButton.Name = "reportButton";
+            reportButton.UseVisualStyleBackColor = true;
+            reportButton.Click += NoFilterButtonClick;
             // 
             // saveFileDialog
             // 
@@ -153,8 +174,8 @@
             // 
             resources.ApplyResources(buttonsPanel, "buttonsPanel");
             buttonsPanel.Controls.Add(button1);
-            buttonsPanel.Controls.Add(addButtom);
-            buttonsPanel.Controls.Add(reportButtom);
+            buttonsPanel.Controls.Add(addButton);
+            buttonsPanel.Controls.Add(reportButton);
             buttonsPanel.Name = "buttonsPanel";
             // 
             // MainWindow
@@ -184,9 +205,9 @@
         private DateTimePicker startDate;
         private DateTimePicker finishDate;
         private Button applyButton;
-        private Button addButtom;
+        private Button addButton;
         private ComboBox sportSelector;
-        private Button reportButtom;
+        private Button reportButton;
         private SaveFileDialog saveFileDialog;
         private GroupBox dataSelectorGroupBox;
         private GroupBox sportSelectorGroupBox;

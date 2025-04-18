@@ -32,13 +32,35 @@ namespace SportEventCalendar
                 actionsColumn.HeaderText = string.Empty;
                 actionsColumn.Text = "⋮";
                 actionsColumn.UseColumnTextForButtonValue = true;
-                actionsColumn.Width = 50;
-                
+                actionsColumn.Width = 20;
+                actionsColumn.MinimumWidth = 20;
+
+                actionsColumn.FillWeight = 20;
 
                 dataGridView.Columns.Add(actionsColumn);
             }
         }
 
+        /// <summary>
+        /// Обработчик изменения выбранного вида спорта
+        /// </summary>
+        private void sportSelector_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.WaitCursor;
+            this.Enabled = false;
+            var sortedSportEvents = GetSportEvents();
+            var selectedSportNumber = ((Sport)sportSelector.SelectedItem).Sport_number;
+            if (selectedSportNumber != 0)
+            {
+                sortedSportEvents = sortedSportEvents
+                   .Where(sportEvent => sportEvent.Sport_number == selectedSportNumber)
+                   .ToList();
+            }
+            dataGridView.DataSource = sortedSportEvents;
+            ConfigureDataGridViewColumns();
+            this.Enabled = true;
+            this.Cursor = Cursors.Default;
+        }
         /// <summary>
         /// Обработчик загрузки главного окна
         /// </summary>
@@ -102,9 +124,16 @@ namespace SportEventCalendar
         {
             this.Cursor = Cursors.WaitCursor;
             this.Enabled = false;
-            var events = GetSportEvents();
-
-            dataGridView.DataSource = events;
+            var currentTime = DateTime.Now.ToUniversalTime().AddDays(-1);
+            var sortedSportEvents = GetSportEvents();
+            sortedSportEvents = sortedSportEvents
+                .Where(sportEvent =>
+            sportEvent.Start_date > currentTime || 
+            (sportEvent.Start_date <= currentTime && sportEvent.End_date >= currentTime))
+                .OrderBy(sportEvent => sportEvent.Start_date)
+                .ThenBy(sportEvent => sportEvent.End_date)
+                .ToList();
+            dataGridView.DataSource = sortedSportEvents;
             ConfigureDataGridViewColumns();
             this.Cursor = Cursors.Default;
             this.Enabled = true;
@@ -132,8 +161,8 @@ namespace SportEventCalendar
         /// </summary>
         private void ApplyButton_Click(object sender, EventArgs e)
         {
-            var startDateTime = startDate.Value.AddHours(10).ToUniversalTime();
-            if (finishDate.Value.ToUniversalTime() < startDateTime)
+            var startDateTime = startDate.Value.AddHours(1).ToUniversalTime();
+            if (finishDate.Value.ToUniversalTime() > startDateTime)
             {
                 MessageBox.Show(Resources.dateError, Resources.errorTitle,
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -222,18 +251,37 @@ namespace SportEventCalendar
                                     var id = dataGridViewRow.Cells["Id"].Value?.ToString() ?? string.Empty;
                                     var name = dataGridViewRow.Cells["Name"].Value?.ToString() ?? string.Empty;
                                     var description = dataGridViewRow.Cells["Description"].Value?.ToString() ?? string.Empty;
-                                    var startDate = dataGridViewRow.Cells["Start_date"].Value?.ToString() ?? string.Empty;
-                                    var endDate = dataGridViewRow.Cells["End_date"].Value?.ToString() ?? string.Empty;
-                                    var time = dataGridViewRow.Cells["Time"].Value?.ToString() ?? string.Empty;
                                     var imageUrl = dataGridViewRow.Cells["Image_url"].Value?.ToString();
                                     var sportName = dataGridViewRow.Cells["Sport_name"].Value?.ToString() ?? string.Empty;
 
-                                    worksheet.Cell(row, 1).Value = id;           
+                                    worksheet.Column(1).Width = 30; 
+                                    worksheet.Column(2).Width = 30; 
+                                    worksheet.Column(3).Width = 30; 
+                                    worksheet.Column(4).Width = 10; 
+                                    worksheet.Column(5).Width = 10; 
+                                    worksheet.Column(6).Width = 5;  
+                                    worksheet.Column(7).Width = 10; 
+                                    worksheet.Column(8).Width = 10;
+                                    worksheet.Column(3).Style.Alignment.WrapText = true;
+                                    worksheet.Cell(row, 1).Value = id;
                                     worksheet.Cell(row, 2).Value = name;         
-                                    worksheet.Cell(row, 3).Value = description;  
-                                    worksheet.Cell(row, 4).Value = startDate;    
-                                    worksheet.Cell(row, 5).Value = endDate;      
-                                    worksheet.Cell(row, 6).Value = time;         
+                                    worksheet.Cell(row, 3).Value = description;
+                                    worksheet.Cell(row, 4).Value = sportName;
+                                    if (dataGridViewRow.Cells["Start_date"].Value is DateTime startDate)
+                                    {
+                                        worksheet.Cell(row, 5).Value = startDate;
+                                        worksheet.Cell(row, 5).Style.DateFormat.Format = "dd.MM.yyyy";
+                                    }
+                                    if (dataGridViewRow.Cells["End_date"].Value is DateTime endDate)
+                                    {
+                                        worksheet.Cell(row, 6).Value = endDate;
+                                        worksheet.Cell(row, 6).Style.DateFormat.Format = "dd.MM.yyyy";
+                                    }
+                                    if (dataGridViewRow.Cells["Time"].Value is TimeSpan time)
+                                    {
+                                        worksheet.Cell(row, 7).Value = time;
+                                        worksheet.Cell(row, 7).Style.NumberFormat.Format = "hh:mm";
+                                    }
                                     if (!string.IsNullOrEmpty(imageUrl))
                                     {
                                         try
@@ -242,7 +290,7 @@ namespace SportEventCalendar
 
                                             using (var ms = new MemoryStream(imageBytes))
                                             {
-                                                var cell = worksheet.Cell(row, 7);
+                                                var cell = worksheet.Cell(row, 8);
                                                 worksheet.Row(row).Height = 75;
                                                 worksheet.Column(7).Width = 18;
 
@@ -253,18 +301,17 @@ namespace SportEventCalendar
                                         }
                                         catch (FormatException)
                                         {
-                                            worksheet.Cell(row, 7).Value = "[Неверный формат Base64]";
+                                            worksheet.Cell(row, 8).Value = "[Неверный формат Base64]";
                                         }
                                         catch (IOException)
                                         {
-                                            worksheet.Cell(row, 7).Value = "[Ошибка вставки изображения]";
+                                            worksheet.Cell(row, 8).Value = "[Ошибка вставки изображения]";
                                         }
                                         catch (Exception)
                                         {
-                                            worksheet.Cell(row, 7).Value = "[Ошибка изображения]";
+                                            worksheet.Cell(row, 8).Value = "[Ошибка изображения]";
                                         }
                                     }
-                                    worksheet.Cell(row, 8).Value = sportName;
                                 }
                             }
 
@@ -284,26 +331,8 @@ namespace SportEventCalendar
             }
         }
 
-        /// <summary>
-        /// Обработчик изменения выбранного вида спорта
-        /// </summary>
-        private void sportSelector_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            this.Cursor = Cursors.WaitCursor;
-            this.Enabled = false;
-            var sortedSportEvents = GetSportEvents();
-            var selectedSportNumber = ((Sport)sportSelector.SelectedItem).Sport_number;
-            if (selectedSportNumber != 0)
-            {
-                sortedSportEvents = sortedSportEvents
-                   .Where(sportEvent => sportEvent.Sport_number == selectedSportNumber)
-                   .ToList();
-            }
-            dataGridView.DataSource = sortedSportEvents;
-            ConfigureDataGridViewColumns();
-            this.Enabled = true;
-            this.Cursor = Cursors.Default;
-        }
+        
+        
 
         /// <summary>
         /// Настраивает отображение столбцов в таблице событий
@@ -329,6 +358,11 @@ namespace SportEventCalendar
 
             dataGridView.Columns["time"].DisplayIndex = 3;
             dataGridView.Columns["time"].HeaderText = "Время";
+            if (dataGridView.Columns["time"].ValueType == typeof(TimeSpan))
+            {
+                dataGridView.Columns["time"].DefaultCellStyle.Format = "hh\\:mm";
+                dataGridView.Columns["time"].DefaultCellStyle.NullValue = "00:00";
+            }
 
             dataGridView.Columns["sport_name"].DisplayIndex = 4;
             dataGridView.Columns["sport_name"].HeaderText = "Вид спорта";
@@ -337,7 +371,7 @@ namespace SportEventCalendar
         /// <summary>
         /// Сбрасывает фильтры и обновляет данные
         /// </summary>
-        private void reportButtom_Click_1(object sender, EventArgs e)
+        private void NoFilterButtonClick(object sender, EventArgs e)
         {
             sportSelector.SelectedIndex = 0;
             startDate.Value = DateTime.Now;

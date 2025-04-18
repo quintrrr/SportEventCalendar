@@ -352,8 +352,8 @@ namespace SportEventCalendar
                         MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
-                var startDateTime = startDate.Value.AddHours(10).ToUniversalTime();
-                if (finishDate.Value.ToUniversalTime() < startDate.Value.ToUniversalTime())
+                var startDateTime = startDate.Value.AddHours(1).ToUniversalTime();
+                if (finishDate.Value.ToUniversalTime() > startDateTime)
                 {
                     MessageBox.Show(Resources.dateError, Resources.errorTitle,
                         MessageBoxButtons.OK, MessageBoxIcon.Warning);

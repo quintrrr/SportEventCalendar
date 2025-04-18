@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System.Diagnostics;
+using Microsoft.EntityFrameworkCore;
 using SportEventCalendar.Properties;
 
 namespace SportEventCalendar.Classes
@@ -59,7 +60,7 @@ namespace SportEventCalendar.Classes
             {
                 MessageBox.Show(Resources.conString, Resources.errorTitle,
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
+                Process.GetCurrentProcess().Kill();
             }
             var host = Environment.GetEnvironmentVariable("DB_HOST");
             var port = Environment.GetEnvironmentVariable("DB_PORT");

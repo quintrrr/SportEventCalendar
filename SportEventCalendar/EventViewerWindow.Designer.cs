@@ -30,7 +30,6 @@
         {
             teamSelectorCheckBox = new CheckedListBox();
             timePicker = new DateTimePicker();
-            imageButton = new Button();
             deleteButton = new Button();
             pictureBox = new PictureBox();
             startDate = new DateTimePicker();
@@ -55,7 +54,9 @@
             panel1 = new Panel();
             panel2 = new Panel();
             panel3 = new Panel();
+            imageButton = new Button();
             panel4 = new Panel();
+            tableLayoutPanel1 = new TableLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)pictureBox).BeginInit();
             dateSelectorGroupBox.SuspendLayout();
             sportSelectorGroupBox.SuspendLayout();
@@ -66,6 +67,7 @@
             panel2.SuspendLayout();
             panel3.SuspendLayout();
             panel4.SuspendLayout();
+            tableLayoutPanel1.SuspendLayout();
             SuspendLayout();
             // 
             // teamSelectorCheckBox
@@ -78,7 +80,7 @@
             teamSelectorCheckBox.Location = new Point(5, 16);
             teamSelectorCheckBox.Margin = new Padding(2, 1, 2, 1);
             teamSelectorCheckBox.Name = "teamSelectorCheckBox";
-            teamSelectorCheckBox.Size = new Size(540, 102);
+            teamSelectorCheckBox.Size = new Size(508, 102);
             teamSelectorCheckBox.TabIndex = 0;
             // 
             // timePicker
@@ -87,29 +89,13 @@
             timePicker.CustomFormat = "hh:mm";
             timePicker.Enabled = false;
             timePicker.Format = DateTimePickerFormat.Custom;
-            timePicker.Location = new Point(442, 28);
+            timePicker.Location = new Point(410, 28);
             timePicker.Margin = new Padding(2, 1, 2, 1);
             timePicker.Name = "timePicker";
             timePicker.ShowUpDown = true;
             timePicker.Size = new Size(90, 22);
             timePicker.TabIndex = 40;
             timePicker.TabStop = false;
-            // 
-            // imageButton
-            // 
-            imageButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            imageButton.BackColor = Color.White;
-            imageButton.FlatStyle = FlatStyle.Flat;
-            imageButton.Location = new Point(2, 203);
-            imageButton.Margin = new Padding(2, 1, 2, 1);
-            imageButton.Name = "imageButton";
-            imageButton.Size = new Size(269, 29);
-            imageButton.TabIndex = 39;
-            imageButton.TabStop = false;
-            imageButton.Text = "Изменить изображениe";
-            imageButton.UseVisualStyleBackColor = true;
-            imageButton.Visible = false;
-            imageButton.Click += imageButton_Click;
             // 
             // deleteButton
             // 
@@ -131,10 +117,10 @@
             pictureBox.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             pictureBox.BorderStyle = BorderStyle.FixedSingle;
             pictureBox.ImageLocation = "";
-            pictureBox.Location = new Point(2, 3);
+            pictureBox.Location = new Point(2, 13);
             pictureBox.Margin = new Padding(2, 1, 2, 1);
             pictureBox.Name = "pictureBox";
-            pictureBox.Size = new Size(269, 191);
+            pictureBox.Size = new Size(293, 172);
             pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox.TabIndex = 36;
             pictureBox.TabStop = false;
@@ -177,7 +163,7 @@
             EventDescription.PlaceholderText = " Введите описание";
             EventDescription.ReadOnly = true;
             EventDescription.ScrollBars = ScrollBars.Vertical;
-            EventDescription.Size = new Size(539, 125);
+            EventDescription.Size = new Size(507, 116);
             EventDescription.TabIndex = 27;
             EventDescription.TabStop = false;
             // 
@@ -193,7 +179,7 @@
             EventName.Name = "EventName";
             EventName.PlaceholderText = "Введите название";
             EventName.ReadOnly = true;
-            EventName.Size = new Size(534, 25);
+            EventName.Size = new Size(502, 25);
             EventName.TabIndex = 26;
             EventName.TabStop = false;
             // 
@@ -217,7 +203,7 @@
             sportSelector.Location = new Point(17, 28);
             sportSelector.Margin = new Padding(2, 1, 2, 1);
             sportSelector.Name = "sportSelector";
-            sportSelector.Size = new Size(236, 22);
+            sportSelector.Size = new Size(260, 22);
             sportSelector.TabIndex = 34;
             sportSelector.SelectedIndexChanged += sportSelector_SelectedIndexChanged;
             // 
@@ -294,17 +280,17 @@
             // 
             // teamsView
             // 
-            teamsView.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            teamsView.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             teamsView.BackColor = Color.White;
             teamsView.BorderStyle = BorderStyle.None;
             teamsView.Indent = 5;
             teamsView.LineColor = Color.White;
-            teamsView.Location = new Point(5, 17);
+            teamsView.Location = new Point(12, 16);
             teamsView.Margin = new Padding(2, 1, 2, 1);
             teamsView.Name = "teamsView";
             teamsView.PathSeparator = "";
             teamsView.ShowLines = false;
-            teamsView.Size = new Size(490, 101);
+            teamsView.Size = new Size(500, 107);
             teamsView.TabIndex = 51;
             teamsView.TabStop = false;
             // 
@@ -319,46 +305,46 @@
             dateSelectorGroupBox.Margin = new Padding(2, 1, 2, 1);
             dateSelectorGroupBox.Name = "dateSelectorGroupBox";
             dateSelectorGroupBox.Padding = new Padding(2, 1, 2, 1);
-            dateSelectorGroupBox.Size = new Size(549, 66);
+            dateSelectorGroupBox.Size = new Size(517, 66);
             dateSelectorGroupBox.TabIndex = 51;
             dateSelectorGroupBox.TabStop = false;
             dateSelectorGroupBox.Text = "Дата и время";
             // 
             // sportSelectorGroupBox
             // 
-            sportSelectorGroupBox.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            sportSelectorGroupBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             sportSelectorGroupBox.Controls.Add(sportSelector);
             sportSelectorGroupBox.Location = new Point(2, 4);
             sportSelectorGroupBox.Margin = new Padding(2, 1, 2, 1);
             sportSelectorGroupBox.Name = "sportSelectorGroupBox";
             sportSelectorGroupBox.Padding = new Padding(2, 1, 2, 1);
-            sportSelectorGroupBox.Size = new Size(269, 66);
+            sportSelectorGroupBox.Size = new Size(293, 66);
             sportSelectorGroupBox.TabIndex = 52;
             sportSelectorGroupBox.TabStop = false;
             sportSelectorGroupBox.Text = "Вид спорта";
             // 
             // teamViewerGroupBox
             // 
-            teamViewerGroupBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            teamViewerGroupBox.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             teamViewerGroupBox.Controls.Add(teamsView);
             teamViewerGroupBox.Location = new Point(2, 77);
             teamViewerGroupBox.Margin = new Padding(2, 1, 2, 1);
             teamViewerGroupBox.Name = "teamViewerGroupBox";
             teamViewerGroupBox.Padding = new Padding(2, 1, 2, 1);
-            teamViewerGroupBox.Size = new Size(549, 120);
+            teamViewerGroupBox.Size = new Size(517, 126);
             teamViewerGroupBox.TabIndex = 53;
             teamViewerGroupBox.TabStop = false;
             teamViewerGroupBox.Text = "Команды";
             // 
             // teamSelectorGroupBox
             // 
-            teamSelectorGroupBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            teamSelectorGroupBox.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             teamSelectorGroupBox.Controls.Add(teamSelectorCheckBox);
             teamSelectorGroupBox.Location = new Point(2, 77);
             teamSelectorGroupBox.Margin = new Padding(2, 1, 2, 1);
             teamSelectorGroupBox.Name = "teamSelectorGroupBox";
             teamSelectorGroupBox.Padding = new Padding(2, 1, 2, 1);
-            teamSelectorGroupBox.Size = new Size(549, 120);
+            teamSelectorGroupBox.Size = new Size(517, 126);
             teamSelectorGroupBox.TabIndex = 54;
             teamSelectorGroupBox.TabStop = false;
             teamSelectorGroupBox.Text = "Выбор команд";
@@ -373,7 +359,7 @@
             groupBox1.ForeColor = SystemColors.ControlDarkDark;
             groupBox1.Location = new Point(3, 3);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(548, 70);
+            groupBox1.Size = new Size(516, 66);
             groupBox1.TabIndex = 55;
             groupBox1.TabStop = false;
             groupBox1.Text = "Название";
@@ -384,9 +370,9 @@
             groupBox2.BackColor = Color.White;
             groupBox2.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             groupBox2.ForeColor = SystemColors.ControlDarkDark;
-            groupBox2.Location = new Point(3, 78);
+            groupBox2.Location = new Point(3, 74);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(548, 154);
+            groupBox2.Size = new Size(516, 149);
             groupBox2.TabIndex = 56;
             groupBox2.TabStop = false;
             groupBox2.Text = "Описание";
@@ -398,39 +384,76 @@
             panel1.Controls.Add(groupBox1);
             panel1.Controls.Add(EventDescription);
             panel1.Controls.Add(groupBox2);
-            panel1.Location = new Point(9, 52);
+            panel1.Location = new Point(3, 3);
             panel1.Name = "panel1";
-            panel1.Size = new Size(554, 235);
+            panel1.Size = new Size(522, 226);
             panel1.TabIndex = 57;
             // 
             // panel2
             // 
-            panel2.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            panel2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panel2.BackColor = Color.White;
             panel2.Controls.Add(teamViewerGroupBox);
             panel2.Controls.Add(dateSelectorGroupBox);
             panel2.Controls.Add(teamSelectorGroupBox);
-            panel2.Location = new Point(9, 293);
+            panel2.Location = new Point(3, 235);
             panel2.Name = "panel2";
-            panel2.Size = new Size(554, 201);
+            panel2.Size = new Size(522, 207);
             panel2.TabIndex = 58;
             // 
             // panel3
             // 
+            panel3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panel3.Controls.Add(pictureBox);
             panel3.Controls.Add(imageButton);
-            panel3.Location = new Point(569, 52);
+            panel3.Location = new Point(531, 3);
             panel3.Name = "panel3";
-            panel3.Size = new Size(275, 235);
+            panel3.Size = new Size(299, 226);
             panel3.TabIndex = 59;
+            // 
+            // imageButton
+            // 
+            imageButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            imageButton.BackColor = Color.White;
+            imageButton.FlatAppearance.BorderColor = Color.Silver;
+            imageButton.FlatStyle = FlatStyle.Flat;
+            imageButton.Location = new Point(2, 194);
+            imageButton.Margin = new Padding(2, 1, 2, 1);
+            imageButton.Name = "imageButton";
+            imageButton.Size = new Size(293, 29);
+            imageButton.TabIndex = 39;
+            imageButton.TabStop = false;
+            imageButton.Text = "Изменить изображениe";
+            imageButton.UseVisualStyleBackColor = true;
+            imageButton.Visible = false;
+            imageButton.Click += imageButton_Click;
             // 
             // panel4
             // 
+            panel4.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panel4.Controls.Add(sportSelectorGroupBox);
-            panel4.Location = new Point(569, 293);
+            panel4.Location = new Point(531, 235);
             panel4.Name = "panel4";
-            panel4.Size = new Size(275, 201);
+            panel4.Size = new Size(299, 207);
             panel4.TabIndex = 60;
+            // 
+            // tableLayoutPanel1
+            // 
+            tableLayoutPanel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            tableLayoutPanel1.ColumnCount = 2;
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 63.3853531F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 36.6146469F));
+            tableLayoutPanel1.Controls.Add(panel1, 0, 0);
+            tableLayoutPanel1.Controls.Add(panel4, 1, 1);
+            tableLayoutPanel1.Controls.Add(panel3, 1, 0);
+            tableLayoutPanel1.Controls.Add(panel2, 0, 1);
+            tableLayoutPanel1.Location = new Point(9, 52);
+            tableLayoutPanel1.Name = "tableLayoutPanel1";
+            tableLayoutPanel1.RowCount = 2;
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 52.13483F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 47.86517F));
+            tableLayoutPanel1.Size = new Size(833, 445);
+            tableLayoutPanel1.TabIndex = 27;
             // 
             // EventViewerWindow
             // 
@@ -439,10 +462,7 @@
             BackColor = Color.White;
             BackgroundImageLayout = ImageLayout.None;
             ClientSize = new Size(854, 538);
-            Controls.Add(panel4);
-            Controls.Add(panel3);
-            Controls.Add(panel2);
-            Controls.Add(panel1);
+            Controls.Add(tableLayoutPanel1);
             Controls.Add(editButton);
             Controls.Add(saveButton);
             Controls.Add(cancelButton);
@@ -451,9 +471,9 @@
             Controls.Add(label9);
             Font = new Font("Verdana", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             Margin = new Padding(2, 1, 2, 1);
-            MinimumSize = new Size(600, 577);
+            MinimumSize = new Size(870, 577);
             Name = "EventViewerWindow";
-            Text = "EventViewerWindow";
+            Text = " ";
             Load += EventViewerWindow_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox).EndInit();
             dateSelectorGroupBox.ResumeLayout(false);
@@ -468,6 +488,7 @@
             panel2.ResumeLayout(false);
             panel3.ResumeLayout(false);
             panel4.ResumeLayout(false);
+            tableLayoutPanel1.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -475,7 +496,6 @@
         #endregion
         private CheckedListBox teamSelectorCheckBox;
         private DateTimePicker timePicker;
-        private Button imageButton;
         private Button deleteButton;
         private PictureBox pictureBox;
         private DateTimePicker startDate;
@@ -502,5 +522,7 @@
         private Panel panel2;
         private Panel panel3;
         private Panel panel4;
+        private TableLayoutPanel tableLayoutPanel1;
+        private Button imageButton;
     }
 }

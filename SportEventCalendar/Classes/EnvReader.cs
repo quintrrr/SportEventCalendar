@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace SportEventCalendar.Classes
+﻿namespace SportEventCalendar.Classes
 {
     using System;
     using System.IO;

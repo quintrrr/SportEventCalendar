@@ -1,8 +1,4 @@
-﻿using System;
-using System.Data;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.VisualBasic.ApplicationServices;
-using Npgsql;
+﻿using Microsoft.EntityFrameworkCore;
 using SportEventCalendar.Properties;
 
 namespace SportEventCalendar.Classes
@@ -20,30 +16,25 @@ namespace SportEventCalendar.Classes
         public DatabaseHelper()
         {
             EnvReader.Load("../../../../.env");
-           
+            if (string.IsNullOrEmpty(Environment.GetEnvironmentVariable("DB_HOST")))
+            {
+                MessageBox.Show(Resources.conString, Resources.errorTitle,
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             var host = Environment.GetEnvironmentVariable("DB_HOST");
             var port = Environment.GetEnvironmentVariable("DB_PORT");
             var username = Environment.GetEnvironmentVariable("DB_USER");
             var password = Environment.GetEnvironmentVariable("DB_PASSWORD");
             var database = Environment.GetEnvironmentVariable("DB_NAME");
-            if (password == "123")
-            {
-                connectionString = $"Host={host};Port={port};Username={username};Database={database}";
-            }
-            else
-            {
-                connectionString = $"Host={host};Port={port};Username={username};" +
+           
+            connectionString = $"Host={host};Port={port};Username={username};" +
                     $"Password={password};Database={database}";
-            }
+            
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            if (string.IsNullOrEmpty(connectionString))
-            {
-                MessageBox.Show(Resources.conString, Resources.errorTitle, 
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
+            
             optionsBuilder.UseNpgsql(connectionString);
         }
 

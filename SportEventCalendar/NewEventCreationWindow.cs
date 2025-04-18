@@ -1,9 +1,4 @@
-﻿using System.Buffers.Text;
-using System.Data;
-using System.Linq;
-using System.Windows.Forms;
-using System.Xml.Linq;
-using Npgsql;
+﻿using System.Data;
 using SportEventCalendar.Classes;
 using SportEventCalendar.Properties;
 

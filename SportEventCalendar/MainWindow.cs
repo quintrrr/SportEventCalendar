@@ -1,10 +1,6 @@
-﻿using System;
-using SportEventCalendar.Classes;
+﻿using SportEventCalendar.Classes;
 using System.Data;
-using System.Windows.Forms;
 using SportEventCalendar.Properties;
-using static System.ComponentModel.Design.ObjectSelectorEditor;
-
 
 namespace SportEventCalendar
 {

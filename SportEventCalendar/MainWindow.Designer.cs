@@ -62,14 +62,16 @@
             // 
             // dataGridView
             // 
+            dataGridView.AllowUserToOrderColumns = true;
             dataGridView.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView.BackgroundColor = SystemColors.Control;
             dataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView.EditMode = DataGridViewEditMode.EditProgrammatically;
             dataGridView.Location = new Point(41, 331);
             dataGridView.Margin = new Padding(4, 2, 4, 2);
+            dataGridView.MultiSelect = false;
             dataGridView.Name = "dataGridView";
-            dataGridView.ReadOnly = true;
             dataGridView.RowHeadersWidth = 82;
             dataGridView.Size = new Size(1560, 568);
             dataGridView.TabIndex = 3;

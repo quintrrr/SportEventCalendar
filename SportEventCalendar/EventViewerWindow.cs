@@ -1,6 +1,4 @@
-﻿using System;
-using System.Data;
-using System.Diagnostics.Tracing;
+﻿using System.Data;
 using SportEventCalendar.Classes;
 using SportEventCalendar.Properties;
 
@@ -162,6 +160,10 @@ namespace SportEventCalendar
                 {
                     teamSelectorCheckBox.SetItemChecked(index, true);
                 }
+                else
+                {
+                    teamSelectorCheckBox.SetItemChecked(index, false);
+                }
             }
             SetViewMode();
         }
@@ -169,7 +171,7 @@ namespace SportEventCalendar
 
         private void deleteButton_Click(object sender, EventArgs e)
         {
-            var dialogResult = MessageBox.Show(Resources.deletingmessage, string.Empty,
+            var dialogResult = MessageBox.Show(Resources.deletingmessage, string.Empty, 
                    MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (dialogResult == DialogResult.Yes)
             {

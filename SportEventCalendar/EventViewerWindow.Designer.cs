@@ -301,6 +301,8 @@
             dateSelectorGroupBox.Controls.Add(label7);
             dateSelectorGroupBox.Controls.Add(finishDate);
             dateSelectorGroupBox.Controls.Add(startDate);
+            dateSelectorGroupBox.Font = new Font("Verdana", 9F);
+            dateSelectorGroupBox.ForeColor = SystemColors.ControlDarkDark;
             dateSelectorGroupBox.Location = new Point(2, 4);
             dateSelectorGroupBox.Margin = new Padding(2, 1, 2, 1);
             dateSelectorGroupBox.Name = "dateSelectorGroupBox";
@@ -314,6 +316,8 @@
             // 
             sportSelectorGroupBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             sportSelectorGroupBox.Controls.Add(sportSelector);
+            sportSelectorGroupBox.Font = new Font("Verdana", 9F);
+            sportSelectorGroupBox.ForeColor = SystemColors.ControlDarkDark;
             sportSelectorGroupBox.Location = new Point(2, 4);
             sportSelectorGroupBox.Margin = new Padding(2, 1, 2, 1);
             sportSelectorGroupBox.Name = "sportSelectorGroupBox";
@@ -327,6 +331,8 @@
             // 
             teamViewerGroupBox.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             teamViewerGroupBox.Controls.Add(teamsView);
+            teamViewerGroupBox.Font = new Font("Verdana", 9F);
+            teamViewerGroupBox.ForeColor = SystemColors.ControlDarkDark;
             teamViewerGroupBox.Location = new Point(2, 77);
             teamViewerGroupBox.Margin = new Padding(2, 1, 2, 1);
             teamViewerGroupBox.Name = "teamViewerGroupBox";

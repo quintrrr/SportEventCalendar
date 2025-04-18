@@ -183,7 +183,7 @@
             // 
             // pictureBox
             // 
-            pictureBox.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            pictureBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             pictureBox.BorderStyle = BorderStyle.FixedSingle;
             pictureBox.Location = new Point(1128, 124);
             pictureBox.Margin = new Padding(4, 2, 4, 2);
@@ -286,6 +286,7 @@
             // 
             // groupBox3
             // 
+            groupBox3.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             groupBox3.Controls.Add(sportSelector);
             groupBox3.Location = new Point(1128, 702);
             groupBox3.Name = "groupBox3";
@@ -314,6 +315,7 @@
             Controls.Add(label3);
             Controls.Add(windowName);
             Margin = new Padding(4, 2, 4, 2);
+            MinimumSize = new Size(1728, 1187);
             Name = "NewEventCreationWindow";
             Text = "New Event Creation Window";
             Load += NewEventCreationWindow_Load;

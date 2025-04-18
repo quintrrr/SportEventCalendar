@@ -14,20 +14,18 @@ namespace SportEventCalendar
         public EventViewerWindow(Event selectedEvent)
         {
             InitializeComponent();
+
             this.currentEvent = selectedEvent;
-            EventName.Text = currentEvent.Name;
-            EventName.Enabled = false;
-            EventDescription.Text = currentEvent.Description;
-            EventDescription.Enabled = false;
-            startDate.Text = currentEvent.Start_date.ToString("yyyy-MM-dd HH:mm");
-            finishDate.Text = currentEvent.End_date.ToString("yyyy-MM-dd HH:mm");
-            timePicker.Text = currentEvent.Time.ToString(@"hh\:mm");
+
             sportSelector.DataSource = GetSports();
             sportSelector.DisplayMember = "name";
             sportSelector.ValueMember = "sport_number";
-            sportSelector.Enabled = false;
-            sportSelector.SelectedValue = currentEvent.Sport_number;
-            
+
+            openFileDialog.FileName = string.Empty;
+
+            SetViewMode();
+            SetEventFields(currentEvent);
+
             foreach (var eventTeam in GetEventTeams())
             {
                 var team = GetTeams().FirstOrDefault(Team => Team.Id == eventTeam.Team_id);
@@ -36,21 +34,63 @@ namespace SportEventCalendar
                     teamsView.Nodes.Add(team.Name);
                 }
             }
-            openFileDialog.FileName = string.Empty;
-            pictureBox.Image = Image.FromStream(new MemoryStream(Convert.FromBase64String(
-                currentEvent.Image_url)));
-
         }
-
-        private void TeamsView_DrawNode(object? sender, DrawTreeNodeEventArgs e)
+        private void SetEditMode()
         {
-            throw new NotImplementedException();
+            EventName.ReadOnly = false;
+            EventDescription.ReadOnly = false;
+            EventName.Enabled = true;
+            EventDescription.Enabled = true;
+            startDate.Enabled = true;
+            finishDate.Enabled = true;
+            timePicker.Enabled = true;
+            sportSelector.Enabled = true;
+
+            editButton.Visible = false;
+            deleteButton.Visible = false;
+            saveButton.Visible = true;
+            cancel2Button.Visible = true;
+            teamViewerGroupBox.Visible = false;
+            teamSelectorGroupBox.Visible = true;
+            imageButton.Visible = true;
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void SetViewMode()
         {
-            this.Close();
+            EventName.ReadOnly = true;
+            EventDescription.ReadOnly = true;
+            EventName.Enabled = false;
+            EventDescription.Enabled = false;
+            startDate.Enabled = false;
+            finishDate.Enabled = false;
+            timePicker.Enabled = false;
+            sportSelector.Enabled = false;
+
+            editButton.Visible = true;
+            deleteButton.Visible = true;
+            saveButton.Visible = false;
+            cancel2Button.Visible = false;
+            teamViewerGroupBox.Visible = true;
+            teamSelectorGroupBox.Visible = false;
+            imageButton.Visible = false;
         }
+
+        private void SetEventFields(Event selectedEvent)
+        {
+            EventName.Text = selectedEvent.Name;
+            EventDescription.Text = selectedEvent.Description;
+            startDate.Text = selectedEvent.Start_date.ToString("yyyy-MM-dd HH:mm");
+            finishDate.Text = selectedEvent.End_date.ToString("yyyy-MM-dd HH:mm");
+            timePicker.Text = selectedEvent.Time.ToString(@"hh\:mm");
+            sportSelector.SelectedValue = selectedEvent.Sport_number;
+
+            if (!string.IsNullOrEmpty(selectedEvent.Image_url))
+            {
+                pictureBox.Image = Image.FromStream(
+                    new MemoryStream(Convert.FromBase64String(selectedEvent.Image_url)));
+            }
+        }
+
 
         public List<EventTeam> GetEventTeams()
         {
@@ -62,7 +102,6 @@ namespace SportEventCalendar
             }
         }
 
-
         public List<Sport> GetSports()
         {
             using (var context = new DatabaseHelper())
@@ -72,16 +111,17 @@ namespace SportEventCalendar
         }
         private void EventViewerWindow_Load(object sender, EventArgs e)
         {
-            
-            teamSelectorCheckBox.Items.Clear();
             var teams = GetTeams();
             var eventTeams = GetEventTeams();
+            teamSelectorCheckBox.Items.Clear();
             teamSelectorCheckBox.DisplayMember = "name";
+            teamSelectorCheckBox.ValueMember = "sport_id";
 
-            if (!int.TryParse(sportSelector.SelectedValue.ToString(), out var selectedSportId))
+            if (!TryGetSelectedSportId(out var selectedSportId))
             {
                 return;
             }
+
             foreach (var team in teams.Where(team => team.Sport_number == selectedSportId))
             {
                 teamSelectorCheckBox.Items.Add(team);
@@ -96,75 +136,53 @@ namespace SportEventCalendar
             }
         }
 
+        private bool TryGetSelectedSportId(out int sportId)
+        {
+            sportId = 0;
+            if (sportSelector.SelectedValue == null)
+                return false;
+
+            return int.TryParse(sportSelector.SelectedValue.ToString(), out sportId);
+        }
 
         private void editButton_Click(object sender, EventArgs e)
         {
-            sportSelector.Enabled = true;
-            imageButton.Visible = true;
-            teamSelectorGroupBox.Visible = true;
-            teamViewerGroupBox.Visible = false;
-            cancel2Button.Visible = true;
-            saveButton.Visible = true;
-            editButton.Visible = false;
-            EventDescription.ReadOnly = false;
-            EventName.ReadOnly = false;
-            deleteButton.Visible = false;
-            EventName.Enabled = true;
-            startDate.Enabled = true;
-            finishDate.Enabled = true;
-            timePicker.Enabled = true;
-            EventDescription.Enabled = true;
-
+            SetEditMode();
         }
-
         private void cancel2Button_Click(object sender, EventArgs e)
         {
-            EventName.Text = currentEvent.Name;
-            EventDescription.Text = currentEvent.Description;
-            startDate.Text = currentEvent.Start_date.ToString("yyyy-MM-dd HH:mm");
-            finishDate.Text = currentEvent.End_date.ToString("yyyy-MM-dd HH:mm");
-            timePicker.Text = currentEvent.Time.ToString(@"hh\:mm");
-            sportSelector.SelectedValue = currentEvent.Sport_number;
-            pictureBox.Image = Image.FromStream(new MemoryStream(Convert.FromBase64String(
-                currentEvent.Image_url)));
+            SetEventFields(currentEvent);
+            var eventTeams = GetEventTeams();
+
             teamSelectorCheckBox.SelectedItems.Clear();
             for (var index = 0; index < teamSelectorCheckBox.Items.Count; index++)
             {
                 if (teamSelectorCheckBox.Items[index] is Team team &&
-                    GetEventTeams().Any(eventTeam => eventTeam.Team_id == team.Id))
+                    eventTeams.Any(eventTeam => eventTeam.Team_id == team.Id))
                 {
                     teamSelectorCheckBox.SetItemChecked(index, true);
                 }
             }
-            sportSelector.Enabled = false;
-            EventDescription.Enabled = false;
-            EventName.Enabled = false;
-            imageButton.Visible = false;
-            teamViewerGroupBox.Visible = true;
-            teamSelectorGroupBox.Visible = false;
-            cancel2Button.Visible = false;
-            editButton.Visible = true;
-            saveButton.Visible = false;
-            EventDescription.ReadOnly = true;
-            EventName.ReadOnly = true;
-            deleteButton.Visible = true;
-            startDate.Enabled = false;
-            finishDate.Enabled = false;
-            timePicker.Enabled = false;
+            SetViewMode();
         }
 
 
         private void deleteButton_Click(object sender, EventArgs e)
         {
-            using (var context = new DatabaseHelper())
+            var dialogResult = MessageBox.Show(Resources.deletingmessage, string.Empty,
+                   MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (dialogResult == DialogResult.Yes)
             {
-                foreach (var eventTeam in GetEventTeams())
+                using (var context = new DatabaseHelper())
                 {
-                    context.EventTeams.Remove(eventTeam);
+                    foreach (var eventTeam in GetEventTeams())
+                    {
+                        context.EventTeams.Remove(eventTeam);
+                    }
+                    context.Events.Remove(currentEvent);
+                    context.SaveChanges();
+                    this.Close();
                 }
-                context.Events.Remove(currentEvent);
-                context.SaveChanges();
-                this.Close();
             }
         }
 
@@ -182,15 +200,13 @@ namespace SportEventCalendar
                 return;
             }
 
-            if (!int.TryParse(sportSelector.SelectedValue.ToString(), out var selectedSportId))
+            if (!TryGetSelectedSportId(out var selectedSportId))
             {
                 return;
             }
 
             var teams = GetTeams();
             teamSelectorCheckBox.Items.Clear();
-            teamSelectorCheckBox.DisplayMember = "name";
-            teamSelectorCheckBox.ValueMember = "sport_id";
             foreach (var row in teams.Where(team => team.Sport_number == selectedSportId))
             {
                 teamSelectorCheckBox.Items.Add(row);
@@ -264,8 +280,7 @@ namespace SportEventCalendar
                         MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
-
-                if (!int.TryParse(sportSelector.SelectedValue.ToString(), out var selectedSportId))
+                if (!TryGetSelectedSportId(out var selectedSportId))
                 {
                     return;
                 }
@@ -304,19 +319,9 @@ namespace SportEventCalendar
                 }
                 context.EventTeams.AddRange(eventTeams);
                 context.SaveChanges();
-                
-                imageButton.Visible = false;
-                teamViewerGroupBox.Visible = true;
-                teamSelectorGroupBox.Visible = false;
-                cancel2Button.Visible = false;
-                editButton.Visible = true;
-                saveButton.Visible = false;
-                EventDescription.ReadOnly = true;
-                EventName.ReadOnly = true;
-                deleteButton.Visible = true;
-                startDate.Enabled = false;
-                finishDate.Enabled = false;
-                timePicker.Enabled = false;
+
+
+                SetViewMode();
             }
         }
     }

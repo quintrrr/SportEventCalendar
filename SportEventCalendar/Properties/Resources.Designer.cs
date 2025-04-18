@@ -70,6 +70,16 @@ namespace SportEventCalendar.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Вы уверены, что хотите отменить создание события? 
+        ///Введённые данные будут потеряны..
+        /// </summary>
+        internal static string cancelCreating {
+            get {
+                return ResourceManager.GetString("cancelCreating", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Строка подключения не может быть пустой..
         /// </summary>
         internal static string conString {
@@ -84,6 +94,16 @@ namespace SportEventCalendar.Properties {
         internal static string dateError {
             get {
                 return ResourceManager.GetString("dateError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Вы действительно хотите удалить это событие? 
+        ///Это действие необратимо..
+        /// </summary>
+        internal static string deletingmessage {
+            get {
+                return ResourceManager.GetString("deletingmessage", resourceCulture);
             }
         }
         

@@ -120,11 +120,19 @@
   <data name="addImage" xml:space="preserve">
     <value>Добавьте изображение!</value>
   </data>
+  <data name="cancelCreating" xml:space="preserve">
+    <value>Вы уверены, что хотите отменить создание события? 
+Введённые данные будут потеряны.</value>
+  </data>
   <data name="conString" xml:space="preserve">
     <value>Строка подключения не может быть пустой.</value>
   </data>
   <data name="dateError" xml:space="preserve">
     <value>Даты выбраны некорректно!</value>
+  </data>
+  <data name="deletingmessage" xml:space="preserve">
+    <value>Вы действительно хотите удалить это событие? 
+Это действие необратимо.</value>
   </data>
   <data name="errorTitle" xml:space="preserve">
     <value>Ошибка</value>

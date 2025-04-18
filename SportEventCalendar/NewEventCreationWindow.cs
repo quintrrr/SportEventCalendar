@@ -38,13 +38,6 @@ namespace SportEventCalendar
             teamSelectorCheckBox.DisplayMember = "name";
             teamSelectorCheckBox.ValueMember = "id";
             teamSelectorCheckBox.Items.Clear();
-            //var teams = GetTeams();
-
-            //foreach (var team in teams.Where(team => team.Sport_number ==
-            //    ((Sport)sportSelector.Items[0]).Sport_number))
-            //{
-            //    teamSelectorCheckBox.Items.Add(team);
-            //}
         }
         private bool IsImageValid(string filePath)
         {
@@ -99,7 +92,10 @@ namespace SportEventCalendar
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            
+            if (!TryGetSelectedSportId(out var selectedSportId))
+            {
+                return;
+            }
             if (teamSelectorCheckBox.CheckedItems.Count == 0)
             {
                 MessageBox.Show(Resources.selectTeams, Resources.errorTitle,
@@ -112,18 +108,14 @@ namespace SportEventCalendar
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            if (finishDate.Value.ToUniversalTime() < startDate.Value.ToUniversalTime())
+            var startDateTime = startDate.Value.AddHours(10).ToUniversalTime();
+            if (finishDate.Value.ToUniversalTime() > startDate.Value.ToUniversalTime())
             {
                 MessageBox.Show(Resources.dateError, Resources.errorTitle,
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-
-            if (!int.TryParse(sportSelector.SelectedValue.ToString(), out var selectedSportId))
-            {
-                return;
-            }
-            string base64 = string.Empty;
+            var base64 = string.Empty;
             if (openFileDialog.FileName != string.Empty)
             {
                 base64 = Convert.ToBase64String(File.ReadAllBytes(openFileDialog.FileName));
@@ -181,7 +173,7 @@ namespace SportEventCalendar
                 return;
             }
 
-            if (!int.TryParse(sportSelector.SelectedValue.ToString(), out var selectedSportId))
+            if (!TryGetSelectedSportId(out var selectedSportId))
             {
                 return;
             }
@@ -198,17 +190,22 @@ namespace SportEventCalendar
 
         private void cancel_Click(object sender, EventArgs e)
         {
-            var dialogResult = MessageBox.Show(Resources.dateError, Resources.errorTitle,
-                   MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
-            if (dialogResult == DialogResult.OK)
+            var dialogResult = MessageBox.Show(Resources.cancelCreating, string.Empty,
+                   MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (dialogResult == DialogResult.Yes)
             {
                 this.Close();
             }
-            else
-            {
-                return;
-            }
         }
+        private bool TryGetSelectedSportId(out int sportId)
+        {
+            sportId = 0;
+            if (sportSelector.SelectedValue == null)
+                return false;
+
+            return int.TryParse(sportSelector.SelectedValue.ToString(), out sportId);
+        }
+
     }
 }
  

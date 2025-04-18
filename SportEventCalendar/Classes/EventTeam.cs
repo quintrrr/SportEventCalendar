@@ -14,7 +14,7 @@ namespace SportEventCalendar.Classes
     {
         [Column("event_id")]
         public Guid Event_id { get; set; }
-
+        //индекс уникальности
 
         [Column("team_id")]
         public int Team_id { get; set; }

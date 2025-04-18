@@ -77,28 +77,7 @@ namespace SportEventCalendar
             var events = GetSportEvents();
 
             dataGridView.DataSource = events;
-            dataGridView.AutoGenerateColumns = false;
-
-            dataGridView.Columns["id"].Visible = false;
-            dataGridView.Columns["description"].Visible = false;
-            dataGridView.Columns["image_url"].Visible = false;
-            dataGridView.Columns["sport_number"].Visible = false;
-
-
-            dataGridView.Columns["name"].HeaderText = "Название";
-            dataGridView.Columns["name"].DisplayIndex = 0;
-
-            dataGridView.Columns["start_date"].DisplayIndex = 1;
-            dataGridView.Columns["start_date"].HeaderText = "Дата начала";
-
-            dataGridView.Columns["end_date"].DisplayIndex = 2;
-            dataGridView.Columns["end_date"].HeaderText = "Дата конца";
-
-            dataGridView.Columns["time"].DisplayIndex = 3;
-            dataGridView.Columns["time"].HeaderText = "Время";
-
-            dataGridView.Columns["sport_name"].DisplayIndex = 4;
-            dataGridView.Columns["sport_name"].HeaderText = "Вид спорта";
+            ConfigureDataGridViewColumns();
             this.Cursor = Cursors.Default;
             this.Enabled = true;
 
@@ -130,28 +109,7 @@ namespace SportEventCalendar
 
 
             dataGridView.DataSource = sortedSportEvents;
-            dataGridView.AutoGenerateColumns = false;
-
-            dataGridView.Columns["id"].Visible = false;
-            dataGridView.Columns["description"].Visible = false;
-            dataGridView.Columns["image_url"].Visible = false;
-            dataGridView.Columns["sport_number"].Visible = false;
-
-
-            dataGridView.Columns["name"].HeaderText = "Название";
-            dataGridView.Columns["name"].DisplayIndex = 0;
-
-            dataGridView.Columns["start_date"].DisplayIndex = 1;
-            dataGridView.Columns["start_date"].HeaderText = "Дата начала";
-
-            dataGridView.Columns["end_date"].DisplayIndex = 2;
-            dataGridView.Columns["end_date"].HeaderText = "Дата конца";
-
-            dataGridView.Columns["time"].DisplayIndex = 3;
-            dataGridView.Columns["time"].HeaderText = "Время";
-
-            dataGridView.Columns["sport_name"].DisplayIndex = 4;
-            dataGridView.Columns["sport_name"].HeaderText = "Вид спорта";
+            ConfigureDataGridViewColumns();
             this.Enabled = true;
             this.Cursor = Cursors.Default;
         }
@@ -195,7 +153,7 @@ namespace SportEventCalendar
                                     }
                                     else if (columnName == "Id")
                                     {
-                                        columnName = "Айди";
+                                        columnName = "Идентификатор";
                                     }
                                     else if(columnName == "Description")
                                     {
@@ -271,7 +229,7 @@ namespace SportEventCalendar
                         }
 
                     }
-                    catch (Exception ex)
+                    catch (Exception)
                     {
                         MessageBox.Show(Resources.reportCreatingError,
                             Resources.errorTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -294,13 +252,19 @@ namespace SportEventCalendar
                    .ToList();
             }
             dataGridView.DataSource = sortedSportEvents;
+            ConfigureDataGridViewColumns();
+            this.Enabled = true;
+            this.Cursor = Cursors.Default;
+        }
+
+        private void ConfigureDataGridViewColumns()
+        {
             dataGridView.AutoGenerateColumns = false;
 
             dataGridView.Columns["id"].Visible = false;
             dataGridView.Columns["description"].Visible = false;
             dataGridView.Columns["image_url"].Visible = false;
             dataGridView.Columns["sport_number"].Visible = false;
-
 
             dataGridView.Columns["name"].HeaderText = "Название";
             dataGridView.Columns["name"].DisplayIndex = 0;
@@ -316,9 +280,8 @@ namespace SportEventCalendar
 
             dataGridView.Columns["sport_name"].DisplayIndex = 4;
             dataGridView.Columns["sport_name"].HeaderText = "Вид спорта";
-            this.Enabled = true;
-            this.Cursor = Cursors.Default;
         }
+
 
         private void reportButtom_Click_1(object sender, EventArgs e)
         {

@@ -102,7 +102,7 @@
             // deleteButton
             // 
             deleteButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            deleteButton.Location = new Point(1202, 1102);
+            deleteButton.Location = new Point(1202, 1114);
             deleteButton.Margin = new Padding(4, 2, 4, 2);
             deleteButton.Name = "deleteButton";
             deleteButton.Size = new Size(184, 47);
@@ -255,7 +255,8 @@
             // 
             // editButton
             // 
-            editButton.Location = new Point(1412, 1102);
+            editButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            editButton.Location = new Point(1411, 1114);
             editButton.Margin = new Padding(4, 2, 4, 2);
             editButton.Name = "editButton";
             editButton.Size = new Size(184, 47);
@@ -268,7 +269,7 @@
             // cancel2Button
             // 
             cancel2Button.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            cancel2Button.Location = new Point(1202, 1102);
+            cancel2Button.Location = new Point(1202, 1114);
             cancel2Button.Margin = new Padding(4, 2, 4, 2);
             cancel2Button.Name = "cancel2Button";
             cancel2Button.Size = new Size(184, 47);
@@ -303,7 +304,7 @@
             // saveButton
             // 
             saveButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            saveButton.Location = new Point(1411, 1102);
+            saveButton.Location = new Point(1411, 1114);
             saveButton.Margin = new Padding(4, 2, 4, 2);
             saveButton.Name = "saveButton";
             saveButton.Size = new Size(184, 47);
@@ -374,7 +375,7 @@
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1608, 1186);
+            ClientSize = new Size(1608, 1198);
             Controls.Add(teamSelectorGroupBox);
             Controls.Add(teamViewerGroupBox);
             Controls.Add(editButton);
@@ -394,6 +395,7 @@
             Controls.Add(label3);
             Controls.Add(label1);
             Margin = new Padding(4, 2, 4, 2);
+            MinimumSize = new Size(1634, 1269);
             Name = "EventViewerWindow";
             Text = "EventViewerWindow";
             Load += EventViewerWindow_Load;

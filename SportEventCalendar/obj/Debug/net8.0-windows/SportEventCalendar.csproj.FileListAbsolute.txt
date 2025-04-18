@@ -260,3 +260,8 @@ C:\Users\Adminchik\Desktop\SportEventCalendar\SportEventCalendar\obj\Debug\net8.
 C:\Users\Adminchik\Desktop\SportEventCalendar\SportEventCalendar\obj\Debug\net8.0-windows\SportEventCalendar.pdb
 C:\Users\Adminchik\Desktop\SportEventCalendar\SportEventCalendar\obj\Debug\net8.0-windows\SportEventCalendar.genruntimeconfig.cache
 C:\Users\Adminchik\Desktop\SportEventCalendar\SportEventCalendar\obj\Debug\net8.0-windows\ref\SportEventCalendar.dll
+C:\Mac\Home\Documents\Projects\c#\SportEventCalendar\SportEventCalendar\bin\Debug\net8.0-windows\ru\SportEventCalendar.resources.dll
+C:\Mac\Home\Documents\Projects\c#\SportEventCalendar\SportEventCalendar\obj\Debug\net8.0-windows\SportEventCalendar.MainWindow.ru.resources
+C:\Mac\Home\Documents\Projects\c#\SportEventCalendar\SportEventCalendar\obj\Debug\net8.0-windows\SportEventCalendar.NewEventCreationWindow.ru.resources
+C:\Mac\Home\Documents\Projects\c#\SportEventCalendar\SportEventCalendar\obj\Debug\net8.0-windows\ru\SportEventCalendar.resources.dll
+C:\Mac\Home\Documents\Projects\c#\SportEventCalendar\SportEventCalendar\obj\Debug\net8.0-windows\SportEventCalendar.EventViewerWindow.ru.resources

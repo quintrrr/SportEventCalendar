@@ -77,7 +77,6 @@ namespace SportEventCalendar
             EventName.ReadOnly = true;
             EventDescription.ReadOnly = true;
             EventName.Enabled = false;
-            EventDescription.Enabled = false;
             startDate.Enabled = false;
             finishDate.Enabled = false;
             timePicker.Enabled = false;
@@ -349,7 +348,8 @@ namespace SportEventCalendar
                         MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
-                if (finishDate.Value.ToUniversalTime() < startDate.Value.ToUniversalTime())
+                var startDateTime = startDate.Value.AddHours(10).ToUniversalTime();
+                if (finishDate.Value.ToUniversalTime() > startDate.Value.ToUniversalTime())
                 {
                     MessageBox.Show(Resources.dateError, Resources.errorTitle,
                         MessageBoxButtons.OK, MessageBoxIcon.Warning);

@@ -51,190 +51,123 @@
             // 
             // windowName
             // 
-            windowName.AutoSize = true;
-            windowName.Font = new Font("Calibri", 25F, FontStyle.Bold);
-            windowName.Location = new Point(11, 9);
-            windowName.Margin = new Padding(2, 0, 2, 0);
+            resources.ApplyResources(windowName, "windowName");
             windowName.Name = "windowName";
-            windowName.Size = new Size(417, 41);
-            windowName.TabIndex = 2;
-            windowName.Text = "Спортивные соревнования";
             // 
             // dataGridView
             // 
+            resources.ApplyResources(dataGridView, "dataGridView");
             dataGridView.AllowUserToOrderColumns = true;
-            dataGridView.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView.BackgroundColor = Color.White;
             dataGridView.BorderStyle = BorderStyle.None;
             dataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView.EditMode = DataGridViewEditMode.EditProgrammatically;
             dataGridView.GridColor = SystemColors.GrayText;
-            dataGridView.Location = new Point(22, 170);
-            dataGridView.Margin = new Padding(2, 1, 2, 1);
             dataGridView.MultiSelect = false;
             dataGridView.Name = "dataGridView";
-            dataGridView.RowHeadersWidth = 82;
-            dataGridView.Size = new Size(840, 258);
-            dataGridView.TabIndex = 3;
             dataGridView.CellClick += dataGridView1_CellClick_1;
             // 
             // startDate
             // 
+            resources.ApplyResources(startDate, "startDate");
             startDate.CalendarTrailingForeColor = Color.Silver;
             startDate.Format = DateTimePickerFormat.Short;
-            startDate.Location = new Point(8, 44);
-            startDate.Margin = new Padding(2, 1, 2, 1);
             startDate.Name = "startDate";
-            startDate.Size = new Size(90, 23);
-            startDate.TabIndex = 4;
             // 
             // finishDate
             // 
+            resources.ApplyResources(finishDate, "finishDate");
             finishDate.CalendarTrailingForeColor = Color.Silver;
             finishDate.Format = DateTimePickerFormat.Short;
-            finishDate.Location = new Point(116, 44);
-            finishDate.Margin = new Padding(2, 1, 2, 1);
             finishDate.Name = "finishDate";
-            finishDate.Size = new Size(89, 23);
-            finishDate.TabIndex = 5;
             // 
             // applyButton
             // 
+            resources.ApplyResources(applyButton, "applyButton");
             applyButton.FlatAppearance.BorderColor = Color.Silver;
-            applyButton.FlatStyle = FlatStyle.Flat;
-            applyButton.Location = new Point(235, 42);
-            applyButton.Margin = new Padding(2, 1, 2, 1);
             applyButton.Name = "applyButton";
-            applyButton.Size = new Size(102, 26);
-            applyButton.TabIndex = 6;
-            applyButton.Text = "Применить";
             applyButton.UseVisualStyleBackColor = true;
             applyButton.Click += ApplyButton_Click;
             // 
             // addButtom
             // 
-            addButtom.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            resources.ApplyResources(addButtom, "addButtom");
             addButtom.FlatAppearance.BorderColor = Color.Silver;
-            addButtom.FlatStyle = FlatStyle.Flat;
-            addButtom.Location = new Point(11, 14);
-            addButtom.Margin = new Padding(2, 1, 2, 1);
             addButtom.Name = "addButtom";
-            addButtom.Size = new Size(127, 28);
-            addButtom.TabIndex = 8;
-            addButtom.Text = "Добавить";
             addButtom.UseVisualStyleBackColor = true;
             addButtom.Click += AddButtom_Click;
             // 
             // sportSelector
             // 
-            sportSelector.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            resources.ApplyResources(sportSelector, "sportSelector");
             sportSelector.BackColor = Color.White;
             sportSelector.DropDownStyle = ComboBoxStyle.DropDownList;
-            sportSelector.FlatStyle = FlatStyle.Flat;
             sportSelector.FormattingEnabled = true;
-            sportSelector.Location = new Point(21, 44);
-            sportSelector.Margin = new Padding(2, 1, 2, 1);
             sportSelector.Name = "sportSelector";
-            sportSelector.Size = new Size(256, 23);
-            sportSelector.TabIndex = 9;
             sportSelector.SelectedIndexChanged += sportSelector_SelectedIndexChanged;
             // 
             // reportButtom
             // 
+            resources.ApplyResources(reportButtom, "reportButtom");
             reportButtom.FlatAppearance.BorderColor = Color.Silver;
-            reportButtom.FlatStyle = FlatStyle.Flat;
-            reportButtom.Location = new Point(11, 44);
-            reportButtom.Margin = new Padding(2, 1, 2, 1);
             reportButtom.Name = "reportButtom";
-            reportButtom.Size = new Size(127, 26);
-            reportButtom.TabIndex = 10;
-            reportButtom.Text = "Сброс фильтров";
             reportButtom.UseVisualStyleBackColor = true;
             reportButtom.Click += reportButtom_Click_1;
             // 
             // saveFileDialog
             // 
-            saveFileDialog.Title = "Сохранить отчёт";
+            resources.ApplyResources(saveFileDialog, "saveFileDialog");
             // 
             // dataSelectorGroupBox
             // 
+            resources.ApplyResources(dataSelectorGroupBox, "dataSelectorGroupBox");
             dataSelectorGroupBox.Controls.Add(finishDate);
             dataSelectorGroupBox.Controls.Add(applyButton);
             dataSelectorGroupBox.Controls.Add(label7);
             dataSelectorGroupBox.Controls.Add(startDate);
-            dataSelectorGroupBox.Location = new Point(22, 60);
-            dataSelectorGroupBox.Margin = new Padding(2, 1, 2, 1);
             dataSelectorGroupBox.Name = "dataSelectorGroupBox";
-            dataSelectorGroupBox.Padding = new Padding(2, 1, 2, 1);
-            dataSelectorGroupBox.Size = new Size(379, 101);
-            dataSelectorGroupBox.TabIndex = 11;
             dataSelectorGroupBox.TabStop = false;
-            dataSelectorGroupBox.Text = "Выбор даты";
             // 
             // label7
             // 
-            label7.AutoSize = true;
-            label7.Location = new Point(98, 48);
-            label7.Margin = new Padding(2, 0, 2, 0);
+            resources.ApplyResources(label7, "label7");
             label7.Name = "label7";
-            label7.Size = new Size(19, 15);
-            label7.TabIndex = 49;
-            label7.Text = "—";
             // 
             // sportSelectorGroupBox
             // 
+            resources.ApplyResources(sportSelectorGroupBox, "sportSelectorGroupBox");
             sportSelectorGroupBox.Controls.Add(sportSelector);
-            sportSelectorGroupBox.Location = new Point(415, 60);
-            sportSelectorGroupBox.Margin = new Padding(2, 1, 2, 1);
             sportSelectorGroupBox.Name = "sportSelectorGroupBox";
-            sportSelectorGroupBox.Padding = new Padding(2, 1, 2, 1);
-            sportSelectorGroupBox.Size = new Size(281, 101);
-            sportSelectorGroupBox.TabIndex = 12;
             sportSelectorGroupBox.TabStop = false;
-            sportSelectorGroupBox.Text = "Выбор спорта ";
             // 
             // button1
             // 
+            resources.ApplyResources(button1, "button1");
             button1.FlatAppearance.BorderColor = Color.Silver;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Location = new Point(11, 72);
-            button1.Margin = new Padding(2, 1, 2, 1);
             button1.Name = "button1";
-            button1.Size = new Size(127, 26);
-            button1.TabIndex = 14;
-            button1.Text = "Отчёт";
             button1.UseVisualStyleBackColor = true;
             button1.Click += reportButtom_Click;
             // 
             // buttonsPanel
             // 
-            buttonsPanel.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            resources.ApplyResources(buttonsPanel, "buttonsPanel");
             buttonsPanel.Controls.Add(button1);
             buttonsPanel.Controls.Add(addButtom);
             buttonsPanel.Controls.Add(reportButtom);
-            buttonsPanel.Location = new Point(724, 60);
-            buttonsPanel.Margin = new Padding(2, 1, 2, 1);
             buttonsPanel.Name = "buttonsPanel";
-            buttonsPanel.Size = new Size(151, 101);
-            buttonsPanel.TabIndex = 15;
             // 
             // MainWindow
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            resources.ApplyResources(this, "$this");
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(895, 456);
             Controls.Add(dataGridView);
             Controls.Add(dataSelectorGroupBox);
             Controls.Add(windowName);
             Controls.Add(sportSelectorGroupBox);
             Controls.Add(buttonsPanel);
-            Icon = (Icon)resources.GetObject("$this.Icon");
-            Margin = new Padding(2, 1, 2, 1);
-            MinimumSize = new Size(911, 495);
             Name = "MainWindow";
-            Text = "SportMaster";
             Load += MainWindow_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView).EndInit();
             dataSelectorGroupBox.ResumeLayout(false);

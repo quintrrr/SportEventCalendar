@@ -1,11 +1,32 @@
-﻿namespace SportEventCalendar.Classes
-{
-    using System;
-    using System.IO;
-    using SportEventCalendar.Properties;
+﻿using SportEventCalendar.Properties;
 
+namespace SportEventCalendar.Classes
+{
+    /// <summary>
+    /// Вспомогательный класс для чтения переменных окружения из файла .env
+    /// </summary>
+    /// <remarks>
+    /// Реализует следующие функции:
+    /// - Проверку существования файла .env
+    /// - Чтение и парсинг файла .env
+    /// - Установку переменных окружения в текущем процессе
+    /// - Обработку ошибок формата файла
+    /// </remarks>
     class EnvReader
     {
+        /// <summary>
+        /// Загружает переменные окружения из указанного файла
+        /// </summary>
+        /// <param name="filePath">Путь к файлу .env</param>
+        /// <remarks>
+        /// Логика работы метода:
+        /// 1. Проверяет существование файла (если не существует - показывает ошибку)
+        /// 2. Читает файл построчно
+        /// 3. Пропускает пустые строки и комментарии (начинающиеся с #)
+        /// 4. Разбивает каждую строку по первому символу '='
+        /// 5. Устанавливает переменные окружения в текущем процессе
+        /// 6. Игнорирует строки некорректного формата
+        /// </remarks>
         public static void Load(string filePath)
         {
             if (!File.Exists(filePath))

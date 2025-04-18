@@ -5,10 +5,22 @@ using SportEventCalendar.Properties;
 
 namespace SportEventCalendar
 {
+    /// <summary>
+    /// Форма для просмотра и редактирования событий
+    /// </summary>
     public partial class EventViewerWindow : Form
     {
-
+        /// <summary>
+        /// Текущее событие, которое просматривается или редактируется в форме.
+        /// Хранит все данные о событии, включая название, описание, даты, 
+        /// связанные команды и изображение.
+        /// </summary>
         private Event currentEvent;
+
+        /// <summary>
+        /// Конструктор формы просмотра события
+        /// </summary>
+        /// <param name="selectedEvent">Выбранное событие для просмотра/редактирования</param>
         public EventViewerWindow(Event selectedEvent)
         {
             InitializeComponent();
@@ -33,6 +45,10 @@ namespace SportEventCalendar
                 }
             }
         }
+
+        /// <summary>
+        /// Активирует режим редактирования события
+        /// </summary>
         private void SetEditMode()
         {
             EventName.ReadOnly = false;
@@ -53,6 +69,9 @@ namespace SportEventCalendar
             imageButton.Visible = true;
         }
 
+        /// <summary>
+        /// Активирует режим просмотра события (только чтение)
+        /// </summary>
         private void SetViewMode()
         {
             EventName.ReadOnly = true;
@@ -73,6 +92,11 @@ namespace SportEventCalendar
             imageButton.Visible = false;
         }
 
+        /// <summary>
+        /// Заполняет поля формы данными из выбранного события
+        /// </summary>
+        /// <param name="selectedEvent">Событие, данные которого нужно отобразить</param>
+
         private void SetEventFields(Event selectedEvent)
         {
             EventName.Text = selectedEvent.Name;
@@ -89,6 +113,10 @@ namespace SportEventCalendar
             }
         }
 
+        /// <summary>
+        /// Получает список связей между текущим событием и командами
+        /// </summary>
+        /// <returns>Список объектов EventTeam</returns>
 
         public List<EventTeam> GetEventTeams()
         {
@@ -100,6 +128,11 @@ namespace SportEventCalendar
             }
         }
 
+        /// <summary>
+        /// Получает список всех видов спорта из базы данных
+        /// </summary>
+        /// <returns>Список объектов Sport</returns>
+
         public List<Sport> GetSports()
         {
             using (var context = new DatabaseHelper())
@@ -107,6 +140,11 @@ namespace SportEventCalendar
                 return context.Sports.ToList();
             }
         }
+
+        /// <summary>
+        /// Обработчик загрузки формы
+        /// </summary>
+
         private void EventViewerWindow_Load(object sender, EventArgs e)
         {
             var teams = GetTeams();
@@ -134,6 +172,12 @@ namespace SportEventCalendar
             }
         }
 
+        /// <summary>
+        /// Пытается получить ID выбранного вида спорта
+        /// </summary>
+        /// <param name="sportId">Выходной параметр с ID вида спорта</param>
+        /// <returns>True, если ID успешно получен</returns>
+
         private bool TryGetSelectedSportId(out int sportId)
         {
             sportId = 0;
@@ -143,10 +187,18 @@ namespace SportEventCalendar
             return int.TryParse(sportSelector.SelectedValue.ToString(), out sportId);
         }
 
+        /// <summary>
+        /// Обработчик нажатия кнопки редактирования
+        /// </summary>
         private void editButton_Click(object sender, EventArgs e)
         {
             SetEditMode();
         }
+
+        /// <summary>
+        /// Обработчик нажатия кнопки отмены
+        /// </summary>
+
         private void cancel2Button_Click(object sender, EventArgs e)
         {
             SetEventFields(currentEvent);
@@ -168,6 +220,9 @@ namespace SportEventCalendar
             SetViewMode();
         }
 
+        /// <summary>
+        /// Обработчик нажатия кнопки удаления
+        /// </summary>
 
         private void deleteButton_Click(object sender, EventArgs e)
         {
@@ -188,6 +243,10 @@ namespace SportEventCalendar
             }
         }
 
+        /// <summary>
+        /// Получает список всех команд из базы данных
+        /// </summary>
+        /// <returns>Список объектов Team</returns>
         public List<Team> GetTeams()
         {
             using (var context = new DatabaseHelper())
@@ -195,6 +254,10 @@ namespace SportEventCalendar
                 return context.Teams.ToList();
             }
         }
+
+        /// <summary>
+        /// Обработчик изменения выбранного вида спорта
+        /// </summary>
         private void sportSelector_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (sportSelector.SelectedValue == null)
@@ -215,6 +278,11 @@ namespace SportEventCalendar
             }
         }
 
+        /// <summary>
+        /// Проверяет валидность файла изображения
+        /// </summary>
+        /// <param name="filePath">Путь к файлу изображения</param>
+        /// <returns>True, если изображение валидно</returns>
         private bool IsImageValid(string filePath)
         {
             try
@@ -230,7 +298,9 @@ namespace SportEventCalendar
                 return false;
             }
         }
-
+        /// <summary>
+        /// Обработчик нажатия кнопки выбора изображения
+        /// </summary>
         private void imageButton_Click(object sender, EventArgs e)
         {
             openFileDialog.Filter = "Image Files(*.jpg;*.jpeg;*.png;*.gif;*.tif)" +
@@ -252,6 +322,9 @@ namespace SportEventCalendar
 
         }
 
+        /// <summary>
+        /// Обработчик нажатия кнопки сохранения
+        /// </summary>
         private void saveButton_Click(object sender, EventArgs e) 
         {
             using (var context = new DatabaseHelper())

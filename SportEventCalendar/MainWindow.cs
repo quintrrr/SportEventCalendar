@@ -4,8 +4,23 @@ using SportEventCalendar.Properties;
 
 namespace SportEventCalendar
 {
+    /// <summary>
+    /// Главное окно приложения SportEventCalendar
+    /// </summary>
+    /// <remarks>
+    /// Предоставляет интерфейс для просмотра, фильтрации и управления спортивными событиями.
+    /// Включает функции:
+    /// - Просмотр списка событий
+    /// - Фильтрация по датам и видам спорта
+    /// - Добавление новых событий
+    /// - Генерация отчетов
+    /// - Просмотр и редактирование существующих событий
+    /// </remarks>
     public partial class MainWindow : Form
     {
+        /// <summary>
+        /// Конструктор главного окна приложения
+        /// </summary>
         public MainWindow()
         {
             InitializeComponent();
@@ -23,6 +38,10 @@ namespace SportEventCalendar
                 dataGridView.Columns.Add(actionsColumn);
             }
         }
+
+        /// <summary>
+        /// Обработчик загрузки главного окна
+        /// </summary>
         private void MainWindow_Load(object sender, EventArgs e)
         {
             Refresh_Click();
@@ -38,7 +57,10 @@ namespace SportEventCalendar
             sportSelector.ValueMember = "sport_number";
         }
 
-
+        /// <summary>
+        /// Получает список спортивных событий с названиями видов спорта
+        /// </summary>
+        /// <returns>Список событий с информацией о виде спорта</returns>
         public List<Event> GetSportEvents()
         {
             using (var context = new DatabaseHelper())
@@ -60,6 +82,11 @@ namespace SportEventCalendar
                 ).ToList();
             }
         }
+
+        /// <summary>
+        /// Получает список всех видов спорта из базы данных
+        /// </summary>
+        /// <returns>Список видов спорта</returns>
         public List<Sport> GetSports()
         {
             using (var context = new DatabaseHelper())
@@ -67,6 +94,10 @@ namespace SportEventCalendar
                 return context.Sports.ToList();
             }
         }
+
+        /// <summary>
+        /// Обновляет данные в таблице событий
+        /// </summary>
         private void Refresh_Click()
         {
             this.Cursor = Cursors.WaitCursor;
@@ -80,7 +111,9 @@ namespace SportEventCalendar
 
         }
 
-
+        /// <summary>
+        /// Обработчик клика по кнопке действий в таблице событий
+        /// </summary>
         private void dataGridView1_CellClick_1(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0 && e.ColumnIndex == dataGridView.Columns["Actions"].Index)
@@ -94,6 +127,9 @@ namespace SportEventCalendar
             }
         }
 
+        /// <summary>
+        /// Применяет фильтры к списку событий
+        /// </summary>
         private void ApplyButton_Click(object sender, EventArgs e)
         {
             this.Cursor = Cursors.WaitCursor;
@@ -111,6 +147,9 @@ namespace SportEventCalendar
             this.Cursor = Cursors.Default;
         }
 
+        /// <summary>
+        /// Открывает окно создания нового события
+        /// </summary>
         private void AddButtom_Click(object sender, EventArgs e)
         {
             var creationWindow = new NewEventCreationWindow();
@@ -121,6 +160,9 @@ namespace SportEventCalendar
             Refresh_Click();
         }
 
+        /// <summary>
+        /// Генерирует отчет в формате Excel
+        /// </summary>
         private void reportButtom_Click(object sender, EventArgs e)
         {
             using (var saveFileDialog = new SaveFileDialog())
@@ -235,7 +277,9 @@ namespace SportEventCalendar
             }
         }
 
-
+        /// <summary>
+        /// Обработчик изменения выбранного вида спорта
+        /// </summary>
         private void sportSelector_SelectedIndexChanged(object sender, EventArgs e)
         {
             this.Cursor = Cursors.WaitCursor;
@@ -254,6 +298,9 @@ namespace SportEventCalendar
             this.Cursor = Cursors.Default;
         }
 
+        /// <summary>
+        /// Настраивает отображение столбцов в таблице событий
+        /// </summary>
         private void ConfigureDataGridViewColumns()
         {
             dataGridView.AutoGenerateColumns = false;
@@ -280,7 +327,9 @@ namespace SportEventCalendar
             dataGridView.Columns["sport_name"].HeaderText = "Вид спорта";
         }
 
-
+        /// <summary>
+        /// Сбрасывает фильтры и обновляет данные
+        /// </summary>
         private void reportButtom_Click_1(object sender, EventArgs e)
         {
             sportSelector.SelectedIndex = 0;

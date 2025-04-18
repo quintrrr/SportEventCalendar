@@ -53,12 +53,23 @@
             teamSelectorGroupBox = new GroupBox();
             groupBox1 = new GroupBox();
             groupBox2 = new GroupBox();
+            panel1 = new Panel();
+            panel2 = new Panel();
+            panel3 = new Panel();
+            panel4 = new Panel();
+            tableLayoutPanel1 = new TableLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)pictureBox).BeginInit();
             dateSelectorGroupBox.SuspendLayout();
             sportSelectorGroupBox.SuspendLayout();
             teamViewerGroupBox.SuspendLayout();
             teamSelectorGroupBox.SuspendLayout();
             groupBox1.SuspendLayout();
+            groupBox2.SuspendLayout();
+            panel1.SuspendLayout();
+            panel2.SuspendLayout();
+            panel3.SuspendLayout();
+            panel4.SuspendLayout();
+            tableLayoutPanel1.SuspendLayout();
             SuspendLayout();
             // 
             // teamSelectorCheckBox
@@ -82,6 +93,7 @@
             // 
             resources.ApplyResources(imageButton, "imageButton");
             imageButton.BackColor = Color.White;
+            imageButton.FlatAppearance.BorderColor = Color.Silver;
             imageButton.Name = "imageButton";
             imageButton.TabStop = false;
             imageButton.UseVisualStyleBackColor = false;
@@ -247,31 +259,60 @@
             // 
             resources.ApplyResources(groupBox2, "groupBox2");
             groupBox2.BackColor = Color.White;
+            groupBox2.Controls.Add(EventDescription);
             groupBox2.ForeColor = SystemColors.ControlDarkDark;
             groupBox2.Name = "groupBox2";
             groupBox2.TabStop = false;
+            // 
+            // panel1
+            // 
+            resources.ApplyResources(panel1, "panel1");
+            panel1.Controls.Add(groupBox2);
+            panel1.Controls.Add(groupBox1);
+            panel1.Name = "panel1";
+            // 
+            // panel2
+            // 
+            resources.ApplyResources(panel2, "panel2");
+            panel2.Controls.Add(dateSelectorGroupBox);
+            panel2.Controls.Add(teamSelectorGroupBox);
+            panel2.Controls.Add(teamViewerGroupBox);
+            panel2.Name = "panel2";
+            // 
+            // panel3
+            // 
+            resources.ApplyResources(panel3, "panel3");
+            panel3.Controls.Add(pictureBox);
+            panel3.Controls.Add(imageButton);
+            panel3.Name = "panel3";
+            // 
+            // panel4
+            // 
+            resources.ApplyResources(panel4, "panel4");
+            panel4.Controls.Add(sportSelectorGroupBox);
+            panel4.Name = "panel4";
+            // 
+            // tableLayoutPanel1
+            // 
+            resources.ApplyResources(tableLayoutPanel1, "tableLayoutPanel1");
+            tableLayoutPanel1.Controls.Add(panel1, 0, 0);
+            tableLayoutPanel1.Controls.Add(panel4, 1, 1);
+            tableLayoutPanel1.Controls.Add(panel2, 0, 1);
+            tableLayoutPanel1.Controls.Add(panel3, 1, 0);
+            tableLayoutPanel1.Name = "tableLayoutPanel1";
             // 
             // EventViewerWindow
             // 
             resources.ApplyResources(this, "$this");
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            Controls.Add(EventDescription);
-            Controls.Add(groupBox2);
-            Controls.Add(groupBox1);
+            Controls.Add(tableLayoutPanel1);
             Controls.Add(editButton);
-            Controls.Add(sportSelectorGroupBox);
-            Controls.Add(dateSelectorGroupBox);
             Controls.Add(saveButton);
             Controls.Add(cancelButton);
-            Controls.Add(imageButton);
             Controls.Add(deleteButton);
-            Controls.Add(pictureBox);
             Controls.Add(label1);
             Controls.Add(label9);
-            Controls.Add(teamSelectorGroupBox);
-            Controls.Add(teamViewerGroupBox);
-            FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "EventViewerWindow";
             Load += EventViewerWindow_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox).EndInit();
@@ -282,6 +323,13 @@
             teamSelectorGroupBox.ResumeLayout(false);
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
+            groupBox2.ResumeLayout(false);
+            groupBox2.PerformLayout();
+            panel1.ResumeLayout(false);
+            panel2.ResumeLayout(false);
+            panel3.ResumeLayout(false);
+            panel4.ResumeLayout(false);
+            tableLayoutPanel1.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -312,5 +360,10 @@
         private GroupBox teamSelectorGroupBox;
         private GroupBox groupBox1;
         private GroupBox groupBox2;
+        private Panel panel1;
+        private Panel panel2;
+        private Panel panel3;
+        private Panel panel4;
+        private TableLayoutPanel tableLayoutPanel1;
     }
 }

@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             windowName = new Label();
             dataGridView = new DataGridView();
             startDate = new DateTimePicker();
@@ -63,28 +63,27 @@
             dataGridView.AllowUserToOrderColumns = true;
             dataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView.BackgroundColor = Color.White;
-            dataGridView.BorderStyle = BorderStyle.None;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = Color.White;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = Color.White;
+            dataGridViewCellStyle3.Font = new Font("Verdana", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView.EditMode = DataGridViewEditMode.EditProgrammatically;
             dataGridView.GridColor = SystemColors.GrayText;
             dataGridView.MultiSelect = false;
             dataGridView.Name = "dataGridView";
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = Color.White;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle2.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-            dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = Color.White;
+            dataGridViewCellStyle4.Font = new Font("Verdana", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle4.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+            dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             dataGridView.RowTemplate.ReadOnly = true;
             dataGridView.CellClick += dataGridView1_CellClick_1;
             // 
@@ -94,15 +93,6 @@
             startDate.CalendarTrailingForeColor = Color.Silver;
             startDate.Format = DateTimePickerFormat.Short;
             startDate.Name = "startDate";
-            // 
-            // sportSelector
-            // 
-            resources.ApplyResources(sportSelector, "sportSelector");
-            sportSelector.BackColor = Color.White;
-            sportSelector.DropDownStyle = ComboBoxStyle.DropDownList;
-            sportSelector.FormattingEnabled = true;
-            sportSelector.Name = "sportSelector";
-            sportSelector.SelectedIndexChanged += sportSelector_SelectedIndexChanged;
             // 
             // finishDate
             // 
@@ -126,7 +116,15 @@
             addButton.Name = "addButton";
             addButton.UseVisualStyleBackColor = true;
             addButton.Click += AddButtom_Click;
-            
+            // 
+            // sportSelector
+            // 
+            resources.ApplyResources(sportSelector, "sportSelector");
+            sportSelector.BackColor = Color.White;
+            sportSelector.DropDownStyle = ComboBoxStyle.DropDownList;
+            sportSelector.FormattingEnabled = true;
+            sportSelector.Name = "sportSelector";
+            sportSelector.SelectedIndexChanged += sportSelector_SelectedIndexChanged;
             // 
             // reportButton
             // 

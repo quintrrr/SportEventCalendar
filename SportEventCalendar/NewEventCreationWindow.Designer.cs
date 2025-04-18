@@ -48,11 +48,22 @@
             groupBox3 = new GroupBox();
             groupBox4 = new GroupBox();
             groupBox5 = new GroupBox();
+            panel1 = new Panel();
+            panel2 = new Panel();
+            panel3 = new Panel();
+            panel4 = new Panel();
+            tableLayoutPanel1 = new TableLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)pictureBox).BeginInit();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox3.SuspendLayout();
             groupBox4.SuspendLayout();
+            groupBox5.SuspendLayout();
+            panel1.SuspendLayout();
+            panel2.SuspendLayout();
+            panel3.SuspendLayout();
+            panel4.SuspendLayout();
+            tableLayoutPanel1.SuspendLayout();
             SuspendLayout();
             // 
             // windowName
@@ -189,26 +200,56 @@
             // 
             resources.ApplyResources(groupBox5, "groupBox5");
             groupBox5.BackColor = Color.White;
+            groupBox5.Controls.Add(NewEventDescription);
             groupBox5.ForeColor = SystemColors.ControlDarkDark;
             groupBox5.Name = "groupBox5";
             groupBox5.TabStop = false;
+            // 
+            // panel1
+            // 
+            resources.ApplyResources(panel1, "panel1");
+            panel1.Controls.Add(groupBox4);
+            panel1.Controls.Add(groupBox5);
+            panel1.Name = "panel1";
+            // 
+            // panel2
+            // 
+            resources.ApplyResources(panel2, "panel2");
+            panel2.Controls.Add(groupBox1);
+            panel2.Controls.Add(groupBox2);
+            panel2.Name = "panel2";
+            // 
+            // panel3
+            // 
+            resources.ApplyResources(panel3, "panel3");
+            panel3.Controls.Add(groupBox3);
+            panel3.Name = "panel3";
+            // 
+            // panel4
+            // 
+            resources.ApplyResources(panel4, "panel4");
+            panel4.Controls.Add(pictureBox);
+            panel4.Controls.Add(imageButton);
+            panel4.Name = "panel4";
+            // 
+            // tableLayoutPanel1
+            // 
+            resources.ApplyResources(tableLayoutPanel1, "tableLayoutPanel1");
+            tableLayoutPanel1.Controls.Add(panel1, 0, 0);
+            tableLayoutPanel1.Controls.Add(panel3, 1, 1);
+            tableLayoutPanel1.Controls.Add(panel4, 1, 0);
+            tableLayoutPanel1.Controls.Add(panel2, 0, 1);
+            tableLayoutPanel1.Name = "tableLayoutPanel1";
             // 
             // NewEventCreationWindow
             // 
             resources.ApplyResources(this, "$this");
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            Controls.Add(groupBox4);
-            Controls.Add(groupBox3);
-            Controls.Add(groupBox2);
-            Controls.Add(groupBox1);
-            Controls.Add(imageButton);
+            Controls.Add(tableLayoutPanel1);
             Controls.Add(canсel);
             Controls.Add(create_button);
-            Controls.Add(pictureBox);
-            Controls.Add(NewEventDescription);
             Controls.Add(windowName);
-            Controls.Add(groupBox5);
             Name = "NewEventCreationWindow";
             Load += NewEventCreationWindow_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox).EndInit();
@@ -218,6 +259,13 @@
             groupBox3.ResumeLayout(false);
             groupBox4.ResumeLayout(false);
             groupBox4.PerformLayout();
+            groupBox5.ResumeLayout(false);
+            groupBox5.PerformLayout();
+            panel1.ResumeLayout(false);
+            panel2.ResumeLayout(false);
+            panel3.ResumeLayout(false);
+            panel4.ResumeLayout(false);
+            tableLayoutPanel1.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -243,5 +291,10 @@
         private GroupBox groupBox3;
         private GroupBox groupBox4;
         private GroupBox groupBox5;
+        private Panel panel1;
+        private Panel panel2;
+        private Panel panel3;
+        private Panel panel4;
+        private TableLayoutPanel tableLayoutPanel1;
     }
 }

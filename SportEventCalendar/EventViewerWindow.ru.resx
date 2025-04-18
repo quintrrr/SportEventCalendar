@@ -117,91 +117,131 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="teamSelectorCheckBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="teamSelectorCheckBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 17</value>
+    <value>5, 16</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="teamSelectorCheckBox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 1, 2, 1</value>
   </data>
   <data name="teamSelectorCheckBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>559, 90</value>
+    <value>494, 102</value>
+  </data>
+  <data name="timePicker.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Right</value>
   </data>
   <data name="timePicker.Location" type="System.Drawing.Point, System.Drawing">
-    <value>484, 30</value>
+    <value>398, 26</value>
   </data>
   <data name="timePicker.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 1, 2, 1</value>
   </data>
   <data name="timePicker.Size" type="System.Drawing.Size, System.Drawing">
-    <value>79, 23</value>
+    <value>90, 22</value>
+  </data>
+  <data name="imageButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left, Right</value>
+  </data>
+  <data name="imageButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
   </data>
   <data name="imageButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>608, 293</value>
+    <value>8, 191</value>
   </data>
   <data name="imageButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 1, 2, 1</value>
   </data>
   <data name="imageButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>303, 22</value>
+    <value>282, 29</value>
+  </data>
+  <data name="deleteButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
   </data>
   <data name="deleteButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>709, 506</value>
+    <value>581, 499</value>
   </data>
   <data name="deleteButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 1, 2, 1</value>
   </data>
   <data name="deleteButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>99, 22</value>
+    <value>113, 29</value>
+  </data>
+  <data name="pictureBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
   </data>
   <data name="pictureBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>607, 58</value>
+    <value>8, 15</value>
   </data>
   <data name="pictureBox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 1, 2, 1</value>
   </data>
   <data name="pictureBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>304, 221</value>
+    <value>282, 162</value>
+  </data>
+  <data name="startDate.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left</value>
   </data>
   <data name="startDate.Location" type="System.Drawing.Point, System.Drawing">
-    <value>5, 30</value>
+    <value>13, 26</value>
   </data>
   <data name="startDate.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 1, 2, 1</value>
   </data>
   <data name="startDate.Size" type="System.Drawing.Size, System.Drawing">
-    <value>98, 23</value>
+    <value>111, 22</value>
+  </data>
+  <data name="finishDate.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left</value>
   </data>
   <data name="finishDate.Location" type="System.Drawing.Point, System.Drawing">
-    <value>125, 30</value>
+    <value>152, 26</value>
   </data>
   <data name="finishDate.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 1, 2, 1</value>
   </data>
   <data name="finishDate.Size" type="System.Drawing.Size, System.Drawing">
-    <value>98, 23</value>
+    <value>111, 22</value>
+  </data>
+  <data name="EventDescription.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="EventDescription.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Verdana, 15pt</value>
   </data>
   <data name="EventDescription.Location" type="System.Drawing.Point, System.Drawing">
-    <value>11, 155</value>
+    <value>9, 27</value>
   </data>
   <data name="EventDescription.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 1, 2, 1</value>
   </data>
+  <data name="EventDescription.PlaceholderText" xml:space="preserve">
+    <value>Введите описание</value>
+  </data>
   <data name="EventDescription.Size" type="System.Drawing.Size, System.Drawing">
-    <value>560, 143</value>
+    <value>492, 107</value>
+  </data>
+  <data name="EventName.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="EventName.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Verdana, 15pt</value>
   </data>
   <data name="EventName.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 26</value>
+    <value>9, 24</value>
   </data>
   <data name="EventName.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 1, 2, 1</value>
   </data>
   <data name="EventName.Size" type="System.Drawing.Size, System.Drawing">
-    <value>546, 27</value>
+    <value>479, 32</value>
   </data>
   <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>86, -38</value>
+    <value>98, -35</value>
   </data>
   <data name="label1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 0, 2, 0</value>
@@ -209,44 +249,59 @@
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
     <value>240, 41</value>
   </data>
+  <data name="sportSelector.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="sportSelector.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Standard</value>
+  </data>
   <data name="sportSelector.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 18</value>
+    <value>13, 25</value>
   </data>
   <data name="sportSelector.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 1, 2, 1</value>
   </data>
   <data name="sportSelector.Size" type="System.Drawing.Size, System.Drawing">
-    <value>295, 23</value>
+    <value>255, 22</value>
+  </data>
+  <data name="editButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
   </data>
   <data name="editButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>812, 506</value>
+    <value>707, 499</value>
   </data>
   <data name="editButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 1, 2, 1</value>
   </data>
   <data name="editButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>99, 22</value>
+    <value>124, 29</value>
+  </data>
+  <data name="cancelButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
   </data>
   <data name="cancelButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>709, 506</value>
+    <value>581, 499</value>
   </data>
   <data name="cancelButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 1, 2, 1</value>
   </data>
   <data name="cancelButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>99, 22</value>
+    <value>113, 29</value>
+  </data>
+  <data name="label7.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left</value>
   </data>
   <data name="label7.Location" type="System.Drawing.Point, System.Drawing">
-    <value>105, 34</value>
+    <value>128, 29</value>
   </data>
   <data name="label7.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 0, 2, 0</value>
   </data>
   <data name="label7.Size" type="System.Drawing.Size, System.Drawing">
-    <value>19, 15</value>
+    <value>19, 14</value>
   </data>
   <data name="label9.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 9</value>
+    <value>9, 8</value>
   </data>
   <data name="label9.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 0, 2, 0</value>
@@ -254,26 +309,35 @@
   <data name="label9.Size" type="System.Drawing.Size, System.Drawing">
     <value>372, 41</value>
   </data>
+  <data name="saveButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
   <data name="saveButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>812, 506</value>
+    <value>707, 499</value>
   </data>
   <data name="saveButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 1, 2, 1</value>
   </data>
   <data name="saveButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>99, 22</value>
+    <value>124, 29</value>
+  </data>
+  <data name="teamsView.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
   </data>
   <data name="teamsView.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 18</value>
+    <value>5, 17</value>
   </data>
   <data name="teamsView.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 1, 2, 1</value>
   </data>
   <data name="teamsView.Size" type="System.Drawing.Size, System.Drawing">
-    <value>559, 108</value>
+    <value>494, 106</value>
+  </data>
+  <data name="dateSelectorGroupBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
   </data>
   <data name="dateSelectorGroupBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 310</value>
+    <value>7, 1</value>
   </data>
   <data name="dateSelectorGroupBox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 1, 2, 1</value>
@@ -282,10 +346,13 @@
     <value>2, 1, 2, 1</value>
   </data>
   <data name="dateSelectorGroupBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>569, 71</value>
+    <value>505, 66</value>
+  </data>
+  <data name="sportSelectorGroupBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
   </data>
   <data name="sportSelectorGroupBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>607, 326</value>
+    <value>8, 1</value>
   </data>
   <data name="sportSelectorGroupBox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 1, 2, 1</value>
@@ -294,10 +361,13 @@
     <value>2, 1, 2, 1</value>
   </data>
   <data name="sportSelectorGroupBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>303, 55</value>
+    <value>282, 65</value>
+  </data>
+  <data name="teamViewerGroupBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
   </data>
   <data name="teamViewerGroupBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 390</value>
+    <value>7, 69</value>
   </data>
   <data name="teamViewerGroupBox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 1, 2, 1</value>
@@ -306,10 +376,13 @@
     <value>2, 1, 2, 1</value>
   </data>
   <data name="teamViewerGroupBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>569, 133</value>
+    <value>505, 129</value>
+  </data>
+  <data name="teamSelectorGroupBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
   </data>
   <data name="teamSelectorGroupBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 390</value>
+    <value>7, 69</value>
   </data>
   <data name="teamSelectorGroupBox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 1, 2, 1</value>
@@ -318,25 +391,98 @@
     <value>2, 1, 2, 1</value>
   </data>
   <data name="teamSelectorGroupBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>569, 133</value>
+    <value>505, 129</value>
+  </data>
+  <data name="groupBox1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="groupBox1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Verdana, 12pt</value>
   </data>
   <data name="groupBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 48</value>
+    <value>7, 6</value>
+  </data>
+  <data name="groupBox1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>7, 6, 7, 6</value>
+  </data>
+  <data name="groupBox1.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>7, 6, 7, 6</value>
   </data>
   <data name="groupBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>569, 75</value>
+    <value>505, 64</value>
+  </data>
+  <data name="groupBox2.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="groupBox2.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Verdana, 12pt</value>
   </data>
   <data name="groupBox2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 129</value>
+    <value>7, 79</value>
+  </data>
+  <data name="groupBox2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>7, 6, 7, 6</value>
+  </data>
+  <data name="groupBox2.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>7, 6, 7, 6</value>
   </data>
   <data name="groupBox2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>569, 177</value>
+    <value>505, 141</value>
+  </data>
+  <data name="panel1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="panel1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="panel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>520, 224</value>
+  </data>
+  <data name="panel2.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="panel2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 233</value>
+  </data>
+  <data name="panel2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>520, 207</value>
+  </data>
+  <data name="panel3.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="panel3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>529, 3</value>
+  </data>
+  <data name="panel3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>298, 224</value>
+  </data>
+  <data name="panel4.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="panel4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>298, 207</value>
+  </data>
+  <data name="tableLayoutPanel1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="tableLayoutPanel1.ColumnCount" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="tableLayoutPanel1.RowCount" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="tableLayoutPanel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>830, 443</value>
   </data>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>7, 15</value>
+    <value>8, 14</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>922, 538</value>
+    <value>854, 538</value>
+  </data>
+  <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Verdana, 9pt</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -3200,7 +3346,7 @@
     <value>2, 1, 2, 1</value>
   </data>
   <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
-    <value>938, 577</value>
+    <value>870, 577</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Окно просмотра события</value>

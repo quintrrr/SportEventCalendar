@@ -62,38 +62,38 @@
             // 
             // newEventName
             // 
-            newEventName.BorderStyle = BorderStyle.None;
             resources.ApplyResources(newEventName, "newEventName");
+            newEventName.BorderStyle = BorderStyle.None;
             newEventName.Name = "newEventName";
             newEventName.TabStop = false;
             // 
             // NewEventDescription
             // 
+            resources.ApplyResources(NewEventDescription, "NewEventDescription");
             NewEventDescription.BackColor = Color.White;
             NewEventDescription.BorderStyle = BorderStyle.None;
-            resources.ApplyResources(NewEventDescription, "NewEventDescription");
             NewEventDescription.Name = "NewEventDescription";
             NewEventDescription.TabStop = false;
             // 
             // startDate
             // 
-            startDate.Format = DateTimePickerFormat.Short;
             resources.ApplyResources(startDate, "startDate");
+            startDate.Format = DateTimePickerFormat.Short;
             startDate.Name = "startDate";
             startDate.TabStop = false;
             // 
             // finishDate
             // 
-            finishDate.Format = DateTimePickerFormat.Short;
             resources.ApplyResources(finishDate, "finishDate");
+            finishDate.Format = DateTimePickerFormat.Short;
             finishDate.Name = "finishDate";
             finishDate.TabStop = false;
             // 
             // sportSelector
             // 
+            resources.ApplyResources(sportSelector, "sportSelector");
             sportSelector.BackColor = Color.White;
             sportSelector.DropDownStyle = ComboBoxStyle.DropDownList;
-            resources.ApplyResources(sportSelector, "sportSelector");
             sportSelector.Name = "sportSelector";
             sportSelector.SelectedIndexChanged += sportSelector_SelectedIndexChanged;
             // 
@@ -128,6 +128,10 @@
             imageButton.UseVisualStyleBackColor = true;
             imageButton.Click += imageButton_Click;
             // 
+            // openFileDialog
+            // 
+            resources.ApplyResources(openFileDialog, "openFileDialog");
+            // 
             // timePicker
             // 
             resources.ApplyResources(timePicker, "timePicker");
@@ -138,10 +142,10 @@
             // 
             // teamSelectorCheckBox
             // 
+            resources.ApplyResources(teamSelectorCheckBox, "teamSelectorCheckBox");
             teamSelectorCheckBox.BorderStyle = BorderStyle.None;
             teamSelectorCheckBox.CheckOnClick = true;
             teamSelectorCheckBox.FormattingEnabled = true;
-            resources.ApplyResources(teamSelectorCheckBox, "teamSelectorCheckBox");
             teamSelectorCheckBox.Name = "teamSelectorCheckBox";
             // 
             // label7
@@ -151,18 +155,18 @@
             // 
             // groupBox1
             // 
+            resources.ApplyResources(groupBox1, "groupBox1");
             groupBox1.Controls.Add(finishDate);
             groupBox1.Controls.Add(label7);
             groupBox1.Controls.Add(startDate);
             groupBox1.Controls.Add(timePicker);
-            resources.ApplyResources(groupBox1, "groupBox1");
             groupBox1.Name = "groupBox1";
             groupBox1.TabStop = false;
             // 
             // groupBox2
             // 
-            groupBox2.Controls.Add(teamSelectorCheckBox);
             resources.ApplyResources(groupBox2, "groupBox2");
+            groupBox2.Controls.Add(teamSelectorCheckBox);
             groupBox2.Name = "groupBox2";
             groupBox2.TabStop = false;
             // 
@@ -175,16 +179,16 @@
             // 
             // groupBox4
             // 
-            groupBox4.Controls.Add(newEventName);
             resources.ApplyResources(groupBox4, "groupBox4");
+            groupBox4.Controls.Add(newEventName);
             groupBox4.ForeColor = SystemColors.ControlDarkDark;
             groupBox4.Name = "groupBox4";
             groupBox4.TabStop = false;
             // 
             // groupBox5
             // 
-            groupBox5.BackColor = Color.White;
             resources.ApplyResources(groupBox5, "groupBox5");
+            groupBox5.BackColor = Color.White;
             groupBox5.ForeColor = SystemColors.ControlDarkDark;
             groupBox5.Name = "groupBox5";
             groupBox5.TabStop = false;

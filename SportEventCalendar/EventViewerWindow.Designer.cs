@@ -63,11 +63,11 @@
             // 
             // teamSelectorCheckBox
             // 
+            resources.ApplyResources(teamSelectorCheckBox, "teamSelectorCheckBox");
             teamSelectorCheckBox.BorderStyle = BorderStyle.None;
             teamSelectorCheckBox.CheckOnClick = true;
             teamSelectorCheckBox.FormattingEnabled = true;
             teamSelectorCheckBox.Items.AddRange(new object[] { resources.GetString("teamSelectorCheckBox.Items"), resources.GetString("teamSelectorCheckBox.Items1"), resources.GetString("teamSelectorCheckBox.Items2"), resources.GetString("teamSelectorCheckBox.Items3"), resources.GetString("teamSelectorCheckBox.Items4"), resources.GetString("teamSelectorCheckBox.Items5"), resources.GetString("teamSelectorCheckBox.Items6"), resources.GetString("teamSelectorCheckBox.Items7") });
-            resources.ApplyResources(teamSelectorCheckBox, "teamSelectorCheckBox");
             teamSelectorCheckBox.Name = "teamSelectorCheckBox";
             // 
             // timePicker
@@ -119,18 +119,18 @@
             // 
             // EventDescription
             // 
+            resources.ApplyResources(EventDescription, "EventDescription");
             EventDescription.BackColor = Color.White;
             EventDescription.BorderStyle = BorderStyle.None;
-            resources.ApplyResources(EventDescription, "EventDescription");
             EventDescription.Name = "EventDescription";
             EventDescription.ReadOnly = true;
             EventDescription.TabStop = false;
             // 
             // EventName
             // 
+            resources.ApplyResources(EventName, "EventName");
             EventName.BackColor = Color.White;
             EventName.BorderStyle = BorderStyle.None;
-            resources.ApplyResources(EventName, "EventName");
             EventName.Name = "EventName";
             EventName.ReadOnly = true;
             EventName.TabStop = false;
@@ -142,9 +142,9 @@
             // 
             // sportSelector
             // 
+            resources.ApplyResources(sportSelector, "sportSelector");
             sportSelector.BackColor = Color.White;
             sportSelector.DropDownStyle = ComboBoxStyle.DropDownList;
-            resources.ApplyResources(sportSelector, "sportSelector");
             sportSelector.FormattingEnabled = true;
             sportSelector.Name = "sportSelector";
             sportSelector.SelectedIndexChanged += sportSelector_SelectedIndexChanged;
@@ -190,22 +190,26 @@
             // 
             // teamsView
             // 
+            resources.ApplyResources(teamsView, "teamsView");
             teamsView.BackColor = Color.White;
             teamsView.BorderStyle = BorderStyle.None;
-            resources.ApplyResources(teamsView, "teamsView");
             teamsView.LineColor = Color.White;
             teamsView.Name = "teamsView";
             teamsView.PathSeparator = "";
             teamsView.ShowLines = false;
             teamsView.TabStop = false;
             // 
+            // openFileDialog
+            // 
+            resources.ApplyResources(openFileDialog, "openFileDialog");
+            // 
             // dateSelectorGroupBox
             // 
+            resources.ApplyResources(dateSelectorGroupBox, "dateSelectorGroupBox");
             dateSelectorGroupBox.Controls.Add(timePicker);
             dateSelectorGroupBox.Controls.Add(label7);
             dateSelectorGroupBox.Controls.Add(finishDate);
             dateSelectorGroupBox.Controls.Add(startDate);
-            resources.ApplyResources(dateSelectorGroupBox, "dateSelectorGroupBox");
             dateSelectorGroupBox.Name = "dateSelectorGroupBox";
             dateSelectorGroupBox.TabStop = false;
             // 
@@ -218,31 +222,31 @@
             // 
             // teamViewerGroupBox
             // 
-            teamViewerGroupBox.Controls.Add(teamsView);
             resources.ApplyResources(teamViewerGroupBox, "teamViewerGroupBox");
+            teamViewerGroupBox.Controls.Add(teamsView);
             teamViewerGroupBox.Name = "teamViewerGroupBox";
             teamViewerGroupBox.TabStop = false;
             // 
             // teamSelectorGroupBox
             // 
-            teamSelectorGroupBox.Controls.Add(teamSelectorCheckBox);
             resources.ApplyResources(teamSelectorGroupBox, "teamSelectorGroupBox");
+            teamSelectorGroupBox.Controls.Add(teamSelectorCheckBox);
             teamSelectorGroupBox.Name = "teamSelectorGroupBox";
             teamSelectorGroupBox.TabStop = false;
             // 
             // groupBox1
             // 
+            resources.ApplyResources(groupBox1, "groupBox1");
             groupBox1.BackColor = Color.White;
             groupBox1.Controls.Add(EventName);
-            resources.ApplyResources(groupBox1, "groupBox1");
             groupBox1.ForeColor = SystemColors.ControlDarkDark;
             groupBox1.Name = "groupBox1";
             groupBox1.TabStop = false;
             // 
             // groupBox2
             // 
-            groupBox2.BackColor = Color.White;
             resources.ApplyResources(groupBox2, "groupBox2");
+            groupBox2.BackColor = Color.White;
             groupBox2.ForeColor = SystemColors.ControlDarkDark;
             groupBox2.Name = "groupBox2";
             groupBox2.TabStop = false;

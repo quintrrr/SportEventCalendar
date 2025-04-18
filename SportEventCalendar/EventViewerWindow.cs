@@ -51,6 +51,8 @@ namespace SportEventCalendar
         /// </summary>
         private void SetEditMode()
         {
+            label9.Text = "Редактирование события";
+            this.Text = "Окно редактирования события";
             EventName.ReadOnly = false;
             EventDescription.ReadOnly = false;
             EventName.Enabled = true;
@@ -74,6 +76,8 @@ namespace SportEventCalendar
         /// </summary>
         private void SetViewMode()
         {
+            label9.Text = "Подробности о событии";
+            this.Text = "Окно просмотра события";
             EventName.ReadOnly = true;
             EventDescription.ReadOnly = true;
             EventName.Enabled = false;

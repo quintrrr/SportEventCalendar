@@ -3176,23 +3176,26 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Adminchik\\.nuget\\packages\\": {},
+    "C:\\Users\\artemsemenistyy\\.nuget\\packages\\": {},
+    "C:\\Program Files\\DevExpress 24.2\\Components\\Offline Packages": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Adminchik\\Desktop\\SportEventCalendar\\SportEventCalendar\\SportEventCalendar.csproj",
+      "projectUniqueName": "C:\\Users\\artemsemenistyy\\Source\\Repos\\SportEventCalendar\\SportEventCalendar\\SportEventCalendar.csproj",
       "projectName": "SportEventCalendar",
-      "projectPath": "C:\\Users\\Adminchik\\Desktop\\SportEventCalendar\\SportEventCalendar\\SportEventCalendar.csproj",
-      "packagesPath": "C:\\Users\\Adminchik\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Adminchik\\Desktop\\SportEventCalendar\\SportEventCalendar\\obj\\",
+      "projectPath": "C:\\Users\\artemsemenistyy\\Source\\Repos\\SportEventCalendar\\SportEventCalendar\\SportEventCalendar.csproj",
+      "packagesPath": "C:\\Users\\artemsemenistyy\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\artemsemenistyy\\Source\\Repos\\SportEventCalendar\\SportEventCalendar\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
+        "C:\\Program Files\\DevExpress 24.2\\Components\\Offline Packages",
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Adminchik\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\artemsemenistyy\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 24.2.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -3201,6 +3204,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\DevExpress 24.2\\Components\\System\\Components\\Packages": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -3263,7 +3267,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.201/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

@@ -171,7 +171,7 @@ namespace SportEventCalendar
 
         private void deleteButton_Click(object sender, EventArgs e)
         {
-            var dialogResult = MessageBox.Show(Resources.deletingmessage, string.Empty, 
+            var dialogResult = MessageBox.Show(Resources.deletingmessage, string.Empty,
                    MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (dialogResult == DialogResult.Yes)
             {
@@ -252,7 +252,7 @@ namespace SportEventCalendar
 
         }
 
-        private void saveButton_Click(object sender, EventArgs e) 
+        private void saveButton_Click(object sender, EventArgs e)
         {
             using (var context = new DatabaseHelper())
             {
@@ -292,7 +292,7 @@ namespace SportEventCalendar
                     eventToUpdate.Image_url = base64;
                     currentEvent.Image_url = base64;
                 }
-                
+
 
                 currentEvent.Name = EventName.Text;
                 eventToUpdate.Name = EventName.Text;

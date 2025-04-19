@@ -142,7 +142,7 @@
     <value>2, 1, 2, 1</value>
   </data>
   <data name="newEventName.Size" type="System.Drawing.Size, System.Drawing">
-    <value>484, 32</value>
+    <value>484, 25</value>
   </data>
   <data name="NewEventDescription.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
@@ -274,7 +274,7 @@
     <value>2, 1, 2, 1</value>
   </data>
   <data name="teamSelectorCheckBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>497, 102</value>
+    <value>497, 85</value>
   </data>
   <data name="label7.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left</value>
